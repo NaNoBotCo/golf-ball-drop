@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Mot Dang//golf-ball-drop//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:golf-ball-drop-2027@motdang.net
+DTSTAMP:20261010T000000Z
+DTSTART:20270130T043000Z
+DTEND:20270130T093000Z
+SUMMARY:Golf Ball Drop 2027 · งานทิ้งลูกกอล์ฟการกุศล
+LOCATION:Horizon Village & Resort\, 200 Moo 7\, Chiang Mai - Doi Saket Road (Highway 118)\, Choeng Doi\, Doi Saket\, Chiang Mai 50220
+DESCRIPTION:Picnic 11:30 · balloon rides 13:00-15:00 · the drop 15:00. Closest to the X wins. https://nanobotco.github.io/golf-ball-drop/
+URL:https://nanobotco.github.io/golf-ball-drop/
+END:VEVENT
+END:VCALENDAR
