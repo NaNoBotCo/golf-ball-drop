@@ -81,7 +81,7 @@ h2 .en{font-weight:500;font-style:italic}
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:inherit;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer;border:0;transition:transform .12s,filter .12s}
 .btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
-.btn.gold{background:linear-gradient(180deg,#ffd36b,#f7a81b);color:#14213d;box-shadow:0 6px 24px rgba(247,168,27,.45),inset 0 1px 0 rgba(255,255,255,.6)}
+.btn.gold{background:linear-gradient(180deg,#ffd36b,#f7a81b);color:#000;box-shadow:0 6px 24px rgba(247,168,27,.45),inset 0 1px 0 rgba(255,255,255,.6)}
 .btn.blue{background:var(--royal);color:#fff;box-shadow:0 6px 20px rgba(23,69,143,.35)}
 .btn.ghost{background:rgba(8,29,66,.38);color:#fff;border:1px solid rgba(255,255,255,.55)}
 .btn.ghost .en{opacity:1}
@@ -103,7 +103,7 @@ html.lang-th .btn .en,html.lang-en .btn .th{display:none!important}
 .top .buy{min-height:38px;padding:0 16px;font-size:14px}
 .lang{display:flex;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:2px}
 .lang button{background:none;border:0;color:inherit;font:inherit;font-size:13px;font-weight:600;padding:6px 11px;border-radius:999px;cursor:pointer;min-height:34px}
-.lang button[aria-pressed=true]{background:var(--gold);color:var(--royal-dd)}
+.lang button[aria-pressed=true]{background:var(--gold);color:#000}
 @media (max-width:900px){.brand b{display:none}}
 @media (max-width:640px){html.lang-both .top .buy .en{display:none!important}}
 @media (max-width:400px){.club small{font-size:11px}.club strong{font-size:25px}.club .mark img{width:28px;height:28px}}
@@ -259,6 +259,27 @@ html.lang-th .proj .more .en,html.lang-en .proj .more .th{display:none!important
 html.lang-th .doodle-open .chip .en,html.lang-en .doodle-open .chip .th{display:none!important}
 .doodle-open:hover .chip,.doodle-open:focus-visible .chip{background:var(--azure)}
 
+/* cute clicks */
+.fleet svg{pointer-events:auto;cursor:pointer}
+.hero-grid{pointer-events:none}.hero-grid>*{pointer-events:auto}
+.tap{cursor:pointer}
+@keyframes boing{0%{transform:scale(1)}30%{transform:scale(1.18,.86)}55%{transform:scale(.9,1.12) translateY(-8px)}80%{transform:scale(1.04,.97)}100%{transform:scale(1)}}
+.boing{animation:boing .7s cubic-bezier(.3,1.6,.5,1)!important}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spin{animation:spin .9s cubic-bezier(.3,1.4,.5,1)}
+@keyframes flipY{0%{transform:perspective(400px) rotateY(0)}100%{transform:perspective(400px) rotateY(360deg)}}
+.flip{animation:flipY .8s ease-in-out}
+@keyframes hop{0%,100%{translate:0 0;rotate:0deg}30%{translate:0 -40px;rotate:-12deg}60%{translate:0 -54px;rotate:10deg}}
+.hop{animation:hop 1s cubic-bezier(.3,1.4,.5,1)!important}
+@keyframes shake{0%,100%{transform:rotate(-3deg)}20%{transform:rotate(4deg) scale(1.05)}40%{transform:rotate(-6deg)}60%{transform:rotate(5deg) scale(1.04)}80%{transform:rotate(-4deg)}}
+.ticket.shake{animation:shake .6s ease-in-out}
+.spark{position:fixed;z-index:200;width:9px;height:9px;pointer-events:none;border-radius:50%;animation:spark .9s ease-out forwards}
+.spark.star{border-radius:0;clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%)}
+@keyframes spark{from{transform:translate(0,0) scale(1);opacity:1}to{transform:translate(var(--dx),var(--dy)) scale(.3);opacity:0}}
+.where figure img{transition:transform 1.2s cubic-bezier(.2,.8,.3,1)}
+.where figure.zoom img{transform:scale(1.12)}
+@media (prefers-reduced-motion:reduce){.boing,.spin,.flip,.hop,.ticket.shake{animation:none!important}.spark{display:none}}
+
 /* share */
 .share{background:linear-gradient(180deg,var(--royal-dd),var(--royal));color:#fff;padding:clamp(48px,7vw,80px) 0}
 .share .en{color:#dbe9ff!important}
@@ -270,7 +291,8 @@ html.lang-th .doodle-open .chip .en,html.lang-en .doodle-open .chip .th{display:
 .sh.line{background:#06c755;border-color:#06c755;color:#081d42}
 .sh.fb{background:#145dbf;border-color:#145dbf}
 .sh.wa{background:#25d366;border-color:#25d366;color:#0b2b16}
-.sh.native{background:var(--gold);border-color:var(--gold);color:#14213d}
+.sh.native{background:var(--gold);border-color:var(--gold);color:#000}
+.btn.gold .en,.btn.gold .th,.sh.native .en,.lang button[aria-pressed=true]{color:#000!important;opacity:1!important}
 .sh[hidden]{display:none}
 html.lang-both .sh .en{display:inline!important;margin-left:.35em;opacity:.8;font-size:.92em;color:inherit!important}
 .qr{background:#fff;border-radius:20px;padding:14px;text-align:center;color:#14213d;width:200px}
@@ -286,7 +308,11 @@ html.lang-both .sh .en{display:inline!important;margin-left:.35em;opacity:.8;fon
 
 footer{background:var(--royal-dd);color:#c9d6ef;padding:36px 0 calc(36px + env(safe-area-inset-bottom));font-size:14px}
 footer .in{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between}
-footer img{height:54px;width:auto}
+footer .sig{display:flex;flex-direction:column;text-decoration:none;color:#fff;line-height:1.05}
+footer .sig .mark{display:flex;align-items:center;gap:10px}
+footer .sig strong{font-family:Georgia,'Times New Roman',serif;font-size:clamp(40px,7vw,56px);font-weight:700}
+footer .sig img{width:clamp(44px,7vw,56px);height:auto}
+footer .sig small{font-size:clamp(15px,2.2vw,19px);font-weight:600;margin-top:4px;color:#e6f0ff}
 footer a{color:var(--gold-l)}
 footer .en{display:inline!important;margin-left:.4em}
 html.lang-th footer .en,html.lang-en footer .th{display:none!important}
@@ -307,7 +333,7 @@ footer p{margin:0}
 
 <header class="top">
   <div class="in">
-    <a class="brand" href="#top"><span class="club" aria-label="Rotary Club of Chiang Mai International"><span class="mark"><strong>Rotary</strong><img src="img/rotary-wheel.png" alt="" width="34" height="34"></span><small>Club of Chiang Mai International</small></span><b><span class="th">ทิ้งลูกกอล์ฟ 2570</span><span class="en">Golf Ball Drop 2027</span></b></a>
+    <a class="brand" href="#top"><span class="club" aria-label="Rotary Club of Chiang Mai International"><span class="mark"><strong>Rotary</strong><img class="wheel" src="img/rotary-wheel.png" alt="" width="34" height="34"></span><small>Club of Chiang Mai International</small></span><b><span class="th">ทิ้งลูกกอล์ฟ 2570</span><span class="en">Golf Ball Drop 2027</span></b></a>
     <a class="btn gold buy" href="#balls"><span class="th">ซื้อลูก</span><span class="en">Get a ball</span></a>
     <div class="lang" role="group" aria-label="ภาษา · Language">
       <button type="button" data-set="th">ไทย</button>
@@ -566,7 +592,7 @@ footer p{margin:0}
 
 <footer>
   <div class="in">
-    <img src="img/cmirc-logo-white.png" alt="Chiang Mai International Rotary Club" width="92" height="54">
+    <a class="sig" href="https://www.cmirotary.org/" target="_blank" rel="noopener" aria-label="Rotary Club of Chiang Mai International"><span class="mark"><strong>Rotary</strong><img class="wheel" src="img/rotary-wheel.png" alt="" width="56" height="56"></span><small>Club of Chiang Mai International</small></a>
     <p><a href="https://www.cmirotary.org/" target="_blank" rel="noopener">cmirotary.org</a> · <a href="https://www.cmirotary.org/donate" target="_blank" rel="noopener"><span class="th">บริจาค</span><span class="en">Donate</span></a> · <a href="https://motdang.net/"><span class="th">มดแดง</span><span class="en">Mot Dang</span></a></p>
   </div>
 </footer>
@@ -604,7 +630,7 @@ const PAGE = 'https://nanobotco.github.io/golf-ball-drop/';
   const hero=document.querySelector('.hero'), scene=document.getElementById('scene');
   const cols=['#e8475f','#ff8c42','#ffd23f','#6cc551','#3fa7d6','#5e60ce','#9d4edd','#f7a81b'];
   hero.addEventListener('pointerdown',e=>{
-    if(e.target.closest('a,button,input,.lang'))return;
+    if(e.target.closest('a,button,input,.lang,.fleet svg,.hills g'))return;
     if(hero.querySelectorAll('.launch').length>24)return;
     const r=hero.getBoundingClientRect(), w=26+Math.random()*34;
     const b=document.createElementNS('http://www.w3.org/2000/svg','svg');
@@ -675,7 +701,7 @@ const PAGE = 'https://nanobotco.github.io/golf-ball-drop/';
     b.c=c; b.x=c*D+(Math.random()-.5)*2; b.y=top(c)-R; cols[c]++; b.rest=true; b.vx=b.vy=0;
   }
   function step(now){
-    if(!calm && now>next && balls.length<MAX+1){release(); next=now+700+Math.random()*900;}
+    if(!calm && now>next && balls.length<MAX+1){release(); next=now+2100+Math.random()*2700;}
     for(const b of balls){
       if(b.rest){
         if(ptr && Math.abs(b.x-ptr.x)<28 && Math.abs(b.y-ptr.y)<28 && onTop(b)){ // rustle
@@ -703,6 +729,47 @@ const PAGE = 'https://nanobotco.github.io/golf-ball-drop/';
   if('IntersectionObserver'in window) new IntersectionObserver(e=>{vis=e[0].isIntersecting;kick();}).observe(hero);
   addEventListener('resize',()=>{size();});
   addEventListener('load',()=>{size(); if(calm){for(let i=0;i<60;i++){release();} balls.forEach(settle); draw();} else kick();});
+})();
+
+// cute clicks: every drawing answers a tap
+(function(){
+  const R=['#e8475f','#ff8c42','#ffd23f','#6cc551','#3fa7d6','#5e60ce','#9d4edd','#f7a81b'];
+  function burst(x,y,n,star){ if(calm) return;
+    for(let i=0;i<(n||14);i++){const e=document.createElement('i'),a=Math.random()*Math.PI*2,d=30+Math.random()*50;
+      e.className='spark'+(star||i%3===0?' star':'');e.style.left=(x-4)+'px';e.style.top=(y-4)+'px';e.style.background=R[i%R.length];
+      e.style.setProperty('--dx',Math.cos(a)*d+'px');e.style.setProperty('--dy',(Math.sin(a)*d-20)+'px');
+      document.body.appendChild(e);e.addEventListener('animationend',()=>e.remove());}}
+  window.mdBurst=burst;
+  function play(el,cls){el.classList.remove(cls);void el.offsetWidth;el.classList.add(cls);el.addEventListener('animationend',()=>el.classList.remove(cls),{once:true});}
+  const at=e=>[e.clientX,e.clientY];
+  // the Rotary wheel turns
+  document.querySelectorAll('img.wheel').forEach(w=>w.addEventListener('click',e=>{e.preventDefault();play(w,'spin');burst(...at(e),10,true);}));
+  // small balloons hop and throw confetti
+  document.querySelectorAll('.fleet svg').forEach(b=>b.addEventListener('pointerdown',e=>{e.stopPropagation();play(b,'hop');burst(...at(e),18);}));
+  // the step drawings bounce; the first one deals a new number
+  document.querySelectorAll('.step svg').forEach((g,i)=>{g.classList.add('tap');g.addEventListener('click',e=>{
+    play(g,'boing');burst(...at(e),12);
+    if(i===0){const t=g.querySelector('text');if(t)t.textContent=1+Math.floor(Math.random()*300);}
+  });});
+  // medals flip and shine
+  document.querySelectorAll('.medal .disc').forEach(d=>{d.classList.add('tap');d.addEventListener('click',e=>{play(d,'flip');burst(...at(e),20,true);});});
+  // the ticket shuffles to a new number
+  const tk=document.querySelector('.ticket');
+  if(tk){tk.classList.add('tap');tk.addEventListener('click',e=>{play(tk,'shake');const r=tk.querySelector('.r');let k=0;
+    const t=setInterval(()=>{r.textContent=1+Math.floor(Math.random()*300);if(++k>8){clearInterval(t);burst(...at(e),16);}},calm?0:60);});}
+  // the QR wiggles and copies the link
+  const qr=document.querySelector('.qr img');
+  if(qr){qr.classList.add('tap');qr.addEventListener('click',e=>{play(qr,'boing');burst(...at(e),12);document.getElementById('sh-copy').click();});}
+  // the city photo leans in
+  const fig=document.querySelector('.where figure');
+  if(fig){fig.classList.add('tap');fig.addEventListener('click',e=>{fig.classList.toggle('zoom');burst(...at(e),10);});}
+  // the X on the green sparkles
+  const hx=document.querySelector('.hills g');
+  if(hx){hx.style.cursor='pointer';hx.style.pointerEvents='auto';hx.addEventListener('pointerdown',e=>{e.stopPropagation();burst(...at(e),22,true);});}
+  // the game board drops on a tap
+  const cv=document.getElementById('cv'); if(cv){cv.style.cursor='pointer';cv.addEventListener('click',()=>document.getElementById('go').click());}
+  // the big balloon's burner adds a puff of sparks
+  const bn=document.getElementById('burner'); if(bn) bn.addEventListener('click',e=>burst(...at(e),16));
 })();
 
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('show'),2400);}
