@@ -65,7 +65,8 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 "Noto Sans Thai",system-ui,-apple-system,"Segoe UI",sans-serif}
 html.lang-th .en,html.lang-en .th{display:none!important}
 html.lang-both .en{display:block;color:var(--mute);font-size:.9em}
-html.lang-both :is(.top,.hero,.blue,.how) .en{color:inherit;opacity:.8}
+html.lang-both :is(.top,.blue,.how) .en{color:inherit;opacity:.85}
+html.lang-both .hero .en{color:#e6f0ff;opacity:1}
 a{color:inherit;text-underline-offset:3px}
 h1,h2,h3{font-family:Fraunces,"Noto Serif Thai",Georgia,serif;font-weight:700;line-height:1.15;margin:0 0 .35em;letter-spacing:-.01em}
 h2{font-size:clamp(28px,4vw,44px)}
@@ -82,7 +83,8 @@ h2 .en{font-weight:500;font-style:italic}
 .btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
 .btn.gold{background:linear-gradient(180deg,#ffd36b,#f7a81b);color:#14213d;box-shadow:0 6px 24px rgba(247,168,27,.45),inset 0 1px 0 rgba(255,255,255,.6)}
 .btn.blue{background:var(--royal);color:#fff;box-shadow:0 6px 20px rgba(23,69,143,.35)}
-.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.45)}
+.btn.ghost{background:rgba(8,29,66,.38);color:#fff;border:1px solid rgba(255,255,255,.55)}
+.btn.ghost .en{opacity:1}
 .btn.soft{background:var(--c-soft);color:var(--ink);border:1px solid var(--rule)}
 .btn .en{display:inline!important;margin-left:.4em;font-size:.88em;opacity:.8;color:inherit!important}
 html.lang-th .btn .en,html.lang-en .btn .th{display:none!important}
@@ -103,15 +105,15 @@ html.lang-th .btn .en,html.lang-en .btn .th{display:none!important}
 .lang button{background:none;border:0;color:inherit;font:inherit;font-size:13px;font-weight:600;padding:6px 11px;border-radius:999px;cursor:pointer;min-height:34px}
 .lang button[aria-pressed=true]{background:var(--gold);color:var(--royal-dd)}
 @media (max-width:900px){.brand b{display:none}}
-@media (max-width:640px){.top .buy .en{display:none!important}}
+@media (max-width:640px){html.lang-both .top .buy .en{display:none!important}}
 @media (max-width:400px){.club small{font-size:11px}.club strong{font-size:25px}.club .mark img{width:28px;height:28px}}
 @media (max-width:420px){.top .buy{display:none}}
 
 /* hero sky: royal blue to gold */
 .hero{position:relative;overflow:hidden;color:#fff;cursor:crosshair;
   background:
-    radial-gradient(60% 45% at 70% 86%,rgba(255,211,107,.65),transparent 70%),
-    linear-gradient(180deg,#081d42 0%,#0c2a5c 22%,#17458f 46%,#0067c8 64%,#1b8fd6 80%,#e9b04a 96%);
+    radial-gradient(55% 22% at 70% 100%,rgba(255,211,107,.6),transparent 70%),
+    linear-gradient(180deg,#081d42 0%,#0c2a5c 26%,#17458f 56%,#0d5fb8 80%,#0b66be 92%,#3f86c9 100%);
   padding:clamp(40px,7vw,80px) 0 0;min-height:min(92vh,820px);display:flex;flex-direction:column}
 .hero a,.hero button{cursor:pointer}
 .stars{position:absolute;inset:0 0 50% 0;pointer-events:none}
@@ -129,12 +131,13 @@ html.lang-th .btn .en,html.lang-en .btn .th{display:none!important}
 .perks li{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:600}
 .perks .en{display:inline!important;margin-left:.35em}
 html.lang-th .perks .en,html.lang-en .perks .th{display:none!important}
-.hint{margin:16px 0 0;font-size:14px;opacity:.95}
+.hint{margin:16px 0 0;font-size:14px;font-weight:600}
 .hero .in{text-shadow:0 1px 12px rgba(8,29,66,.55)}
 .scene{position:relative;aspect-ratio:4/5;width:100%}
 .scene svg{width:100%;height:100%;overflow:visible}
-.bob{animation:bob 7s ease-in-out infinite;transform-origin:50% 100%}
-@keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-14px) rotate(1.2deg)}}
+.bob{animation:bob 9s ease-in-out infinite;transform-origin:50% 80%}
+@keyframes bob{0%,100%{transform:translate(0,0) rotate(-2.5deg)}25%{transform:translate(12px,-18px) rotate(1deg)}50%{transform:translate(0,-32px) rotate(2.8deg)}75%{transform:translate(-12px,-14px) rotate(-.6deg)}}
+.scene svg{transform:translate(var(--tx,0px),var(--ty,0px)) rotate(var(--rot,0deg));transition:transform 1.4s cubic-bezier(.2,.8,.3,1)}
 .flame{animation:flame 1.6s ease-in-out infinite;transform-origin:200px 360px}
 @keyframes flame{0%,100%{opacity:.55;transform:scale(.9)}40%{opacity:1;transform:scale(1.15)}70%{opacity:.75;transform:scale(1)}}
 .halo{animation:halo 1.6s ease-in-out infinite}
@@ -166,7 +169,7 @@ html.lang-th .perks .en,html.lang-en .perks .th{display:none!important}
 .step svg{width:72px;height:72px}
 .step p{margin:0;font-size:18px;font-weight:600;line-height:1.4}
 .step p .en{font-weight:400;font-size:.88em;margin-top:4px}
-.step small{display:block;font-family:Fraunces,serif;font-style:italic;color:var(--gold);font-size:15px;margin-bottom:2px}
+.step small{display:block;font-family:Fraunces,serif;font-style:italic;color:var(--gold-l);font-size:15px;margin-bottom:2px}
 .away{margin:24px 0 0;font-size:18px;font-weight:600;color:var(--gold-l)}
 
 /* game */
@@ -197,7 +200,7 @@ html.lang-th .perks .en,html.lang-en .perks .th{display:none!important}
 html.lang-th .proj .more .en,html.lang-en .proj .more .th{display:none!important}
 .give{margin-top:30px;display:flex;flex-wrap:wrap;align-items:center;gap:16px;background:linear-gradient(120deg,var(--royal),var(--azure));color:#fff;border-radius:22px;padding:24px 26px}
 .give p{margin:0;flex:1 1 300px;font-size:18px;font-weight:600}
-.give .en{color:#dbe9ff!important}
+.give .en{color:#fff!important}
 
 /* afternoon */
 .timeline{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px;max-width:780px}
@@ -205,14 +208,14 @@ html.lang-th .proj .more .en,html.lang-en .proj .more .th{display:none!important
 .timeline time{font-family:Fraunces,serif;font-size:24px;font-weight:700;color:var(--c-accent);font-variant-numeric:tabular-nums;white-space:nowrap}
 .timeline li.peak{background:linear-gradient(120deg,var(--royal-d),var(--royal) 55%,var(--azure));color:#fff;border:0;box-shadow:0 12px 40px rgba(0,103,200,.35)}
 .timeline li.peak time{color:var(--gold-l)}
-.timeline li.peak .en{color:#dbe9ff}
+.timeline li.peak .en{color:#fff}
 .timeline b{font-size:18px}
 .timeline small{display:block;font-size:14px;color:var(--mute)}
 @media (max-width:520px){.timeline li{grid-template-columns:1fr;gap:2px}}
 
 /* prizes */
 .blue{background:radial-gradient(70% 60% at 50% 0%,#0067c8,#17458f 55%,#0c2a5c);color:#fff}
-.blue .en{color:#dbe9ff!important}
+.blue .en{color:#fff!important}
 .medals{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:18px;margin-top:30px;align-items:end}
 @media (max-width:760px){.medals{grid-template-columns:1fr}}
 .medal{text-align:center;padding:28px 18px 24px;border-radius:24px;background:rgba(255,255,255,.07);border:1px solid rgba(247,168,27,.35)}
@@ -246,7 +249,7 @@ html.lang-th .proj .more .en,html.lang-en .proj .more .th{display:none!important
 @media (max-width:760px){.where{grid-template-columns:1fr}}
 .where figure{margin:0;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);position:relative}
 .where figure img{display:block;width:100%;height:auto}
-.where figcaption{position:absolute;left:12px;bottom:10px;font-size:12px;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.where figcaption{position:absolute;left:12px;bottom:10px;font-size:12px;color:#fff;background:rgba(8,29,66,.82);padding:3px 10px;border-radius:999px}
 
 /* share */
 .share{background:linear-gradient(180deg,var(--royal-dd),var(--royal));color:#fff;padding:clamp(48px,7vw,80px) 0}
@@ -256,8 +259,8 @@ html.lang-th .proj .more .en,html.lang-en .proj .more .th{display:none!important
 .share-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 .sh{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff;font:inherit;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer}
 .sh:hover{background:rgba(255,255,255,.2)}
-.sh.line{background:#06c755;border-color:#06c755}
-.sh.fb{background:#1877f2;border-color:#1877f2}
+.sh.line{background:#06c755;border-color:#06c755;color:#081d42}
+.sh.fb{background:#145dbf;border-color:#145dbf}
 .sh.wa{background:#25d366;border-color:#25d366;color:#0b2b16}
 .sh.native{background:var(--gold);border-color:var(--gold);color:#14213d}
 .sh[hidden]{display:none}
@@ -265,7 +268,7 @@ html.lang-both .sh .en{display:inline!important;margin-left:.35em;opacity:.8;fon
 .qr{background:#fff;border-radius:20px;padding:14px;text-align:center;color:#14213d;width:200px}
 .qr img{width:172px;height:172px;display:block}
 .qr small{display:block;font-size:12px;font-weight:600;margin-top:6px}
-.qr .en{color:var(--mute)!important}
+.qr .en{color:#4f5d78!important}
 
 /* sticky bar on phones */
 .dock{position:fixed;left:0;right:0;bottom:0;z-index:25;display:none;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(8,29,66,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:2px solid var(--gold);transform:translateY(110%);transition:transform .25s}
@@ -601,6 +604,18 @@ const PAGE = 'https://nanobotco.github.io/golf-ball-drop/';
 })();
 
 
+// the big balloon leans and drifts toward the pointer
+(function(){
+  if(calm) return;
+  const hero=document.querySelector('.hero'), scene=document.getElementById('scene');
+  const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
+  function to(x,y){const r=scene.getBoundingClientRect(), dx=x-(r.left+r.width/2), dy=y-(r.top+r.height*.4);
+    scene.style.setProperty('--tx',cl(dx*.16,-70,70)+'px');scene.style.setProperty('--ty',cl(dy*.12,-50,40)+'px');scene.style.setProperty('--rot',cl(dx*.03,-9,9)+'deg');}
+  hero.addEventListener('pointermove',e=>to(e.clientX,e.clientY));
+  hero.addEventListener('pointerdown',e=>to(e.clientX,e.clientY));
+  hero.addEventListener('pointerleave',()=>{['--tx','--ty','--rot'].forEach(k=>scene.style.removeProperty(k));});
+})();
+
 // the green: balls leave the basket one by one and pile up for as long as the page is open; a passing pointer rustles them
 (function(){
   const hero=document.querySelector('.hero'), cv=document.getElementById('pile'), ctx=cv.getContext('2d');
@@ -628,6 +643,16 @@ const PAGE = 'https://nanobotco.github.io/golf-ball-drop/';
     balls.push({x:br.left-hr.left+br.width/2+(Math.random()-.5)*br.width,y:br.bottom-hr.top,vx:(Math.random()-.5)*1.4,vy:0,rest:false,c:-1});
     if(balls.length>MAX){const old=balls.shift(); if(old.rest&&old.c>=0) cols[old.c]=Math.max(0,cols[old.c]-1);}
   }
+  function onTop(b){return b.c>=0 && b.y-R <= top(b.c)+D*.3;}
+  // a landing ball knocks the balls it hits up and outward
+  function scatter(x,c,speed){
+    for(const o of balls){
+      if(!o.rest||Math.abs(o.c-c)>2||!onTop(o))continue;
+      const dx=o.x-x; if(Math.abs(dx)>D*2.6)continue;
+      cols[o.c]=Math.max(0,cols[o.c]-1); o.rest=false;
+      o.vx=(Math.sign(dx)||(Math.random()-.5))*(speed*.16+Math.random()*1.1); o.vy=-(speed*.17+Math.random()*1.1);
+    }
+  }
   function settle(b){
     let c=Math.max(0,Math.min(cols.length-1,Math.round(b.x/D)));
     // slide down to a lower neighbour, so the pile spreads into a mound
@@ -639,7 +664,7 @@ const PAGE = 'https://nanobotco.github.io/golf-ball-drop/';
     if(!calm && now>next && balls.length<MAX+1){release(); next=now+700+Math.random()*900;}
     for(const b of balls){
       if(b.rest){
-        if(ptr && Math.abs(b.x-ptr.x)<28 && Math.abs(b.y-ptr.y)<28){ // rustle
+        if(ptr && Math.abs(b.x-ptr.x)<28 && Math.abs(b.y-ptr.y)<28 && onTop(b)){ // rustle
           cols[b.c]=Math.max(0,cols[b.c]-1); b.rest=false;
           const dx=b.x-ptr.x||1; b.vx=Math.sign(dx)*(1+Math.random()*2.5)+ptr.vx*.15; b.vy=-(2+Math.random()*3);
         }
@@ -649,7 +674,7 @@ const PAGE = 'https://nanobotco.github.io/golf-ball-drop/';
       if(b.x<R){b.x=R;b.vx=Math.abs(b.vx)*.5} if(b.x>W-R){b.x=W-R;b.vx=-Math.abs(b.vx)*.5}
       const c=Math.max(0,Math.min(cols.length-1,Math.round(b.x/D)));
       if(b.vy>0 && b.y+R>=top(c)){
-        if(b.vy>2.2){b.y=top(c)-R;b.vy*=-.35;b.vx+=(Math.random()-.5);} else settle(b);
+        if(b.vy>2.2){scatter(b.x,c,b.vy);b.y=top(c)-R;b.vy*=-.35;b.vx+=(Math.random()-.5);} else settle(b);
       }
     }
   }
