@@ -251,6 +251,14 @@ html.lang-th .proj .more .en,html.lang-en .proj .more .th{display:none!important
 .where figure img{display:block;width:100%;height:auto}
 .where figcaption{position:absolute;left:12px;bottom:10px;font-size:12px;color:#fff;background:rgba(8,29,66,.82);padding:3px 10px;border-radius:999px}
 
+.doodle{position:relative;margin-top:28px;height:clamp(300px,48vw,460px);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:3px solid var(--royal);background:#f5ecd7}
+.doodle iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.doodle-open{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-end;padding:14px;text-decoration:none}
+.doodle-open .chip{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 18px;border-radius:999px;background:var(--royal);color:#fff;font-weight:700;font-size:15px;box-shadow:0 6px 18px rgba(8,29,66,.35)}
+.doodle-open .chip .en{display:inline!important;color:#fff!important;margin-left:.3em}
+html.lang-th .doodle-open .chip .en,html.lang-en .doodle-open .chip .th{display:none!important}
+.doodle-open:hover .chip,.doodle-open:focus-visible .chip{background:var(--azure)}
+
 /* share */
 .share{background:linear-gradient(180deg,var(--royal-dd),var(--royal));color:#fff;padding:clamp(48px,7vw,80px) 0}
 .share .en{color:#dbe9ff!important}
@@ -525,6 +533,12 @@ footer p{margin:0}
       </div>
     </div>
     <figure><img src="img/chiang-mai.jpg" alt="เชียงใหม่ยามเย็น · Chiang Mai at dusk" width="1195" height="699" loading="lazy"><figcaption>Chiang Mai · cmirotary.org</figcaption></figure>
+  </div>
+  <div class="in">
+    <div class="doodle">
+      <iframe src="https://motdang.net/sites/doodle-map/?embed=1&amp;pin=18.85707,99.09915&amp;pn=%E0%B8%AE%E0%B8%AD%E0%B9%84%E0%B8%A3%E0%B8%8B%E0%B8%B1%E0%B8%99%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97%20%C2%B7%20Horizon%20Village%20%26%20Resort" title="แผนที่วาด ฮอไรซอน วิลเลจ · Doodle map of Horizon Village &amp; Resort" loading="lazy"></iframe>
+      <a class="doodle-open" href="https://motdang.net/cm/p/horizon-village-resort-695036744.html" target="_blank" rel="noopener"><span class="chip"><span class="th">เปิดในมดแดง</span><span class="en">Open on Mot Dang</span> ↗</span></a>
+    </div>
   </div>
 </section>
 
