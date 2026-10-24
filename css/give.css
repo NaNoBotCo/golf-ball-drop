@@ -1,0 +1,69 @@
+/* give: rules owned by the give group, loaded after gbd.css */
+
+/* dark scheme: riso.js writes --text on <html> as an inline style, which beats the dark-scheme value in gbd.css, so the panel
+   takes the light text itself, and colours its own text from it (the body's colour is already resolved to navy) */
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .give{--text:#f4ecdb;color:var(--text)}}
+
+/* the picture and its caption */
+.give .fill figcaption{font-weight:600;display:flex;flex-direction:column;justify-content:center}
+.give .fill figcaption .gv-big{display:block;font:800 clamp(26px,7vw,34px)/1.1 "Kanit","Bricolage Grotesque","Noto Sans Thai",sans-serif;color:var(--text)}
+.give .fill figcaption .gv-big .en{display:inline;font-size:inherit;color:inherit}
+.give .fill figcaption .gv-next{display:block;margin-top:6px;font-weight:600;font-size:15px;line-height:1.45;overflow-wrap:anywhere}
+.give .fill figcaption .gv-next .en{display:block;font-size:.93em}
+html.lang-th .give .fill figcaption .gv-next .en,html.lang-en .give .fill figcaption .gv-next .th{display:none}
+.give .fill figcaption .btn{width:100%;margin-top:12px}
+.give .fill figcaption a{color:inherit;text-decoration-thickness:2px;text-underline-offset:3px}
+/* the caption keeps the height of its tallest amount sentence, so the chips under it stay where the thumb is */
+@media (max-width:430px){.give .fill figcaption{min-height:6.4em}}
+@media (max-width:370px){.give .fill figcaption{min-height:7.7em}}
+
+/* phones and tablets: the picture is square, and the picture, the caption and the chips fit one screen */
+@media (max-width:899px){
+  .give .fill canvas{aspect-ratio:1/1}
+  .give .chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;justify-content:start}
+  .give .chips button{padding:6px 4px;font-size:16px;min-height:46px;justify-content:center}
+  .give .chips .other{grid-column:1/-1}
+  .give .sent .btn{width:100%}
+  .give .letter{font-size:13px;line-height:1.4}
+}
+@media (max-width:380px){.give .chips button{font-size:15px}}
+/* the phone's bottom bar steps aside while this section is on screen */
+html.in-give .dock{transform:translateY(140%)}
+
+/* a chip: the amount, and under it the balls it buys: a golf ball (it bounces on a tap or a hover) and how many */
+.give .chips button{flex-direction:column;gap:0;line-height:1}
+.give .chips button .amt{font-weight:800}
+.give .chips button .cnt{display:inline-flex;align-items:flex-start;gap:3px;height:30px;font-size:15px;line-height:24px;font-weight:800}
+.give .chips button .cnt .ball{display:flex;align-items:flex-start;width:20px;height:30px;flex:none}
+.give .chips button .cnt [data-dingbat]{flex:none;font-size:34px;margin:0 0 0 -7px}
+.give .chips .other{min-height:46px}
+@media (max-width:899px){.give .chips button{padding-bottom:4px}}
+@media (min-width:900px){.give .chips button{flex-direction:row;align-items:center;gap:8px;padding:4px 14px}.give .chips button .amt{order:2}.give .chips button .cnt{order:1;align-items:center}}
+
+/* the desktop: the picture stays beside the chips, the letter and the send button while they are filled in */
+@media (min-width:900px) and (min-height:760px){.give .fill{position:sticky;top:76px;align-self:start}}
+@media (min-width:900px){.give .fill canvas{aspect-ratio:6/7}}
+
+/* the steps */
+.how-give>li:nth-child(3)::before{display:none}
+.how-give>li:nth-child(3){padding-left:16px;border-style:dashed;background:transparent}
+.how-give h3 b{font-weight:800;text-decoration:underline;text-decoration-color:var(--sun);text-decoration-thickness:.2em;text-underline-offset:.12em;text-decoration-skip-ink:none}
+.how-give .src{margin:10px 0 0;font-size:15px;color:var(--text)}
+.how-give .src a{font-weight:700}
+.how-give .src .en,.how-give .attach .en{font-size:inherit;color:inherit}
+.how-give .attach{margin:10px 0 0;font-weight:700;font-size:15px}
+.how-give .attach+.btn{margin-top:8px}
+
+/* Email the treasurer: the key action of step 2, in gold with black type; each label stays on one line */
+#give-mail{background:var(--sun);color:#000;justify-content:center;flex-wrap:wrap;text-align:center;min-height:54px;row-gap:0}
+#give-mail .th,#give-mail .en{white-space:nowrap}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pills .copy{margin-left:0;min-height:40px;padding:6px 12px;font-size:14px}
+html.lang-both .pills .copy .en{margin-left:.3em}
+
+/* I've sent it!: the balloon, and a second line that says what it does */
+.give .sent #give-sent{flex-wrap:wrap;row-gap:0;text-align:center}
+.give .sent #give-sent .sub{flex-basis:100%;font-size:14px;font-weight:700;line-height:1.3}
+.give .sent #give-sent .sub .en{font-size:1em;margin-left:.3em}
+.give .sent .ask2{margin-top:2px}
+@media (min-width:900px) and (min-height:760px){.give .sent .ask2{display:none}}

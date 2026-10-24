@@ -1,0 +1,42 @@
+<!doctype html><html lang="th" class="lang-both"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Kanit:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../gbd.css">
+<style>
+html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:var(--paper)}
+#cv{position:absolute;inset:0;width:1200px;height:630px}
+.card{position:absolute;left:44px;top:44px;width:560px;padding:26px 30px 28px;background:color-mix(in srgb,var(--paper) 95%,transparent);border:3px solid var(--key);border-radius:24px;box-shadow:10px 10px 0 var(--key)}
+.card h1{font-size:96px;line-height:.92;margin:0}
+.card h1 .en{display:block;font-size:46px;margin-top:6px;color:var(--key);text-shadow:none;opacity:.9}
+.when{margin-top:18px;font:800 26px/1.25 "Bricolage Grotesque",sans-serif;color:var(--text)}
+.when small{display:block;font-size:18px;font-weight:700;opacity:.8}
+.tag{display:inline-block;margin-top:16px;padding:6px 16px;border:3px solid var(--key);border-radius:14px;background:var(--sun);color:#000;font:800 24px/1.2 "Bricolage Grotesque",sans-serif;box-shadow:4px 4px 0 var(--key)}
+.club{position:absolute;right:30px;bottom:24px;padding:6px 14px;border:2.5px solid var(--key);border-radius:14px;background:var(--paper);font:800 20px/1.1 "Bricolage Grotesque",sans-serif;color:var(--key)}
+.club small{display:block;font-size:13px}
+</style></head><body>
+<canvas id="cv"></canvas>
+<div class="card">
+  <h1 class="riso-type"><span class="th">ทิ้งลูกกอล์ฟ</span><span class="en">The Golf Ball Drop</span></h1>
+  <div class="when">เสาร์ 30 ม.ค. 2570 · ฮอไรซอน วิลเลจ<small>Sat 30 Jan 2027 · Horizon Village & Resort, Doi Saket</small></div>
+  <div class="tag">300 balls · ฿1,000 · 1st prize ฿30,000</div>
+</div>
+<div class="club">Rotary<small>Club of Chiang Mai International</small></div>
+<script type="module">
+import { setLook, surface } from '../js/riso.js';
+import { bakeBalloon, bakeGround, ballSprite, crowd, person, flame } from '../js/scene.js';
+const look = new URLSearchParams(location.search).get('look') || 'picnic';
+setLook(look);
+await document.fonts.ready;
+const W = 1200, H = 630, dpr = 2, s = surface(W, H, dpr), cv = document.getElementById('cv');
+cv.width = W * dpr; cv.height = H * dpr;
+const hy = 400, L = { w: W, h: H, hy, x: [880, 520], xs: 46, tape: [[640, 566], [760, 562], [880, 560], [1000, 562], [1120, 566], [1210, 568]], tapeW: 4, pitch: 5.6, reg: 1.2, chedis: [0.62, 0.66, 0.97], clouds: [[0.62, 0.2, 0.9], [0.95, 0.4, 0.7]] };
+bakeGround(s, L, 3);
+const B = bakeBalloon(300, dpr, 11);
+const bx = 880 - B.w / 2, by = 18;
+const R = (k) => ((Math.sin(k * 12.9898) * 43758.5453) % 1 + 1) % 1;
+for (let i = 0; i < 70; i++) { const z = R(i) * 0.3, x = 880 + (R(i + 99) - 0.5) * (260 + 300 * z), y = 500 + z * 80, r = 3.6 + z * 4; const b = ballSprite(Math.round(r * 2) / 2, dpr); s.ctx.drawImage(b.cv, x - b.size / 2, y - b.size / 2, b.size, b.size); }
+s.ctx.drawImage(B.cv, bx, by, B.w, B.h);
+flame(s.ctx, bx + B.mouth[0], by + B.mouth[1], B.S * 0.07, 0.8, 1.2);
+crowd(31, 640, 820, () => H - 2, 64).concat(crowd(37, 1040, 1210, () => H, 62)).forEach((p) => person(s.ctx, p, 0));
+cv.getContext('2d').drawImage(s.cv, 0, 0);
+document.title = 'ready';
+</script></body></html>

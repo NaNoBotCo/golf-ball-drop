@@ -1,0 +1,38 @@
+/* hero: rules owned by the hero group, loaded after gbd.css */
+
+/* the cord's grab: a 48 px target the script keeps on the cord's ring, so a finger can pull it (the picture itself stays pan-y and scrolls the page) */
+.cord-grab{position:absolute;z-index:2;width:48px;height:48px;border-radius:50%;touch-action:none;cursor:grab;-webkit-tap-highlight-color:transparent}
+.cord-grab[hidden]{display:none}
+.cord-grab:active{cursor:grabbing}
+
+/* the second gold pill, for after the crown: the cord's pill as a link to the balls */
+.cord.buy{text-decoration:none;color:#000;opacity:0;pointer-events:none}
+.cord.buy .pr{display:none}
+html.lang-en .cord.buy .pr{display:inline}
+html.lang-both .cord.buy .en::before{content:"· "}
+
+/* a taller picture on a phone: room for the balloon to hang high over the X */
+@media (max-width:899px){
+  .hero-stage{height:min(124vw,640px)}
+}
+
+/* a phone's first screen: a tighter date, and Get a ball and Give come right under the picture, before the lede */
+@media (max-width:700px){
+  .hc-top{padding:12px 18px 10px}
+  .date{margin:0 0 8px;padding:4px 12px;font-size:13px;line-height:1.35;border-radius:14px}
+  .hero-copy .hc-more{display:flex;flex-direction:column;align-items:stretch}
+  .hero-copy .hc-more .cta{order:-1;display:grid;grid-template-columns:1.3fr 1fr;gap:10px;margin:2px 0 16px}
+  .hero-copy .hc-more .cta .btn{min-width:0;padding:8px 10px}
+  .hero-copy .hc-more .cta .btn.big{font-size:16px}
+  .hero-copy .hc-more .cta .btn.paper{grid-column:1/-1;min-height:42px;font-size:15px}
+}
+
+/* a narrow phone: the two words of each button stack, so neither wraps in the middle of a word */
+@media (max-width:385px){
+  .hero-copy .hc-more .cta{grid-template-columns:1fr 1fr}
+  .hero-copy .hc-more .cta .btn.big{flex-direction:column;gap:0;line-height:1.2;text-align:center}
+  html.lang-both .hero-copy .hc-more .cta .btn.big .en{margin-left:0}
+}
+
+/* the crown's announcement is one line: the toast takes its text's width instead of half the screen's */
+#toast.one{width:max-content;max-width:calc(100vw - 32px)}
