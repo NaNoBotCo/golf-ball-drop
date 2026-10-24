@@ -29,7 +29,8 @@ export function setLook(name) {
   look = LOOKS[name] || LOOKS.picnic;
   const r = document.documentElement, s = r.style;
   r.dataset.look = LOOKS[name] ? name : 'picnic';
-  for (const k of ['paper', 'sky', 'warm', 'sun', 'key', 'text']) s.setProperty('--' + k, look[k]);
+  // --text is left to the stylesheet, which has its own value for the dark scheme
+  for (const k of ['paper', 'sky', 'warm', 'sun', 'key']) s.setProperty('--' + k, look[k]);
   s.setProperty('--leaf', look.leaf || mix(look.sky, look.sun));
   s.setProperty('--paid', look.chart.paid); s.setProperty('--gift', look.chart.gift);
   if (window.Dingbats && Dingbats.riso) Dingbats.riso(look.dingbat);
@@ -133,7 +134,10 @@ function wear(s, seed) {
 // Print a picture: fill the paper, then each drum in ORDER on its own layer, worn, multiplied
 // through its registration. `plates` maps a drum name to a function that draws that drum's
 // marks with ctx.fillStyle already set to its ink (and gets the ink as its second argument).
-export function print(dest, plates, { seed = 7, paper = true, reg = 1, offset = [0, 0] } = {}) {
+// How hard the drums print (Nan, 2026-10-24: "too loud, too all-the-same-loudness"): scenery at STRENGTH, the
+// thing to look at (the balloon) asks for more.
+export const STRENGTH = 0.7;
+export function print(dest, plates, { seed = 7, paper = true, reg = 1, offset = [0, 0], strength = STRENGTH } = {}) {
   const { ctx, w, h, dpr } = dest;
   if (paper) { ctx.save(); ctx.fillStyle = look.paper; ctx.fillRect(0, 0, w, h); ctx.restore(); }
   ORDER.forEach((ink, k) => {
@@ -144,7 +148,7 @@ export function print(dest, plates, { seed = 7, paper = true, reg = 1, offset = 
     fn(L.ctx, color, L);
     wear(L, seed * 31 + k);
     const [ox, oy] = REG[ink];
-    ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalCompositeOperation = 'multiply';
+    ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalCompositeOperation = 'multiply'; ctx.globalAlpha = strength;
     ctx.drawImage(L.cv, Math.round((ox * reg + offset[0]) * dpr), Math.round((oy * reg + offset[1]) * dpr));
     ctx.restore();
   });
