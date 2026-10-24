@@ -54,7 +54,7 @@ export function hero({ calm }) {
     liftMax = topM + 14;          // the balloon may rise until a little of its crown leaves the picture
     // the tape hangs about 5 px between stakes (a stake at every 4th point), with a ripple on top, drawn live
     const tape = [], step = wide ? 70 : 52; for (let x = wide ? W * 0.44 : -10; x <= W + 10; x += step) { const f = (tape.length % 4) / 4; tape.push([x, yT + Math.sin(x * 0.01) * 3 + 5 * 4 * f * (1 - f)]); }
-    L = { w: W, h: vh, fullH: H, hy, x: [cx, yX], xs, tape, tapeW: wide ? 4 : 3, pitch: wide ? 5.6 : 4.8, reg: wide ? 1.2 : 0.9, chedis: wide ? [0.48, 0.52, 0.9] : [0.12, 0.17, 0.88], clouds: [], liveTape: true, kapok: wide ? 'right' : 'left' };
+    L = { w: W, h: vh, fullH: H, hy, x: [cx, yX], xs, tape, tapeW: wide ? 4 : 3, pitch: wide ? 4.4 : 3.8, reg: wide ? 1.2 : 0.9, chedis: wide ? [0.48, 0.52, 0.9] : [0.12, 0.17, 0.88], clouds: [], liveTape: true, kapok: wide ? 'right' : 'left' };
     rb = wide ? Math.max(3.2, Math.min(6, W / 170)) : Math.max(4, Math.min(6, W / 100));
     bg = surface(W, H, dpr); G = bakeGround(bg, L, 3);
     // the cord's ring hangs above the X, never on its crossing: as long as the room under the basket allows, 16 px at the least

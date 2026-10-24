@@ -148,7 +148,7 @@ export function give() {
     c.fillStyle = inkOf('key'); c.globalAlpha = 0.55; c.fillRect(x + 0.2, y - h, 1.3, h); c.restore();
   }
   function makeGround(g) {
-    const P = 4.6, pegs = [[g.pegL, g.gy - g.S * 0.05], [g.pegR, g.gy - g.S * 0.05]];
+    const P = 3.8, pegs = [[g.pegL, g.gy - g.S * 0.05], [g.pegR, g.gy - g.S * 0.05]];
     const L = { w: g.w, h: g.h, hy: g.hy, x: g.X, xs: g.xs, tape: [], tapeW: 3, pitch: P, reg: 0.8, chedis: [0.12, 0.17, 0.88], clouds: [], skyTone: 0.8 };
     const s = surface(g.w, g.h, dprG); bakeGround(s, L, 17);
     pegs.forEach(([x, y]) => stake(s.ctx, x, y, g.pegH));
