@@ -11,16 +11,17 @@
 // Live marks are made the same way: an ink is multiplied through its offset, key goes on top.
 import { look, onLook, clamp, lerp, rng, surface, screen, tone, print, crayon, greens, inkOf, path } from './riso.js';
 import { bakeBalloon, bakeGround, bakeCloud, flame, crowd, person } from './scene.js';
+import { PAL } from './riso.js';
 import { burst, t2, shareText, calm, dingbatFloat, PAGE } from './bits.js';
 import { encodeQr } from './qr.js';
 
 const TAU = Math.PI * 2, DEG = Math.PI / 180;
 const ord = (n) => n + (['th', 'st', 'nd', 'rd'][(n % 100 - 20) % 10] || ['th', 'st', 'nd', 'rd'][n % 100] || 'th');
 const $ = (id) => document.getElementById(id);
-const FONT = '"Bricolage Grotesque","Noto Sans Thai",sans-serif', THAI = '"Noto Sans Thai","Bricolage Grotesque",sans-serif';
+const FONT = '"Inter","Noto Sans Thai",sans-serif', THAI = '"Noto Sans Thai","Inter",sans-serif';
 const ease = { out: (t) => 1 - Math.pow(1 - clamp(t), 3), io: (t) => { t = clamp(t); return t * t * (3 - 2 * t); }, back: (t) => { t = clamp(t); const c = 1.9; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); } };
 // where each drum lands on a live mark: the same offsets js/riso.js prints with
-const OFF = { sun: [-1.6, 1.3], warm: [1.5, -1.0], sky: [-1.1, 0.7] };
+const OFF = { sun: [0, 0], warm: [0, 0], sky: [0, 0] };   // flat: no off-register copies
 const pen = (n) => (n % 1 ? n.toFixed(1) : n + '.0');
 
 // a different seed every page load: the numbers are no one's script
@@ -78,15 +79,14 @@ function chalkWords(c, x, y, rot, k, lines, a = 1) {
   c.save(); c.translate(x, y); c.scale(k, k); c.rotate(rot); c.textAlign = 'center'; c.textBaseline = 'middle'; c.lineJoin = 'round';
   lines.forEach(([text, px, dy, thai]) => {
     if (thai && hasLang('en')) return; if (!thai && hasLang('th') && px < 20) return;
-    c.font = `800 ${px}px ${thai ? THAI : FONT}`;
-    if (thai) { c.globalAlpha = a; c.lineWidth = 4.5; c.strokeStyle = look.paper; c.strokeText(text, 0, dy); c.fillStyle = look.key; c.fillText(text, 0, dy); }
-    else { c.fillStyle = look.key; c.globalAlpha = 0.9 * a; c.fillText(text, 1.6, dy + 1.8); c.fillStyle = look.paper; c.globalAlpha = a; c.fillText(text, 0, dy); }
+    c.font = `700 ${px}px ${thai ? THAI : FONT}`;
+    c.globalAlpha = a; c.lineWidth = 4; c.strokeStyle = 'rgba(255,255,255,0.9)'; c.strokeText(text, 0, dy); c.fillStyle = PAL.ink; c.fillText(text, 0, dy);
   });
   c.restore();
 }
 // a crayon line in chalk: key a hair off to the lower right, paper on top
 function chalkLine(c, pts, a = 1, seed = 9, w = 2.2) {
-  [[look.key, w * 0.65, w * 0.7, 0.9], [look.paper, 0, 0, 1]].forEach(([col, dx, dy, al]) => { c.save(); c.translate(dx, dy); crayon(c, pts, { w, color: col, seed, wobble: 0.5, alpha: al * a }); c.restore(); });
+  crayon(c, pts, { w: w * 0.7, color: PAL.ink, alpha: 0.55 * a });
 }
 // an arrow along pts, its head turned to the way the last stretch runs
 function chalkArrow(c, pts, a = 1, seed = 9, w = 2.2) {
@@ -157,50 +157,17 @@ function teeHalf(o, y) {
   return 0;
 }
 function teeSprite(u, dpr, v) {
-  return keep(`tee:${look.name}:${u.toFixed(2)}:${dpr}:${v}`, () => {
+  return keep(`tee:flat:${u.toFixed(2)}:${dpr}:${v}`, () => {
     const o = TEE[v], pad = 3, w = Math.ceil(2.8 * u + pad * 2 + 3), h = Math.ceil((o.len + 0.5) * u + pad * 2 + 2), ox = w / 2, ry = pad + 0.45 * u;
-    const s = surface(w, h, dpr), P = (a, b) => [ox + a * u, ry + b * u];
+    const s = surface(w, h, dpr), c = s.ctx, P = (a, b) => [ox + a * u, ry + b * u];
     const bowAt = (y) => o.bow * Math.sin((Math.max(0, y - 1.3) / (o.len - 1.3)) * Math.PI * 0.9);
     const ys = [0, 0.17, 0.45, 0.75, 1.05, 1.4]; for (let k = 1; k <= 9; k++) ys.push(1.4 + ((o.len * 0.94 - 1.4) * k) / 9); ys.push(o.len);
     const side = (sg) => ys.map((y) => P(sg * teeHalf(o, y) + bowAt(y), y));
-    const R = side(1), L = side(-1), sil = R.concat(L.slice().reverse().slice(0, -1)), all = path(sil, true);
-    const cupEnd = 5;                                                      // ys[5] = 1.4: the cup and its bell
-    const head = path(R.slice(0, cupEnd + 1).concat(L.slice(0, cupEnd + 1).reverse()), true);
-    const fillAll = (c) => { c.fill(all); };
-    const plates = {
-      sky: (c) => {
-        if (o.ink === 'sky') { c.fill(all); return; }
-        // the contact shadow: the tee's outline moved right and down, with the tee itself cut out of it
-        c.save(); c.globalAlpha = 0.34; c.translate(1.7, 1.4); c.fill(all); c.restore();
-        c.save(); c.globalCompositeOperation = 'destination-out'; c.fillStyle = '#000'; c.fill(all); c.restore();
-        // the green is the blue thinned over the yellow
-        if (o.ink === 'leaf' && !look.leaf) { c.save(); c.globalAlpha = 0.7; c.fill(all); c.restore(); }
-      },
-      key: (c, ink) => {
-        const lw = Math.max(1, u * 0.24), rim = (k) => Array.from({ length: 13 }, (_, q) => P(1.35 * Math.cos((q / 12) * TAU), 0.3 * Math.sin((q / 12) * TAU) * (o.nick === 1 && q > 7 ? 0.6 : 1) + (k || 0)));
-        // the cup's concavity: the far wall seen over the lip, a dark crescent under the back of the rim
-        c.save(); c.globalAlpha = 0.85; c.beginPath(); c.ellipse(ox, ry + 0.02 * u, 1.22 * u, 0.25 * u, 0, 0, TAU); c.ellipse(ox, ry + 0.15 * u, 1.18 * u, 0.2 * u, 0, 0, TAU); c.fill('evenodd'); c.restore();
-        crayon(c, rim(0), { w: lw * 0.85, color: ink, seed: 3 + v });
-        // the right side, the tip and the left shaft run full; the lit left of the cup is broken
-        crayon(c, R.slice(0, -1).concat([P(bowAt(o.len), o.len)]), { w: lw, color: ink, seed: 8 + v, wobble: 0.35 });
-        crayon(c, L.slice(2, 7), { w: lw * 0.8, color: ink, seed: 18 + v, alpha: 0.45, wobble: 0.3 });
-        crayon(c, L.slice(7).concat([P(bowAt(o.len), o.len)]), { w: lw * 0.85, color: ink, seed: 21 + v, alpha: 0.9, wobble: 0.3 });
-        crayon(c, [L[0], L[1]], { w: lw * 0.8, color: ink, seed: 28 + v, alpha: 0.9 });
-        // one shade line down the shaft on the side away from the light, and grain ticks across it
-        crayon(c, [P(0.1 + bowAt(2.4), 2.1), P(0.09 + bowAt(o.len * 0.75), o.len * 0.78)], { w: Math.max(0.7, u * 0.15), color: ink, seed: 38 + v, alpha: 0.85 });
-        [0.55, 0.68, 0.8].forEach((f, q) => { const y = o.len * f; crayon(c, [P(-0.12 + bowAt(y), y), P(0.1 + bowAt(y), y + 0.12)], { w: Math.max(0.6, u * 0.1), color: ink, seed: 60 + q + v, alpha: 0.5, wobble: 0.1 }); });
-        if (o.nick === 1) crayon(c, [P(0.7, 0.62), P(0.95, 0.8)], { w: lw * 0.6, color: ink, seed: 48, alpha: 0.7 });
-      },
-    };
-    if (o.ink === 'warm') plates.warm = (c) => { c.fill(all); if (o.nick === 2) { c.globalCompositeOperation = 'destination-out'; c.beginPath(); c.arc(...P(1.3, 0.1), u * 0.22, 0, TAU); c.fill(); } };
-    if (o.ink === 'sun') plates.sun = fillAll;
-    if (o.ink === 'leaf') { if (look.leaf) plates.leaf = fillAll; else plates.sun = fillAll; }
-    print(s, plates, { seed: 40 + v, paper: false, reg: 0.55, strength: 0.45 });
-    // after the drums, bare paper: a band round the neck, a glint on the lit side of the bell
-    const c = s.ctx; c.save();
-    crayon(c, [P(-teeHalf(o, 1.75) + bowAt(1.75) - 0.02, 1.75), P(teeHalf(o, 1.75) + bowAt(1.75) + 0.02, 1.8)], { w: Math.max(1, u * 0.3), color: look.paper, seed: 70 + v, alpha: 0.95, wobble: 0.15 });
-    crayon(c, [P(-1.05, 0.36), P(-0.8, 0.66), P(-0.5, 0.95)], { w: Math.max(0.8, u * 0.2), color: look.paper, seed: 74 + v, alpha: 0.85, wobble: 0.15 });
-    c.restore();
+    const R = side(1), L = side(-1), all = path(R.concat(L.slice().reverse().slice(0, -1)), true);
+    // a light wooden tee: one flat colour, its far side a shade darker, the cup a darker ellipse
+    c.fillStyle = '#E9DCC4'; c.fill(all);
+    c.save(); c.clip(all); c.fillStyle = '#D8C7A8'; c.fillRect(ox + 0.05 * u, 0, w, h); c.restore();
+    c.fillStyle = '#CDBA98'; c.beginPath(); c.ellipse(ox, ry + 0.05 * u, 1.15 * u, 0.24 * u, 0, 0, TAU); c.fill();
     return { cv: s.cv, w, h, ox, oy: ry + 0.45 * u, u, len: o.len };
   });
 }
@@ -212,54 +179,18 @@ function teeSprite(u, dpr, v) {
 // the wicker holds a quarter of the sun, four key posts stand at the corners and a golf ball
 // is printed on the label.
 function basketSprite(width, dpr) {
-  return keep(`basket:${look.name}:${Math.round(width)}:${dpr}`, () => {
-    const w = Math.round(width), h = Math.round(width * 0.74), s = surface(w, h, dpr), P = 2.3, box = { x0: 0, y0: 0, x1: w, y1: h };
-    const lx0 = w * 0.27, lx1 = w * 0.73, ly0 = h * 0.2, ly1 = h * 0.84;
-    const body = path([[0, 0], [w, 0], [w * 0.95, h], [w * 0.05, h]]), label = path([[lx0, ly0], [lx1, ly0], [lx1 - w * 0.01, ly1], [lx0 + w * 0.01, ly1]]);
-    // the wicker is the body with the label cut out: the label runs the other way round, so a nonzero clip leaves a hole
-    const wick = new Path2D(); wick.addPath(body); wick.addPath(path([[lx0, ly0], [lx0 + w * 0.01, ly1], [lx1 - w * 0.01, ly1], [lx1, ly0]]));
-    s.ctx.fillStyle = look.paper; s.ctx.fill(body);
-    const post = (c, x0, x1, seed, wd) => crayon(c, [[x0, 0], [(x0 + x1) / 2, h * 0.5], [x1, h]], { w: wd, color: c.strokeStyle, seed, wobble: 0.3 });
-    print(s, {
-      sun: (c, ink) => screen(c, box, P, tone('sun'), () => 0.25, ink, wick),
-      sky: (c, ink) => screen(c, box, P * 0.8, tone('sky'), () => 0.7, ink, label),
-      warm: (c, ink) => screen(c, box, P, tone('warm'), () => 0.3, ink, wick),
-      key: (c, ink) => {
-        screen(c, box, P * 0.7, tone('key'), () => 0.09, ink, wick); screen(c, box, P * 0.7, tone('key'), () => 0.38, ink, label);
-        // the weave runs between the posts and stops at the label
-        for (let k = 1; k < 4; k++) { const y = (h * k) / 4; [[w * 0.02, lx0], [lx1, w * 0.98]].forEach(([a, b], q) => crayon(c, [[a, y], [b, y]], { w: 0.7, color: ink, seed: 430 + k * 2 + q, alpha: 0.55, wobble: 0.3 })); }
-        for (let k = 1; k < 7; k++) { const x = (w * k) / 7; if (x > lx0 - 1 && x < lx1 + 1) continue; crayon(c, [[x, h * 0.12], [x - w * 0.01, h]], { w: 0.6, color: ink, seed: 440 + k, alpha: 0.4, wobble: 0.3 }); }
-        // four corner posts: the two outer edges of the basket and the two that frame the label
-        post(c, w * 0.012, w * 0.058, 460, 2.4); post(c, w * 0.988, w * 0.942, 461, 2.4); post(c, w * 0.18, w * 0.2, 462, 1.9); post(c, w * 0.82, w * 0.8, 463, 1.9);
-        c.fillRect(-0.5, 0, w + 1, 3);
-        crayon(c, [[0, 1.5], [w * 0.5, 1.7], [w, 1.5]], { w: 1.3, color: ink, seed: 464 });
-        crayon(c, [[w * 0.05, h - 0.8], [w * 0.5, h - 0.6], [w * 0.95, h - 0.8]], { w: 1.5, color: ink, seed: 465 });
-        crayon(c, [[lx0, ly0], [lx1, ly0], [lx1 - w * 0.01, ly1], [lx0 + w * 0.01, ly1]], { w: 1.2, color: ink, seed: 466, close: true });
-      },
-    }, { seed: 17, paper: false, reg: 0.5 });
-    // after the drums: a golf ball on the label, bare paper with a key outline and dimples
-    const c = s.ctx, bx = w / 2, by = (ly0 + ly1) / 2 + 1, br = Math.min((lx1 - lx0) * 0.3, (ly1 - ly0) * 0.34);
-    c.fillStyle = look.paper; c.beginPath(); c.arc(bx, by, br, 0, TAU); c.fill();
-    c.strokeStyle = look.key; c.lineWidth = Math.max(1, br / 5); c.beginPath(); c.arc(bx, by, br - c.lineWidth / 2, 0, TAU); c.stroke();
-    c.fillStyle = look.key; c.globalAlpha = 0.55; [[-0.35, -0.3], [0.1, -0.45], [-0.45, 0.15], [0.3, 0.05], [-0.05, 0.35]].forEach(([a, b]) => { c.beginPath(); c.arc(bx + a * br, by + b * br, Math.max(0.5, br * 0.1), 0, TAU); c.fill(); }); c.globalAlpha = 1;
+  return keep(`basket:flat:${Math.round(width)}:${dpr}`, () => {
+    const w = Math.round(width), h = Math.round(w * 0.78), s = surface(w, h, dpr), c = s.ctx;
+    c.fillStyle = PAL.wicker; c.beginPath(); c.roundRect(1, 1, w - 2, h - 2, Math.max(3, w * 0.08)); c.fill();
+    c.fillStyle = PAL.wickerDeep; c.fillRect(1, 1, w - 2, h * 0.16); c.fillRect(w * 0.64, h * 0.16, w * 0.36 - 1, h * 0.84 - 1);
     return { cv: s.cv, w, h };
   });
 }
 // the balloon's coral mouth: the skirt the cables hang from, a key outline, gore lines, a ring at its lower edge
 function mouthSprite(width, dpr) {
-  return keep(`mouth:${look.name}:${Math.round(width)}:${dpr}`, () => {
-    const w = Math.round(width), h = 17, s = surface(w, h, dpr), b = w * 0.2, P = 2.3, box = { x0: 0, y0: 0, x1: w, y1: h };
-    const skirt = path([[0, 0], [w, 0], [w - b, h - 2], [b, h - 2]]);
-    s.ctx.fillStyle = look.paper; s.ctx.fill(skirt);
-    print(s, {
-      warm: (c, ink) => { c.fill(skirt); },
-      key: (c, ink) => {
-        screen(c, box, P * 0.7, tone('key'), (x) => 0.12 + 0.18 * Math.abs(x / w - 0.5), ink, skirt);
-        for (let k = 1; k < 5; k++) { const f = k / 5; crayon(c, [[w * f, 0], [lerp(w * f, b + (w - 2 * b) * f, 1), h - 2]], { w: 0.9, color: ink, seed: 480 + k, alpha: 0.6, wobble: 0.2 }); }
-        crayon(c, [[0, 0], [b, h - 2]], { w: 1.7, color: ink, seed: 485 }); crayon(c, [[w, 0], [w - b, h - 2]], { w: 1.7, color: ink, seed: 486 });
-        crayon(c, [[b, h - 1.5], [w * 0.5, h - 1.2], [w - b, h - 1.5]], { w: 2.6, color: ink, seed: 487 });
-      },
-    }, { seed: 19, paper: false, reg: 0.5 });
+  return keep(`mouth:flat:${Math.round(width)}:${dpr}`, () => {
+    const w = Math.round(width), h = 17, s = surface(w, h, dpr), b = w * 0.2;
+    s.ctx.fillStyle = PAL.coralDeep; s.ctx.fill(path([[0, 0], [w, 0], [w - b, h - 2], [b, h - 2]]));
     return { cv: s.cv, w, h, b };
   });
 }
@@ -354,7 +285,7 @@ function ticketBody(c, w2, h2, th) {
 function paintTicket(c, { tw, th, n, e = 9, start = [0, 0, 0], still = false }) {
   const w2 = tw / 2, h2 = th / 2, stub = Math.min(30, tw * 0.13), body = () => ticketBody(c, w2, h2, th);
   // the warm drum's copy of the ticket, offset, then the paper
-  c.save(); c.globalCompositeOperation = 'multiply'; c.translate(3, 2.5); c.fillStyle = look.warm; body(); c.fill(); c.restore();
+  
   c.fillStyle = look.paper; body(); c.fill();
   c.save(); body(); c.clip();
   const D = String(n).length, fsz = Math.min(56, th * 0.6), cw = fsz * 0.62, cx0 = stub / 2, mid = (cx0 + w2) / 2 - w2 / 2 + 6;
@@ -364,19 +295,19 @@ function paintTicket(c, { tw, th, n, e = 9, start = [0, 0, 0], still = false }) 
   c.beginPath(); c.arc(0, 0, th * 0.34, 0, TAU); c.fill(); c.restore();
   // the digit wheels: each rolls ten ticks and more, the hundreds first
   const digs = String(n).split('').map(Number);
-  c.font = `800 ${fsz}px ${FONT}`; c.textAlign = 'center'; c.textBaseline = 'middle';
+  c.font = `700 ${fsz}px ${FONT}`; c.textAlign = 'center'; c.textBaseline = 'middle';
   digs.forEach((dg, i) => {
     const cx = mid + (i - (D - 1) / 2) * cw, u0 = clamp((e - 0.06 - i * 0.1) / 0.55), s0 = start[i], ticks = 10 + ((dg - s0 + 10) % 10), v = still ? dg : s0 + ticks * ease.out(u0), d0 = Math.floor(v) % 10, fr = v - Math.floor(v), cellH = fsz * 1.02;
     c.save(); c.beginPath(); c.rect(cx - cw / 2, -cellH * 0.62, cw, cellH * 1.24); c.clip();
     for (const [dd, dy] of [[d0, -fr * cellH], [(d0 + 1) % 10, (1 - fr) * cellH]]) {
-      c.save(); c.globalCompositeOperation = 'multiply'; c.fillStyle = look.warm; c.fillText(dd, cx + 2.2, dy + 2.4 + fsz * 0.04); c.restore();
+      
       c.fillStyle = look.key; c.fillText(dd, cx, dy + fsz * 0.04);
     }
     c.restore();
   });
   // the stub: a cut line of dots and 'No.' set small
   c.fillStyle = look.key; c.globalAlpha = 0.7; for (let q = -h2 + 6; q < h2 - 3; q += 6) { c.beginPath(); c.arc(-w2 + stub, q, 1, 0, TAU); c.fill(); }
-  c.globalAlpha = 1; c.save(); c.translate(-w2 + stub * 0.5 + 2, 0); c.rotate(-Math.PI / 2); c.font = `800 ${Math.round(clamp(th * 0.13, 9, 12))}px ${FONT}`; c.fillText('No.', 0, 0); c.restore();
+  c.globalAlpha = 1; c.save(); c.translate(-w2 + stub * 0.5 + 2, 0); c.rotate(-Math.PI / 2); c.font = `700 ${Math.round(clamp(th * 0.13, 9, 12))}px ${FONT}`; c.fillText('No.', 0, 0); c.restore();
   c.restore();
   c.strokeStyle = look.key; c.lineWidth = 2.4; c.lineJoin = 'round'; body(); c.stroke();
 }
@@ -417,48 +348,19 @@ export function luck() {
     bg = surface(W, H, dpr);
     const box = { x0: 0, y0: 0, x1: W, y1: H }, P = 5.6, face = new Path2D(); face.roundRect(x0, m, bw, H - 2 * m, 10);
     const edge = (x) => turfTop + Math.sin(x * 0.09 + 1) * 1.6 + Math.sin(x * 0.23) * 0.8;
-    const plates = {
-      sky: (c, ink) => {
-        // the sky the basket hangs in, thinning toward the pegs; below it the pegboard's own tint, a screen at 0.06
-        screen(c, box, P, tone('sky'), (x, y) => (y < skyB ? 0.22 - 0.14 * ((y - m) / (skyB - m)) : y < skyB + 30 ? 0.08 * (1 - (y - skyB) / 30) : 0), ink, face);
-      },
-      warm: (c, ink) => {
-        // the board's offset copy, like the page's cards: only what sticks out past the board
-        c.save(); const o = new Path2D(); o.rect(0, 0, W, H); o.addPath(face); c.clip(o, 'evenodd');
-        c.beginPath(); c.roundRect(x0 + 4, m + 3.5, bw, H - 2 * m, 10); c.fill(); c.restore();
-      },
-      key: (c, ink) => {
-        c.lineWidth = 3; c.lineJoin = 'round'; c.stroke(face);
-        c.save(); c.clip(face);
-        // the pegboard's drill holes: every site of the lattice a tee is not standing in
-        c.save(); c.globalAlpha = 0.16;
-        for (let i = 0; i < n; i++) for (let kk = 1; kk < 20; kk++) { if (kk % 2 !== i % 2) continue; c.beginPath(); c.arc(x0 + (kk * gap) / 2, y1 + i * pitch, 1.3, 0, TAU); c.fill(); }
-        c.restore();
-        // each cup is a funnel: dividers from the last tees to the turf's front lip
-        for (let k = 1; k < BINS; k++) crayon(c, [[x0 + k * gap, M.lastY + M.cr * 0.7], [x0 + k * gap + (k % 2 ? 0.4 : -0.3), turfTop + turfH * 0.9], [x0 + k * gap, turfTop + turfH]], { w: 2, color: ink, seed: 30 + k, wobble: 0.5 });
-        // the turf's back edge, with its grass: hand-placed drifts and bare rests
-        const gr = rng(77); const edgePts = []; for (let x = x0; x <= x0 + bw + 4; x += 6) edgePts.push([x, edge(x)]);
-        crayon(c, edgePts, { w: 1.6, color: ink, seed: 61, wobble: 0.7 });
-        for (let x = x0 + 4; x < x0 + bw - 2;) {
-          if (gr() < 0.2) { x += 9 + gr() * 16; continue; }                 // a bare rest
-          const n = 1 + Math.floor(gr() * 3);
-          for (let q = 0; q < n; q++) { const bx = x + q * 2.6, hh = 2.5 + gr() * 4.5, lean = (gr() - 0.5) * 3; crayon(c, [[bx, edge(bx) + 0.5], [bx + lean, edge(bx) - hh]], { w: 1, color: ink, seed: 100 + Math.floor(bx), alpha: 0.85 }); }
-          x += 7 + gr() * 7;
-        }
-        // the cups: dark ovals cut into the turf, a lip, and a flag pole beside each
-        for (let k = 0; k < BINS; k++) {
-          const cx = x0 + (k + 0.5) * gap, rx = cupRx, ry = rx * 0.4;
-          c.beginPath(); c.ellipse(cx, cupY, rx, ry, 0, 0, TAU); c.fill();
-          crayon(c, Array.from({ length: 17 }, (_, q) => [cx + (rx + 1.6) * Math.cos((q / 16) * TAU), cupY + (ry + 1.2) * Math.sin((q / 16) * TAU)]), { w: 1.3, color: ink, seed: 200 + k, alpha: 0.8 });
-          const px = x0 + k * gap + gap * 0.22; crayon(c, [[px, cupY + 3], [px + 0.4, cupY - turfH * 0.5]], { w: 1.5, color: ink, seed: 300 + k });
-        }
-        // the tee that was pulled from row four leaves its hole
-        if (M.hole) { c.beginPath(); c.ellipse(M.hole.x, M.hole.y + 1, u * 0.55, u * 0.3, 0, 0, TAU); c.globalAlpha = 0.8; c.fill(); }
-        c.restore();
-      },
-    };
-    greens(plates, (c, ink, k) => screen(c, box, P, tone(ink) + 5, (x, y) => (y < edge(x) ? 0 : (0.36 + 0.08 * Math.sin(x * 0.05)) * k), inkOf(ink), face));
-    print(bg, plates, { seed: 21, reg: 0.8 });
+    // flat: a white board with a hairline, a pale sky band where the basket hangs, a soft lawn with the cups
+    { const c = bg.ctx;
+      c.fillStyle = PAL.paper; c.fillRect(0, 0, W, H);
+      c.fillStyle = '#FFFFFF'; c.fill(face);
+      c.save(); c.clip(face);
+      const sg = c.createLinearGradient(0, m, 0, skyB + 30); sg.addColorStop(0, '#CFE5F3'); sg.addColorStop(1, 'rgba(234,244,246,0)'); c.fillStyle = sg; c.fillRect(x0, m, bw, skyB + 30 - m);
+      c.fillStyle = PAL.lawn; c.beginPath(); c.moveTo(x0, edge(x0)); for (let x = x0; x <= x0 + bw + 4; x += 6) c.lineTo(x, edge(x)); c.lineTo(x0 + bw + 4, H); c.lineTo(x0, H); c.closePath(); c.fill();
+      c.strokeStyle = 'rgba(31,42,61,0.10)'; c.lineWidth = 1;
+      for (let k = 1; k < BINS; k++) { c.beginPath(); c.moveTo(x0 + k * gap, M.lastY + M.cr * 0.7); c.lineTo(x0 + k * gap, turfTop + turfH); c.stroke(); }
+      for (let k = 0; k < BINS; k++) { const cx = x0 + (k + 0.5) * gap, rx = cupRx, ry = rx * 0.4; c.fillStyle = '#5E8A5A'; c.beginPath(); c.ellipse(cx, cupY, rx, ry, 0, 0, TAU); c.fill(); }
+      c.restore();
+      c.strokeStyle = PAL.line; c.lineWidth = 1; c.stroke(face);
+    }
     // after the drums: paper left bare, the way the chalk is. A lip of paper under each cup
     const c = bg.ctx; c.save(); c.globalAlpha = 0.85;
     for (let k = 0; k < BINS; k++) { const cx = x0 + (k + 0.5) * gap, rx = cupRx, ry = rx * 0.4; crayon(c, Array.from({ length: 8 }, (_, q) => { const a = 0.15 * Math.PI + (q / 7) * 0.7 * Math.PI; return [cx + rx * Math.cos(a), cupY + ry * Math.sin(a) + 1.5]; }), { w: 1.3, color: look.paper, seed: 400 + k }); }
@@ -522,7 +424,7 @@ export function luck() {
       c.save(); c.translate(p.x, p.y); c.rotate(p.tilt + wob); c.drawImage(sp.cv, -sp.ox, -sp.oy, sp.w, sp.h); c.restore();
     }
     // the value of a tee, shown for a moment when it is pinged
-    c.save(); c.textAlign = 'center'; c.font = `800 ${Math.round(clamp(gap * 0.3, 10, 12))}px ${FONT}`; c.lineJoin = 'round';
+    c.save(); c.textAlign = 'center'; c.font = `700 ${Math.round(clamp(gap * 0.3, 10, 12))}px ${FONT}`; c.lineJoin = 'round';
     for (const p of M.pegs) {
       const a = now - p.popT; if (a < 0 || a > 650) continue;
       const k = still ? 1 : ease.back(a / 140), y = p.y - cr - 5 - (still ? 0 : 7 * ease.out(a / 260)), q = a > 480 ? 1 - (a - 480) / 170 : 1;
@@ -533,15 +435,15 @@ export function luck() {
     for (const nt of notes) { const a = (now - nt.t0) / 900; if (a < 0 || a > 1) continue; drawNote(c, nt.x + (still ? 0 : Math.sin(a * 7) * 3), nt.y - (still ? 0 : 20 * ease.out(a)), 1 - clamp((a - 0.6) / 0.4), nt.k); }
     // pennants on the cups, their range on two lines; a tap flutters one at four times the wave for 600 ms
     c.save(); const fs = M.fs, fw = M.fw, fh = M.fh;
-    c.textAlign = 'center'; c.textBaseline = 'middle'; c.font = `800 ${fs}px ${FONT}`;
+    c.textAlign = 'center'; c.textBaseline = 'middle'; c.font = `700 ${fs}px ${FONT}`;
     flags.forEach((f, k) => {
       const age = now - f.fT, fk = age >= 0 && age < 600 ? (age < 450 ? 4 : lerp(4, 1, (age - 450) / 150)) : 1;
       const wv = (a, x) => (still ? 0 : Math.sin(t * TAU * 0.8 + f.ph + x * 5) * a * fk);
       const top = [[0, 0], [fw * 0.5, wv(0.9, 0.5)], [fw, wv(1.5, 1)]], bot = [[fw, fh + wv(1.5, 1)], [fw * 0.5, fh + wv(0.9, 0.5)], [0, fh]];
       const poly = () => { c.beginPath(); top.concat(bot).forEach(([x, y], i) => (i ? c.lineTo(f.x + x, f.y + y) : c.moveTo(f.x + x, f.y + y))); c.closePath(); };
       c.globalAlpha = 1; c.fillStyle = look.paper; poly(); c.fill();
-      c.save(); c.globalCompositeOperation = 'multiply'; c.translate(OFF.warm[0] * 0.6, OFF.warm[1] * 0.6); c.fillStyle = look.warm; c.globalAlpha = 0.28; poly(); c.fill(); c.restore();
-      c.strokeStyle = look.key; c.lineWidth = 1; poly(); c.stroke();
+      
+      c.strokeStyle = PAL.line; c.lineWidth = 1; poly(); c.stroke();
       c.fillStyle = look.key; const mx = f.x + fw * 0.5 + 0.6; c.fillText(f.lo + '–', mx, f.y + fh * 0.3 + wv(0.5, 0.5)); c.fillText(f.hi + '', mx, f.y + fh * 0.72 + wv(0.5, 0.5));
     });
     c.restore();
@@ -628,7 +530,7 @@ export function luck() {
         c.save(); const cx = px[i] + pw[i] / 2, cy = py + ph / 2; c.translate(cx, cy + (1 - a) * 8); c.scale(a, a);
         c.fillStyle = look.key; c.beginPath(); c.roundRect(-pw[i] / 2 + 2.5, -ph / 2 + 2.5, pw[i], ph, 14); c.fill();
         c.fillStyle = fill; c.strokeStyle = look.key; c.lineWidth = 2.2; c.beginPath(); c.roundRect(-pw[i] / 2, -ph / 2, pw[i], ph, 14); c.fill(); c.stroke();
-        c.fillStyle = ink; c.font = `800 ${/[฀-๿]/.test(label) ? 13 : 14}px ${/[฀-๿]/.test(label) ? THAI : FONT}`; c.fillText(label, 0, 1); c.restore();
+        c.fillStyle = ink; c.font = `700 ${/[฀-๿]/.test(label) ? 13 : 14}px ${/[฀-๿]/.test(label) ? THAI : FONT}`; c.fillText(label, 0, 1); c.restore();
       });
       c.restore();
     } else zones = {};
@@ -706,20 +608,20 @@ export function luck() {
 
   // ── the share card: the ticket, the path it came by, the QR ───────────────
   async function buildTicketCard(tk) {
-    try { await Promise.all([document.fonts.load('800 80px "Bricolage Grotesque"'), document.fonts.load('700 50px "Noto Sans Thai"')]); } catch (e) {}
+    try { await Promise.all([document.fonts.load('700 80px "Inter"'), document.fonts.load('700 50px "Noto Sans Thai"')]); } catch (e) {}
     const CW = 1080, CH = 1350, cd = document.createElement('canvas'); cd.width = CW; cd.height = CH; const g = cd.getContext('2d');
     g.fillStyle = look.paper; g.fillRect(0, 0, CW, CH);
     // the words come first, in both languages
     const head = `My lucky number is ${tk.n}`, thai = `เลขนำโชคของฉันคือ ${tk.n}`;
     g.textBaseline = 'alphabetic'; g.font = `800 88px ${FONT}`;
-    g.globalCompositeOperation = 'multiply'; g.fillStyle = look.warm; g.fillText(head, 63, 133); g.globalCompositeOperation = 'source-over'; g.fillStyle = look.key; g.fillText(head, 60, 130);
+     g.fillStyle = look.key; g.fillText(head, 60, 130);
     g.font = `700 50px ${THAI}`; g.fillText(thai, 60, 200);
     // the ticket, large, a little askew, the way it slides out of the cup
     const tw0 = 240, th0 = 100, f = 880 / tw0;
     g.save(); g.translate(CW / 2, 255 + (th0 * f) / 2 + 12); g.rotate(-2 * DEG); g.scale(f, f); paintTicket(g, { tw: tw0, th: th0, n: tk.n, still: true }); g.restore();
     // the machine, the path the ball took printed on it, framed like the page's cards
     const fh = 570, fw = Math.round((fh * W) / H), fx = 60, fy = 1290 - fh, s = fw / W;
-    g.save(); g.globalCompositeOperation = 'multiply'; g.fillStyle = look.warm; g.fillRect(fx + 12, fy + 12, fw, fh); g.restore();
+    
     g.save(); g.beginPath(); g.rect(fx, fy, fw, fh); g.clip(); g.translate(fx, fy); g.scale(s, s); paint(g, 1e12, { still: true }); g.restore();
     g.strokeStyle = look.key; g.lineWidth = 6; g.strokeRect(fx, fy, fw, fh);
     // beside it: what to do, when and where, and the page's QR dark on white
@@ -1276,7 +1178,7 @@ export function board() {
   }
   // a few words on a paper pill with a key line: it keeps its edge over the magnified halftone, where a stroked halo would not
   function label(c, text, x, y, size) {
-    c.save(); c.font = `800 ${size}px ${FONT}`; c.textAlign = 'center'; c.textBaseline = 'middle';
+    c.save(); c.font = `700 ${size}px ${FONT}`; c.textAlign = 'center'; c.textBaseline = 'middle';
     const w = Math.ceil(c.measureText(text).width) + 10, h = size + 5;
     c.fillStyle = look.paper; c.strokeStyle = look.key; c.lineWidth = 1.3; c.beginPath(); c.roundRect(x - w / 2, y - h / 2, w, h, h / 2); c.fill(); c.stroke();
     c.fillStyle = look.key; c.fillText(text, x, y + 0.5); c.restore();
@@ -1284,7 +1186,7 @@ export function board() {
   // a number on a pill in its medal's ink: gold is the sun drum, silver bare paper with a key screen, bronze the warm drum. A medal's pill
   // carries its place on a small paper disc at the upper left, the way a rosette carries it.
   function tag(c, p, x, y, size, kind = p.medal) {
-    c.save(); c.font = `800 ${size}px ${FONT}`; c.textAlign = 'center'; c.textBaseline = 'middle';
+    c.save(); c.font = `700 ${size}px ${FONT}`; c.textAlign = 'center'; c.textBaseline = 'middle';
     const rd = clamp(size * 0.4, 5, 16), place = kind >= 1 && kind <= 3, more = place ? rd * 0.9 : 0, w = Math.ceil(c.measureText(p.n).width) + 12 + more, h = size + 7, sh = Math.max(1.5, size / 9), tx = x + more / 2;
     c.fillStyle = look.key; c.beginPath(); c.roundRect(x - w / 2 + sh, y - h / 2 + sh, w, h, h / 2); c.fill();
     c.fillStyle = kind === 1 ? look.sun : kind === 2 ? look.paper : kind === 4 ? look.sky : look.warm; c.strokeStyle = look.key; c.lineWidth = Math.max(1.6, size / 8); c.beginPath(); c.roundRect(x - w / 2, y - h / 2, w, h, h / 2); c.fill(); c.stroke();
@@ -1293,7 +1195,7 @@ export function board() {
     if (place) {
       const dx = x - w / 2 + rd * 0.55, dy = y - h / 2 + rd * 0.25;
       c.fillStyle = look.paper; c.strokeStyle = look.key; c.lineWidth = Math.max(1.2, size / 9); c.beginPath(); c.arc(dx, dy, rd, 0, TAU); c.fill(); c.stroke();
-      c.fillStyle = look.key; c.font = `800 ${Math.round(rd * 1.35)}px ${FONT}`; c.fillText(kind, dx, dy + rd * 0.06);
+      c.fillStyle = look.key; c.font = `700 ${Math.round(rd * 1.35)}px ${FONT}`; c.fillText(kind, dx, dy + rd * 0.06);
     }
     c.restore();
   }
@@ -1391,7 +1293,7 @@ export function board() {
   function drawStamp(c, now) {
     const age = (now - stamp) / 1000, k = calm ? 1 : ease.out(age / 0.2), s = lerp(1.7, 1, k);
     const both = !document.documentElement.classList.contains('lang-th') && !document.documentElement.classList.contains('lang-en'), lines = both ? ['สถิติใหม่!', 'New best'] : [t2('สถิติใหม่!', 'New best')];
-    c.save(); c.font = `800 ${both ? 16 : 19}px ${FONT}`; const w = Math.ceil(Math.max(...lines.map((l) => c.measureText(l).width))) + 26, h = lines.length * 22 + 12;
+    c.save(); c.font = `700 ${both ? 16 : 19}px ${FONT}`; const w = Math.ceil(Math.max(...lines.map((l) => c.measureText(l).width))) + 26, h = lines.length * 22 + 12;
     const left = !loupe || loupe.cx > W / 2, x = left ? w / 2 + 14 : W - w / 2 - 14, y = Math.max(h / 2 + 10, L.hy * 0.42);
     c.translate(x, y); c.rotate((left ? -6 : 6) * DEG); c.scale(s, s); c.globalAlpha = Math.min(1, k * 1.4); c.textAlign = 'center'; c.textBaseline = 'middle';
     c.fillStyle = look.paper; c.beginPath(); c.roundRect(-w / 2 - 3, -h / 2 - 3, w + 6, h + 6, 9); c.fill();
@@ -1428,7 +1330,7 @@ export function board() {
 
   // ── the Share card: the lawn round the X and your ball, the three ringed with their numbers, a tape to the X, the QR ───
   async function buildCard() {
-    try { await Promise.all([document.fonts.load('800 80px "Bricolage Grotesque"'), document.fonts.load('700 50px "Noto Sans Thai"')]); } catch (e) {}
+    try { await Promise.all([document.fonts.load('700 80px "Inter"'), document.fonts.load('700 50px "Noto Sans Thai"')]); } catch (e) {}
     const CW = 1080, CH = 1350, cd = document.createElement('canvas'); cd.width = CW; cd.height = CH; const g = cd.getContext('2d');
     g.fillStyle = look.paper; g.fillRect(0, 0, CW, CH);
     // the words come first: they set where the picture starts
@@ -1463,7 +1365,7 @@ export function board() {
     keep3.forEach((p) => { const b = ballAt(p), sp = dropBall(Math.round(b.r * 2) / 2, 1); g.drawImage(sp.cv, b.x - sp.size / 2, b.yb - b.r - sp.size / 2, sp.size, sp.size); });
     const mEnd = [mb.x, mb.y + mb.r * 0.2]; tapeDraw(g, fromRing([ax, ay], mEnd, xr * s * 0.9 + 6), mEnd, 1, tw, tw * 1.7, tw * 1.2, mineBall.medal || 1);
     const pill = (txt, x, y, size) => {
-      g.save(); g.font = `800 ${size}px ${FONT}`; g.textAlign = 'center'; g.textBaseline = 'middle'; const w = g.measureText(txt).width + size * 0.9, h = size * 1.55;
+      g.save(); g.font = `700 ${size}px ${FONT}`; g.textAlign = 'center'; g.textBaseline = 'middle'; const w = g.measureText(txt).width + size * 0.9, h = size * 1.55;
       g.fillStyle = look.key; g.beginPath(); g.roundRect(x - w / 2 + 4, y - h / 2 + 4, w, h, h / 2); g.fill();
       g.fillStyle = look.paper; g.strokeStyle = look.key; g.lineWidth = 4; g.beginPath(); g.roundRect(x - w / 2, y - h / 2, w, h, h / 2); g.fill(); g.stroke();
       g.fillStyle = look.key; g.fillText(txt, x, y + size * 0.04); g.restore();

@@ -5,7 +5,7 @@
 // hands its number to the Get a ball panel; the people hop when tapped; a tap on the sky lets a
 // small balloon go; a tap on the lawn drops a ball there and says how far it is from the X.
 import { look, onLook, clamp, lerp, rng, surface } from './riso.js';
-import { bakeBalloon, bakeGround, bakeCloud, ballSprite, flame, crowd, person } from './scene.js';
+import { bakeBalloon, bakeGround, bakeCloud, ballSprite, flame, crowd, person, bakeKapok } from './scene.js';
 import { burst, toast, dingbatFloat, t2 } from './bits.js';
 
 const TAU = Math.PI * 2;
@@ -57,6 +57,8 @@ export function hero({ calm }) {
     L = { w: W, h: vh, fullH: H, hy, x: [cx, yX], xs, tape, tapeW: wide ? 4 : 3, pitch: wide ? 4.4 : 3.8, reg: wide ? 1.2 : 0.9, chedis: wide ? [0.48, 0.52, 0.9] : [0.12, 0.17, 0.88], clouds: [], liveTape: true, kapok: wide ? 'right' : 'left' };
     rb = wide ? Math.max(3.2, Math.min(6, W / 170)) : Math.max(4, Math.min(6, W / 100));
     bg = surface(W, H, dpr); G = bakeGround(bg, L, 3);
+    // the kapok on the stage's top layer, above the balloon, the balls, the people and the buttons (Nan, 2026-10-24)
+    { const tc = document.getElementById('hero-tree'); if (tc && L.kapok) { const t = bakeKapok(W, H, hy, L.kapok, dpr); tc.width = t.cv.width; tc.height = t.cv.height; tc.getContext('2d').drawImage(t.cv, 0, 0); } }
     // the cord's ring hangs above the X, never on its crossing: as long as the room under the basket allows, 16 px at the least
     const armH = 0.494 * L.xs;
     cord.len = clamp(yX - armH - 24 - foot, 16, S * 0.22);
@@ -316,7 +318,7 @@ export function hero({ calm }) {
       const b = rg.b, m = rg.medal - 1, e = 1 + 0.35 * Math.sin(k * Math.PI) * (1 - k), s = k < 1 ? clamp(k * 1.4, 0, 1) * e : 1, g = clamp(k * 1.4);
       const rr = rb * sc(b.z) * popOf(rg, now), foot = gy(b.z) - b.h - 2 * rr - 1.6, top = foot - FLAG.cap[m] * kw * g, col = [look.sun, look.paper, look.warm][m];
       const fs = FLAG.fs[m] * kw, fh = fs + 6, dr = fh / 2, notch = 6, label = String(b.n), dir = 1, flut = calm ? 0 : Math.sin(now / 170 + b.n) * 1.4;
-      ctx.save(); ctx.font = `800 ${fs}px "Bricolage Grotesque","Noto Sans Thai",sans-serif`; const fw = dr * 2 + 4 + ctx.measureText(label).width + notch + 6; ctx.restore();
+      ctx.save(); ctx.font = `700 ${fs}px "Inter","Noto Sans Thai",sans-serif`; const fw = dr * 2 + 4 + ctx.measureText(label).width + notch + 6; ctx.restore();
       const bx = clamp(X + FLAG.slot[m][0] * kw, fw / 2 + 4, W - fw / 2 - 4), by = Y + FLAG.slot[m][1] * kw;
       ctx.save(); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
       // the pole and its knob, and the leader to the banner's nearest edge
@@ -331,8 +333,8 @@ export function hero({ calm }) {
       // the rank in a key disc at the pole's end of the banner, the ball's number after it
       const dx = -dir * (fw / 2 - dr - 0.5);
       ctx.beginPath(); ctx.arc(dx, 0, dr - 2, 0, TAU); ctx.fillStyle = look.key; ctx.fill();
-      ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.font = `800 ${fs * 0.9}px "Bricolage Grotesque","Noto Sans Thai",sans-serif`; ctx.fillStyle = look.paper; ctx.fillText(String(rg.medal), dx, 0.8);
-      ctx.font = `800 ${fs}px "Bricolage Grotesque","Noto Sans Thai",sans-serif`; ctx.fillStyle = look.key; ctx.fillText(label, dx + dir * (dr + 2 + (fw - dr * 2 - 4 - notch) / 2 - 1), 0.8 + flut * 0.3);
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.font = `700 ${fs * 0.9}px "Inter","Noto Sans Thai",sans-serif`; ctx.fillStyle = look.paper; ctx.fillText(String(rg.medal), dx, 0.8);
+      ctx.font = `700 ${fs}px "Inter","Noto Sans Thai",sans-serif`; ctx.fillStyle = look.key; ctx.fillText(label, dx + dir * (dr + 2 + (fw - dr * 2 - 4 - notch) / 2 - 1), 0.8 + flut * 0.3);
       ctx.restore();
     });
     // a tapped ball's number: a small pennant on a pole over that ball, a tap on it goes to the Give panel
@@ -345,7 +347,7 @@ export function hero({ calm }) {
         ctx.translate(px, top); ctx.scale(s, s);
         ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(d * fw, flut * 0.4); ctx.lineTo(d * (fw - 6), fh / 2 + flut); ctx.lineTo(d * fw, fh + flut * 0.6); ctx.lineTo(0, fh); ctx.closePath();
         ctx.fillStyle = look.paper; ctx.fill(); ctx.strokeStyle = look.key; ctx.lineWidth = 1.5; ctx.lineJoin = 'round'; ctx.stroke();
-        ctx.fillStyle = look.key; ctx.font = `800 ${fs}px "Bricolage Grotesque","Noto Sans Thai",sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(label, d * (fw / 2 - 2), fh / 2 + 1 + flut * 0.4);
+        ctx.fillStyle = look.key; ctx.font = `700 ${fs}px "Inter","Noto Sans Thai",sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(label, d * (fw / 2 - 2), fh / 2 + 1 + flut * 0.4);
         ctx.restore();
         tag.box = [d > 0 ? px : px - fw, top, fw, fh];
       }
@@ -357,7 +359,7 @@ export function hero({ calm }) {
     if (!dTag) return;
     const age = now - dTag.t0; if ((!calm && age > 3400) || !dTag.b) { dTag = null; return; }
     const b = dTag.b, r = rb * sc(b.z), c = gy(b.z) - b.h - r, txt = t2(`ห่าง X ${dTag.m} ม.`, `${dTag.m} m from X`), al = calm ? 1 : clamp(age / 140) * clamp((3400 - age) / 400);
-    ctx.save(); ctx.globalAlpha = al; ctx.font = `700 11px "Noto Sans Thai","Bricolage Grotesque",sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.save(); ctx.globalAlpha = al; ctx.font = `700 11px "Noto Sans Thai","Inter",sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     const w = ctx.measureText(txt).width + 14, h = 19, x = clamp(b.x - w / 2, 4, W - w - 4), above = c - r - 11 - h > 4, y = above ? c - r - 11 - h : c + r + 11;
     ctx.beginPath(); ctx.roundRect(x, y, w, h, 8); ctx.fillStyle = look.paper; ctx.fill(); ctx.strokeStyle = look.key; ctx.lineWidth = 1.5; ctx.stroke();
     ctx.beginPath(); const tx = clamp(b.x, x + 8, x + w - 8); if (above) { ctx.moveTo(tx - 4, y + h); ctx.lineTo(tx, y + h + 6); ctx.lineTo(tx + 4, y + h); } else { ctx.moveTo(tx - 4, y); ctx.lineTo(tx, y - 6); ctx.lineTo(tx + 4, y); }
