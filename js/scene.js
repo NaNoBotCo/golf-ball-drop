@@ -18,7 +18,7 @@ function maskOf(w, h, paint) {
 }
 // riso.screen() prints a dot of radius 0.71*sqrt(t)*pitch: a tone of 0.63 or more closes into a
 // solid and a mid tone lands about 1.6x heavier than written. scr() writes tones at 0.62.
-const GAM = 0.62;
+let GAM = 0.62;   // bakeGround lowers it for the ground (L.quiet): the balloon and the X lead, the scenery steps back
 // riso.screen() walks the whole box's grid for every call. With `b` (the clip's bounds, {x0,x1,y0,y1}) it walks only
 // the lattice nodes whose dots can land inside them: the same lattice, the same dots, a fraction of the visits.
 function screenIn(ctx, box, pitch, ang, tone, color, clip, b) {
@@ -522,6 +522,10 @@ export function crowd(seed, x0, x1, baseAt, h) {
 //      kapok ('left' | 'right' | none: a foreground trunk), palms (false for none),
 //      fullH (the surface is taller than h: plain lawn runs on below h to fullH) }
 export function bakeGround(dest, L, seed = 3) {
+  const GAM0 = GAM; GAM = GAM0 * (L.quiet ?? 0.6);
+  try { return bakeGroundIn(dest, L, seed); } finally { GAM = GAM0; }
+}
+function bakeGroundIn(dest, L, seed) {
   const { w, h, hy } = L, r = rng(seed), rv = rng(seed * 13 + 5), P = L.pitch || 5.2, wide = w >= 900, U = clamp(h / 470, 0.85, 1.7), full = Math.max(h, L.fullH || h);
   const box = { x0: 0, y0: 0, x1: w, y1: full };
   const gz = (y) => clamp((y - hy) / (h - hy));       // 0 at the horizon, 1 at the front
@@ -664,7 +668,8 @@ export function bakeGround(dest, L, seed = 3) {
       // the kapok: its photo's trunk is all conical thorns. A light screen under them, darker on the shaded side; thorns 8-14 px in rows that follow the trunk, each with its paper glint
       if (kapok) {
         const frac = (y) => clamp((kapok.yb - y) / (kapok.yb - kapok.yt)), flat = Math.hypot(kapok.yb - kapok.yt, kapok.x0 - kapok.top[0]);
-        scr(c, box, P, tone('key'), (x, y) => { if (x < kapokBox[0] || x > kapokBox[1]) return 0; return x > kapok.mid(frac(y)) ? 0.62 : 0.3; }, ink, kapok.p, kapokB);
+        scr(c, box, P, tone('key'), (x, y) => { if (x < kapokBox[0] || x > kapokBox[1]) return 0; return x > kapok.mid(frac(y)) ? 0.4 : 0.18; }, ink, kapok.p, kapokB);
+        c.save(); c.globalAlpha = 0.45;   // the trunk frames the picture; it does not compete with the balloon
         const kr = rng(seed + 77), tz = clamp(kapok.bw / 28, 1, 1.5), gap = 11 * tz, rows = Math.max(3, Math.round(flat / gap));
         for (let q = 0; q <= rows; q++) {
           const t = q / rows, y = lerp(kapok.yb, kapok.yt, t), m = kapok.mid(t), half = lerp(kapok.bw, kapok.tw, t) / 2, cnt = Math.max(3, Math.round((half * 2) / (7 * tz)));
@@ -675,16 +680,17 @@ export function bakeGround(dest, L, seed = 3) {
             c.save(); c.globalCompositeOperation = 'destination-out'; c.lineCap = 'round'; c.lineWidth = Math.max(0.8, sz * 0.09); c.beginPath(); c.moveTo(bx + dx * sz * 0.2 - px * bwid * 0.14, by + dy * sz * 0.2 - py * bwid * 0.14); c.lineTo(bx + dx * sz * 0.62 - px * bwid * 0.05, by + dy * sz * 0.62 - py * bwid * 0.05); c.stroke(); c.restore();   // a bare-paper glint down each thorn's lit edge
           }
         }
-        crayon(c, kapok.edgeL, { w: 1.4, color: ink, seed: 1200, wobble: 0.5 }); crayon(c, kapok.edgeR, { w: 1.6, color: ink, seed: 1201, wobble: 0.5 });
+        c.restore();
+        crayon(c, kapok.edgeL, { w: 1.2, color: ink, seed: 1200, wobble: 0.5, alpha: 0.6 }); crayon(c, kapok.edgeR, { w: 1.3, color: ink, seed: 1201, wobble: 0.5, alpha: 0.6 });
       }
     },
   };
   // the greens: the yellow (or the leaf) laid solid over the lawn; the blue as a screen that carries the mown stripes
   greens(plates, (c, ink, k) => {
     if (ink === 'sun' || ink === 'leaf') {
-      c.fillRect(0, hy + 1, w, full - hy);
+      c.save(); c.globalAlpha = 0.7 * (L.quiet ?? 0.6); c.fillRect(0, hy + 1, w, full - hy); c.restore();   // a light lay, so the lawn sits behind the balloon and the X
       if (ink === 'leaf') { c.save(); c.globalCompositeOperation = 'destination-out'; c.fillStyle = '#000'; screen(c, box, P, 75, (x, y) => (y < hy + 1 || stripe(x, y) > 0.9 ? 0 : 0.2 + 0.1 * gz(y)), '#000'); c.restore(); }
-    } else screen(c, box, P * 0.8, 75, (x, y) => (y < hy + 1 ? 0 : (0.44 - 0.24 * gz(y)) * (stripe(x, y) > 0.9 ? 1 : 0.72)), inkOf(ink));
+    } else screen(c, box, P * 0.8, 75, (x, y) => (y < hy + 1 ? 0 : 0.75 * (0.44 - 0.24 * gz(y)) * (stripe(x, y) > 0.9 ? 1 : 0.72)), inkOf(ink));
     c.fillStyle = inkOf(ink);
     scr(c, box, P, tone(ink), (x, y) => (y < hy + 3 && inPath(near, x, y) ? 0.5 : 0), inkOf(ink));
     // canopies: lit tops (yellow-green), shaded undersides
@@ -704,7 +710,7 @@ export function bakeGround(dest, L, seed = 3) {
     c.restore();
     if (ink === 'sun') { c.fillStyle = inkOf('sun'); stakeSun(c); }
   });
-  print(dest, plates, { seed, reg: L.reg || 1 });
+  print(dest, plates, { seed, reg: (L.reg || 1) * 0.6 });
   // chalk: bare paper, drawn again by a hand with a line marker; the X in two passes
   const c = dest.ctx; c.save();
   chalk.forEach(([a, b, wd], k) => crayon(c, [a, [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2], b], { w: wd * sc((a[1] + b[1]) / 2) * 1.3, color: look.paper, seed: 800 + k, alpha: 0.9, wobble: 0.4 }));

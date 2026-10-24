@@ -912,7 +912,7 @@ export function board() {
     if (!size()) return;
     performance.mark('gbd:board-bake-start');
     const phone = W < 600, hy = Math.round(H * (phone ? 0.42 : 0.36));
-    L = { w: W, h: H, hy, x: [W / 2, 0], xs: Math.max(28, W * 0.05), tape: [], tapeW: phone ? 3 : 4, pitch: phone ? 6.2 : 7, reg: 1.1, chedis: [0.1, 0.14, 0.86], clouds: [[0.2, 0.25, 0.7], [0.75, 0.15, 0.6]] };
+    L = { w: W, h: H, hy, x: [W / 2, 0], xs: Math.max(28, W * 0.05), tape: [], tapeW: phone ? 3 : 4, pitch: phone ? 4.6 : 5.2, reg: 1.1, chedis: [0.1, 0.14, 0.86], clouds: [[0.2, 0.25, 0.7], [0.75, 0.15, 0.6]] };
     L.x[1] = gy(zX);
     // the tape on its stakes across the near lawn, as in the photos and the hero
     const yT = gy(zT); for (let x = -10; x <= W + 10; x += phone ? 52 : 70) L.tape.push([x, yT + Math.sin(x * 0.01) * 3]);
