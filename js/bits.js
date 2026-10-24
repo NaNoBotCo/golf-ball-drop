@@ -26,7 +26,7 @@ export function toast(msg) {
 // sparks in the page's inks
 export function burst(x, y, n = 14, star = false) {
   if (calm) return;
-  const inks = [look.warm, look.sun, look.sky, look.key];
+  const inks = ['#F1BE4F', '#E2735C', '#7FA6C9', '#78A981'];
   for (let i = 0; i < n; i++) {
     const e = document.createElement('i'), a = Math.random() * Math.PI * 2, d = 30 + Math.random() * 54;
     e.className = 'spark' + (star || i % 3 === 0 ? ' star' : ''); e.style.left = x - 4 + 'px'; e.style.top = y - 4 + 'px'; e.style.background = inks[i % inks.length];
@@ -38,10 +38,13 @@ export function burst(x, y, n = 14, star = false) {
 // a dingbat let go from a point, rising off the top of the screen
 export function dingbatFloat(name, x, y) {
   if (calm || document.querySelectorAll('.float-db').length > 18) return;
-  const e = document.createElement('i');
-  e.className = 'float-db'; e.setAttribute('data-dingbat', name); e.setAttribute('data-look', 'riso'); e.setAttribute('aria-hidden', 'true');
-  e.style.left = x - 23 + 'px'; e.style.top = y - 30 + 'px';
-  e.style.setProperty('--d', 6 + Math.random() * 5 + 's'); e.style.setProperty('--x', (Math.random() * 120 - 60) + 'px'); e.style.setProperty('--r', (Math.random() * 30 - 15) + 'deg');
+  const cols = [['#F1BE4F', '#E2A93A'], ['#7FA6C9', '#5E86AB'], ['#E2735C', '#C25B47'], ['#D98C9C', '#C26F81']], [a, b] = cols[Math.floor(Math.random() * cols.length)];
+  const e = document.createElement('div'); e.className = 'float-db'; e.setAttribute('aria-hidden', 'true');
+  e.innerHTML = name === 'golf-ball'
+    ? '<svg viewBox="0 0 30 38" width="30" height="38"><circle cx="15" cy="15" r="11" fill="#fff"/><path d="M26 15a11 11 0 0 1-21 5 11 11 0 0 0 21-5z" fill="#DCE1E8"/></svg>'
+    : `<svg viewBox="0 0 30 38" width="30" height="38"><path d="M15 27C5 21 3 12 5 8 8 2 22 2 25 8c2 4 0 13-10 19z" fill="${a}"/><path d="M15 2c5 0 9 2 10 6 2 4 0 13-10 19 4-6 5-15 0-25z" fill="${b}"/><rect x="12.5" y="30" width="5" height="4" rx="1" fill="#9C6C41"/><path d="M12 27l1 3M18 27l-1 3" stroke="#5C6577" stroke-width=".7"/></svg>`;
+  e.style.left = x - 15 + 'px'; e.style.top = y - 30 + 'px';
+  e.style.setProperty('--d', 6 + Math.random() * 5 + 's'); e.style.setProperty('--x', (Math.random() * 120 - 60) + 'px'); e.style.setProperty('--r', (Math.random() * 20 - 10) + 'deg');
   document.body.appendChild(e); e.addEventListener('animationend', () => e.remove());
 }
 
@@ -124,7 +127,7 @@ export function prizes() {
     c.fillStyle = look.sun; c.beginPath(); c.arc(x, x, r, 0, 6.29); c.fill();
     c.globalCompositeOperation = 'multiply'; c.fillStyle = look.warm; c.globalAlpha = 0.35; c.beginPath(); c.arc(x + r * 0.3, x + r * 0.35, r * 0.85, 0, 6.29); c.fill();
     c.globalAlpha = 1; c.globalCompositeOperation = 'source-over'; c.strokeStyle = look.key; c.lineWidth = Math.max(1.2, r / 7); c.beginPath(); c.arc(x, x, r - c.lineWidth / 2, 0, 6.29); c.stroke();
-    c.fillStyle = look.key; c.font = `800 ${r * 1.15}px "Bricolage Grotesque",sans-serif`; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText('฿', x, x + r * 0.06);
+    c.fillStyle = look.key; c.font = `700 ${r * 1.15}px "Inter",sans-serif`; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText('฿', x, x + r * 0.06);
     return (sprite = { cv: s.cv, r, size: r * 2 + 4 });
   }
   function loop() {

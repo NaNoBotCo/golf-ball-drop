@@ -376,7 +376,7 @@ export function give() {
     c.restore();
   }
   function chalk(c, str, x, y, px) {
-    c.save(); c.font = `800 ${px}px "Bricolage Grotesque","Noto Sans Thai",sans-serif`; c.textAlign = 'center'; c.textBaseline = 'middle'; c.lineJoin = 'round';
+    c.save(); c.font = `700 ${px}px "Inter","Noto Sans Thai",sans-serif`; c.textAlign = 'center'; c.textBaseline = 'middle'; c.lineJoin = 'round';
     c.strokeStyle = look.paper; c.lineWidth = 4; c.strokeText(str, x, y); c.fillStyle = inkOf('key'); c.fillText(str, x, y); c.restore();
   }
   // less than a ball: half a ball sunk in a tuft, or a dandelion seed head; a tap hops the one and blows the other
@@ -425,7 +425,7 @@ export function give() {
     const s = surface(w, h, dprG), c = s.ctx; c.fillStyle = look.paper; c.beginPath(); c.roundRect(1, 1, w - 2, h - 2, 4); c.fill(); c.strokeStyle = inkOf('key'); c.lineWidth = 2.2; c.stroke();
     c.fillStyle = inkOf('sun'); c.globalCompositeOperation = 'multiply'; c.fillRect(5, h - 9, w - 10, 3); c.globalCompositeOperation = 'source-over';
     c.textAlign = 'center'; c.textBaseline = 'middle'; c.lineJoin = 'round';
-    const line = (str, px, y) => { c.font = `800 ${px}px "Bricolage Grotesque","Noto Sans Thai",sans-serif`; c.strokeStyle = inkOf('key'); c.lineWidth = Math.max(2, px * 0.14); c.strokeText(str, w / 2, y); c.fillStyle = inkOf('warm'); c.fillText(str, w / 2, y); };
+    const line = (str, px, y) => { c.font = `700 ${px}px "Inter","Noto Sans Thai",sans-serif`; c.strokeStyle = inkOf('key'); c.lineWidth = Math.max(2, px * 0.14); c.strokeText(str, w / 2, y); c.fillStyle = inkOf('warm'); c.fillText(str, w / 2, y); };
     if (mode === 'both') { line('ขอบคุณ', h * 0.4, h * 0.36); line('Thank you', h * 0.27, h * 0.7); } else line(mode === 'th' ? 'ขอบคุณ' : 'Thank you', h * 0.46, h * 0.46);
     return (banner = { key, cv: s.cv, w, h });
   }
@@ -468,7 +468,7 @@ export function give() {
     if (!thx || calm) return;   // held still, the banner on the balloon is the thank-you
     const age = calm ? 99 : T - thx.t0; if (age < 0) return;
     let al = 1; if (thx.out != null) { al = 1 - (T - thx.out) / 0.35; if (al <= 0) { thx = null; return; } }
-    const mode = langMode(), x0 = G.cx + B.b.basket[2] / 2 + G.r * 1.5 + 6, aw = G.w - x0 - 16, xc = x0 + aw / 2, f = (px) => `800 ${px}px "Bricolage Grotesque","Noto Sans Thai",sans-serif`;
+    const mode = langMode(), x0 = G.cx + B.b.basket[2] / 2 + G.r * 1.5 + 6, aw = G.w - x0 - 16, xc = x0 + aw / 2, f = (px) => `700 ${px}px "Inter","Noto Sans Thai",sans-serif`;
     const TH = 'ขอบคุณ', EN = 'Thank you', fit = (str, mx) => { c.font = f(100); return Math.min(mx, (100 * aw) / c.measureText(str).width); };
     const lines = mode === 'th' ? [[TH, fit(TH, 44), 0.6]] : mode === 'en' ? [[EN, fit(EN, 38), 0.6]] : [[TH, fit(TH, 34), 0.34], [EN, Math.min(fit(EN, 30), fit(TH, 34) * 0.85), 0.68]];
     const k = e3(age / 0.9), pop = 1 + 0.12 * Math.sin(clamp(age / 0.5) * Math.PI) * (calm ? 0 : 1);
