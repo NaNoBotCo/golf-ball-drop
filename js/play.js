@@ -149,7 +149,7 @@ function drawRoll(c, sp, x, y, ang) {
 // the yellow for green; a key crayon outline that breaks where the light lands, a dark crescent
 // for the cup's concavity, one shade line down the shaft, wood-grain ticks, a bare-paper band on the
 // neck and a small blue contact shadow. Four authored variants (colour, length, bow, a chip).
-const TEE = [{ len: 6.2, bow: 0, nick: 0, ink: 'warm' }, { len: 5.7, bow: 0.14, nick: 0, ink: 'sky' }, { len: 6.0, bow: -0.1, nick: 1, ink: 'sun' }, { len: 5.5, bow: 0.06, nick: 2, ink: 'leaf' }];
+const TEE = [{ len: 6.2, bow: 0, nick: 0, ink: 'sky' }, { len: 5.7, bow: 0.14, nick: 0, ink: 'sky' }, { len: 6.0, bow: -0.1, nick: 1, ink: 'sky' }, { len: 5.5, bow: 0.06, nick: 2, ink: 'sky' }];
 const TEE_HEAD = [[0, 1.35], [0.17, 1.38], [0.45, 1.2], [0.75, 0.9], [1.05, 0.62], [1.4, 0.45]];
 function teeHalf(o, y) {
   const pts = TEE_HEAD.concat([[o.len * 0.45, 0.37], [o.len * 0.72, 0.3], [o.len * 0.93, 0.15], [o.len, 0]]);
@@ -195,7 +195,7 @@ function teeSprite(u, dpr, v) {
     if (o.ink === 'warm') plates.warm = (c) => { c.fill(all); if (o.nick === 2) { c.globalCompositeOperation = 'destination-out'; c.beginPath(); c.arc(...P(1.3, 0.1), u * 0.22, 0, TAU); c.fill(); } };
     if (o.ink === 'sun') plates.sun = fillAll;
     if (o.ink === 'leaf') { if (look.leaf) plates.leaf = fillAll; else plates.sun = fillAll; }
-    print(s, plates, { seed: 40 + v, paper: false, reg: 0.55 });
+    print(s, plates, { seed: 40 + v, paper: false, reg: 0.55, strength: 0.45 });
     // after the drums, bare paper: a band round the neck, a glint on the lit side of the bell
     const c = s.ctx; c.save();
     crayon(c, [P(-teeHalf(o, 1.75) + bowAt(1.75) - 0.02, 1.75), P(teeHalf(o, 1.75) + bowAt(1.75) + 0.02, 1.8)], { w: Math.max(1, u * 0.3), color: look.paper, seed: 70 + v, alpha: 0.95, wobble: 0.15 });
@@ -420,8 +420,7 @@ export function luck() {
     const plates = {
       sky: (c, ink) => {
         // the sky the basket hangs in, thinning toward the pegs; below it the pegboard's own tint, a screen at 0.06
-        screen(c, box, P, tone('sky'), (x, y) => (y < skyB ? 0.4 - 0.22 * ((y - m) / (skyB - m)) : y < skyB + 30 ? 0.18 * (1 - (y - skyB) / 30) : 0), ink, face);
-        screen(c, box, 4.4, tone('sky') + 8, (x, y) => (y > skyB + 14 && y < edge(x) - 2 ? 0.06 * clamp((y - skyB - 14) / 20) : 0), ink, face);
+        screen(c, box, P, tone('sky'), (x, y) => (y < skyB ? 0.22 - 0.14 * ((y - m) / (skyB - m)) : y < skyB + 30 ? 0.08 * (1 - (y - skyB) / 30) : 0), ink, face);
       },
       warm: (c, ink) => {
         // the board's offset copy, like the page's cards: only what sticks out past the board
@@ -432,7 +431,7 @@ export function luck() {
         c.lineWidth = 3; c.lineJoin = 'round'; c.stroke(face);
         c.save(); c.clip(face);
         // the pegboard's drill holes: every site of the lattice a tee is not standing in
-        c.save(); c.globalAlpha = 0.62;
+        c.save(); c.globalAlpha = 0.16;
         for (let i = 0; i < n; i++) for (let kk = 1; kk < 20; kk++) { if (kk % 2 !== i % 2) continue; c.beginPath(); c.arc(x0 + (kk * gap) / 2, y1 + i * pitch, 1.3, 0, TAU); c.fill(); }
         c.restore();
         // each cup is a funnel: dividers from the last tees to the turf's front lip
@@ -458,7 +457,7 @@ export function luck() {
         c.restore();
       },
     };
-    greens(plates, (c, ink, k) => screen(c, box, P, tone(ink) + 5, (x, y) => (y < edge(x) ? 0 : (0.66 + 0.12 * Math.sin(x * 0.05)) * k), inkOf(ink), face));
+    greens(plates, (c, ink, k) => screen(c, box, P, tone(ink) + 5, (x, y) => (y < edge(x) ? 0 : (0.36 + 0.08 * Math.sin(x * 0.05)) * k), inkOf(ink), face));
     print(bg, plates, { seed: 21, reg: 0.8 });
     // after the drums: paper left bare, the way the chalk is. A lip of paper under each cup
     const c = bg.ctx; c.save(); c.globalAlpha = 0.85;
@@ -541,8 +540,8 @@ export function luck() {
       const top = [[0, 0], [fw * 0.5, wv(0.9, 0.5)], [fw, wv(1.5, 1)]], bot = [[fw, fh + wv(1.5, 1)], [fw * 0.5, fh + wv(0.9, 0.5)], [0, fh]];
       const poly = () => { c.beginPath(); top.concat(bot).forEach(([x, y], i) => (i ? c.lineTo(f.x + x, f.y + y) : c.moveTo(f.x + x, f.y + y))); c.closePath(); };
       c.globalAlpha = 1; c.fillStyle = look.paper; poly(); c.fill();
-      c.save(); c.globalCompositeOperation = 'multiply'; c.translate(OFF.warm[0] * 0.6, OFF.warm[1] * 0.6); c.fillStyle = look.warm; c.globalAlpha = 0.92; poly(); c.fill(); c.restore();
-      c.strokeStyle = look.key; c.lineWidth = 1.1; poly(); c.stroke();
+      c.save(); c.globalCompositeOperation = 'multiply'; c.translate(OFF.warm[0] * 0.6, OFF.warm[1] * 0.6); c.fillStyle = look.warm; c.globalAlpha = 0.28; poly(); c.fill(); c.restore();
+      c.strokeStyle = look.key; c.lineWidth = 1; poly(); c.stroke();
       c.fillStyle = look.key; const mx = f.x + fw * 0.5 + 0.6; c.fillText(f.lo + '–', mx, f.y + fh * 0.3 + wv(0.5, 0.5)); c.fillText(f.hi + '', mx, f.y + fh * 0.72 + wv(0.5, 0.5));
     });
     c.restore();

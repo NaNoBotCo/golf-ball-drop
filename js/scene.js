@@ -178,7 +178,7 @@ export function bakeBalloon(S, dpr = 2, seed = 11, opts = {}) {
       crayon(c, [[bx, by], [bx + bw * 0.04, by + bh], [bx + bw * 0.96, by + bh], [bx + bw, by]], { w: Math.max(1, S / 220), color: ink, seed: 450 });
       [[bx, 1], [bx + bw, -1]].forEach(([x, d], k) => { const t = []; for (let a = 0; a <= 8; a++) { const q = (a / 8) * Math.PI; t.push([x + d * Math.sin(q) * S * 0.012, by - Math.cos(q) * S * 0.014 - S * 0.012]); } crayon(c, t, { w: Math.max(0.6, S / 400), color: ink, seed: 455 + k, wobble: 0.1 }); });
     },
-  }, { seed, paper: false, reg: Math.max(0.5, S / 260) });
+  }, { seed, paper: false, reg: Math.max(0.5, S / 260), strength: 0.92 });
   return { cv: s.cv, w: W, h: total, mouth: [cx, coilTop], basket: [bx, by, bw, bh], env, cx, top, S, H, cut: sk, cables: opts.cables === false ? cables : null, frame: [cx - fw, fy, cx + fw, fy] };
 }
 

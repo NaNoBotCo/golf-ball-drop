@@ -11,12 +11,12 @@ body{background-image:none}
 /* middle: headings in key, no second ink; only the page title keeps its off-register coral */
 .riso-type{text-shadow:none}
 h1.riso-type{text-shadow:.04em .03em 0 color-mix(in srgb,var(--warm) 70%,transparent)}
-html.lang-both .riso-type .en{opacity:.72}
+html.lang-both .riso-type .en{opacity:1;font-weight:600}
 .prizes .riso-type{text-shadow:none}
 
 /* quiet: the small section label is type, not a sticker */
 .kick{background:none;box-shadow:none;transform:none;padding:0;color:var(--key);font-size:12.5px;letter-spacing:.12em;border-bottom:2px solid color-mix(in srgb,var(--warm) 55%,transparent);border-radius:0}
-html.lang-both .kick .en{color:var(--key);opacity:.7}
+html.lang-both .kick .en{color:var(--key);opacity:1;font-weight:600}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .kick,:root:not([data-theme=light]) html.lang-both .kick .en{color:var(--sun)}}
 
 /* buttons: the gold and coral ones that act stay printed; everything else is a quiet outline */
@@ -58,7 +58,7 @@ html.lang-both .kick .en{color:var(--key);opacity:.7}
 .prizes{background:color-mix(in srgb,var(--prize-bg,var(--sky)) 9%,var(--page));color:var(--text);border-color:var(--hair)}
 .prizes .riso-type{color:var(--key)}
 html.lang-both .prizes h2 .en,.prizes .fine .en,.prizes .fine{color:var(--text)}
-html.lang-both .prizes h2 .en{opacity:.72}
+html.lang-both .prizes h2 .en{opacity:1}
 .medal .disc{border-width:2px}
 .share,footer{border-top-color:var(--hair)}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .give{background:color-mix(in srgb,var(--sun) 5%,#151829)}:root:not([data-theme=light]) .prizes .riso-type{color:var(--paper)}}
@@ -69,3 +69,35 @@ html.lang-both .prizes h2 .en{opacity:.72}
 /* the live chart: its frame steps back so the total leads */
 .r-bar{border-width:1.5px;border-color:var(--hair)}
 .r-big>b{text-shadow:none}
+
+/* dark scheme: every surface names its own text. Paper-coloured things (medals, the ticket, the chips, the peak of the
+   day, the hint) keep dark ink; things on the dark page take the light text; key-ink words on the page become gold. */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme=light]){--on-paper:#1b2240;--on-paper-mute:#4a5374}
+  :root:not([data-theme=light]) .kick,:root:not([data-theme=light]) .kick .en,
+  :root:not([data-theme=light]) .raised-pill b,:root:not([data-theme=light]) .acct b{color:var(--sun)!important;opacity:1}
+  :root:not([data-theme=light]) .skip,:root:not([data-theme=light]) .skip *{color:#000!important}
+  :root:not([data-theme=light]) .hint{background:var(--paper);color:var(--on-paper)}
+  :root:not([data-theme=light]) .hint *{color:var(--on-paper)!important}
+  :root:not([data-theme=light]) :is(.btn.paper,.btn.sky,.btn.quiet,.sh,.copy,.lang button:not([aria-pressed=true])),
+  :root:not([data-theme=light]) :is(.btn.paper,.btn.sky,.btn.quiet,.sh,.copy) *{color:var(--text)!important;border-color:var(--hair)}
+  :root:not([data-theme=light]) .medal{background:var(--card)}
+  :root:not([data-theme=light]) .medal :is(.amt,.lab,.lab .th){color:var(--text)!important}
+  :root:not([data-theme=light]) .medal .lab .en{color:var(--mute)!important}
+  :root:not([data-theme=light]) .medal .disc,:root:not([data-theme=light]) .medal .disc *{color:#000!important}
+  :root:not([data-theme=light]) .timeline li.peak,:root:not([data-theme=light]) .timeline li.peak *{color:#000!important}
+  :root:not([data-theme=light]) .ticket,:root:not([data-theme=light]) .ticket .t-l *{color:#000}
+  :root:not([data-theme=light]) .ticket .t-r b{color:var(--on-paper)}
+  :root:not([data-theme=light]) .chips :is(button,.other):not([aria-pressed=true]),:root:not([data-theme=light]) .chips :is(button,.other):not([aria-pressed=true]) *{color:var(--text)!important}
+  :root:not([data-theme=light]) .chips button[aria-pressed=true],:root:not([data-theme=light]) .chips button[aria-pressed=true] *{color:#000!important}
+  :root:not([data-theme=light]) .r-card,:root:not([data-theme=light]) .r-card *:not(.r-tip):not(.r-tip *){color:var(--on-paper)}
+  :root:not([data-theme=light]) .r-card .r-big>b{color:var(--key)}
+  :root:not([data-theme=light]) .count .odo b{background:var(--card);color:var(--sun)}
+  :root:not([data-theme=light]) .perks li{color:var(--text)}
+  :root:not([data-theme=light]) .date,:root:not([data-theme=light]) .date *{color:var(--text)!important;background:transparent}
+  :root:not([data-theme=light]) .lang,:root:not([data-theme=light]) .btn.paper,:root:not([data-theme=light]) .btn.quiet{background:var(--card)}
+  :root:not([data-theme=light]) .ticket .t-r,:root:not([data-theme=light]) .ticket .t-r *{color:var(--on-paper)}
+  :root:not([data-theme=light]) :is(.proj>[data-dingbat],.ways [data-dingbat],.timeline [data-dingbat],.steps [data-dingbat],.perks [data-dingbat]){background:var(--paper);border-radius:14px;padding:3px}
+  :root:not([data-theme=light]) .proj .n,:root:not([data-theme=light]) .proj .more,:root:not([data-theme=light]) .timeline time{color:var(--text)!important}
+  :root:not([data-theme=light]) :is(.btn.sun,.btn.warm,#give-sent,#give-mail),:root:not([data-theme=light]) :is(.btn.sun,.btn.warm,#give-sent,#give-mail) *{color:#000!important}
+}
