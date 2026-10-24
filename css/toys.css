@@ -1,0 +1,47 @@
+/* toys: rules owned by the toys group, loaded after gbd.css */
+/* the machine's hopper is dragged sideways to aim it: a horizontal drag on the picture belongs to the page's script, a vertical one still scrolls */
+.luck canvas{touch-action:pan-y;-webkit-tap-highlight-color:transparent}
+.board canvas{-webkit-tap-highlight-color:transparent}
+
+/* the machine's number is a ticket stub, not a second yellow button: gold on that row is the button that lets the ball go */
+.luck .num{display:inline-flex;align-items:baseline;justify-content:center;gap:7px;min-width:3.6em;padding:4px 12px 5px;background:var(--paper);color:#000;border:2px dashed var(--key);border-radius:6px}
+.luck .num::before{content:"No.";font:800 11px/1 "Bricolage Grotesque",sans-serif;letter-spacing:.05em;color:var(--key)}
+
+/* the drop: what is about to happen, then what did */
+.result .res-idle{flex:1 1 100%;font-size:15px;line-height:1.45;font-weight:600;color:var(--text)}
+.result .res-main,.result .res-sub,.result .res-acts{flex:1 1 100%}
+.result .res-main{font-size:17px;line-height:1.3;font-weight:800;color:var(--text)}
+.result .res-main .big{display:inline-block;margin:0 4px 2px 0;padding:2px 11px 3px;font:800 34px/1.12 "Bricolage Grotesque","Noto Sans Thai",sans-serif;color:#000;background:var(--sun);border:2px solid var(--key);border-radius:10px;transform:rotate(-1.2deg);box-shadow:3px 2px 0 color-mix(in srgb,var(--warm) 80%,transparent)}
+/* both languages: Thai first and large, English under it a size down */
+html.lang-both .result .res-main .en{margin-top:4px;font-size:15px;color:var(--text)}
+html.lang-both .result .res-main .en .big{font-size:24px;padding:1px 9px 2px}
+.result .res-sub{font-size:14px;line-height:1.4;font-weight:600;color:var(--mute)}
+html.lang-both .result .res-sub .en{font-size:13px}
+.result .res-acts{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.result .res-acts .btn{min-height:44px;padding:6px 16px;font-size:15px}
+@media (prefers-reduced-motion:no-preference){
+  .result .res-main .big{animation:res-pop .4s cubic-bezier(.3,1.6,.5,1) both}
+  @keyframes res-pop{from{transform:scale(.55) rotate(-7deg);opacity:0}}
+}
+/* the sentence is never left under the fixed dock, whichever way the page scrolls it into view */
+.result{scroll-margin-bottom:110px}
+#res{scroll-margin-bottom:90px}
+
+/* a second try beside the number: quiet, so the only gold on the controls is Drop! */
+.btn.quiet{min-height:46px;padding:6px 14px;font-size:14px;font-weight:700;background:transparent;color:var(--text);border-width:2px;border-style:dashed;box-shadow:none}
+.btn.quiet:hover{transform:none;box-shadow:none;background:color-mix(in srgb,var(--sun) 30%,transparent)}
+.btn.quiet:active{transform:translate(1px,1px);box-shadow:none}
+
+/* on a phone the sentence sits straight under the picture, above the controls: the picture and what it says are one look */
+@media (max-width:899px){
+  .controls .result{order:-1;min-height:4.6em}
+}
+@media (min-width:900px){
+  .controls .result{min-height:4.2em}
+}
+
+/* the dock steps down while one of the pictures fills most of the screen (js/play.js sets .away) */
+.dock.away{transform:translateY(140%)}
+/* both languages: the gold button reads in two lines so it keeps beside Share on a phone */
+html.lang-both .result .res-acts .real{flex-direction:column;gap:0;line-height:1.18;padding:4px 16px;text-align:center}
+html.lang-both .result .res-acts .real .en{margin-left:0;font-size:.8em;font-weight:700}

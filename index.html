@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="th" class="lang-both notranslate" translate="no">
+<html lang="th" class="lang-both notranslate" translate="no" data-look="picnic">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="google" content="notranslate">
 <title>งานทิ้งลูกกอล์ฟการกุศล 2570 · Golf Ball Drop 2027 · Chiang Mai International Rotary Club</title>
 <meta name="description" content="Saturday 30 January 2027, Horizon Village & Resort, Doi Saket. 300 numbered golf balls drop from a tethered hot-air balloon; the three closest to the X win. ฿1,000 a ball, for the Chiang Mai International Rotary Club's children's projects.">
-<meta name="theme-color" content="#17458f">
+<meta name="theme-color" content="#f7f1e3">
 <link rel="canonical" href="https://nanobotco.github.io/golf-ball-drop/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Chiang Mai International Rotary Club">
@@ -24,7 +24,11 @@
 <link rel="icon" href="img/rotary-wheel.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Noto+Sans+Thai:wght@400;600;700&family=Noto+Serif+Thai:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Kanit:wght@600;700&family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="gbd.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/toys.css">
+<link rel="stylesheet" href="css/give.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -45,307 +49,19 @@
   "offers": {"@type": "Offer", "price": "1000", "priceCurrency": "THB", "url": "https://nanobotco.github.io/golf-ball-drop/#balls"}
 }
 </script>
-<style>
-:root{
-  /* Rotary royal blue, azure, sky and gold */
-  --royal:#17458f;--royal-d:#0c2a5c;--royal-dd:#081d42;--azure:#0067c8;--sky:#00a2e0;--gold:#f7a81b;--gold-l:#ffd36b;--glow:#fff1c2;
-  --lawn:#2f7a4a;--lawn-d:#1c4f30;
-  --paper:#f6f8fc;--panel:#ffffff;--ink:#14213d;--mute:#4f5d78;--rule:#dde4f0;
-  --c-deep:#17458f;--c-accent:#0067c8;--c-ink:#14213d;--c-mute:#4f5d78;--c-rule:#dde4f0;--c-soft:#edf2fa;--c-paper:#f6f8fc;
-  --shadow:0 10px 34px rgba(12,42,92,.10);
-  --r:18px;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
-  --paper:#0b1630;--panel:#12224a;--ink:#eef3ff;--mute:#b4c2e0;--rule:#22386a;
-  --c-ink:#eef3ff;--c-mute:#b4c2e0;--c-rule:#22386a;--c-soft:#0f1d40;--c-paper:#0b1630;--c-accent:#5fb6ff;
-  --shadow:0 10px 34px rgba(0,0,0,.4);
-}}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 "Noto Sans Thai",system-ui,-apple-system,"Segoe UI",sans-serif}
-html.lang-th .en,html.lang-en .th{display:none!important}
-html.lang-both .en{display:block;color:var(--mute);font-size:.9em}
-html.lang-both :is(.top,.blue,.how) .en{color:inherit;opacity:.85}
-html.lang-both .hero .en{color:#e6f0ff;opacity:1}
-a{color:inherit;text-underline-offset:3px}
-h1,h2,h3{font-family:Fraunces,"Noto Serif Thai",Georgia,serif;font-weight:700;line-height:1.15;margin:0 0 .35em;letter-spacing:-.01em}
-h2{font-size:clamp(28px,4vw,44px)}
-h2 .en{font-weight:500;font-style:italic}
-.in{max-width:1120px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left))}
-.sec{padding:clamp(56px,8vw,96px) 0}
-.kick{font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--c-accent);margin:0 0 10px}
-.blue .kick,.hero .kick,.how .kick{color:var(--gold)}
-:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
-.ic{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-
-/* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:inherit;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer;border:0;transition:transform .12s,filter .12s}
-.btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
-.btn.gold{background:linear-gradient(180deg,#ffd36b,#f7a81b);color:#000;box-shadow:0 6px 24px rgba(247,168,27,.45),inset 0 1px 0 rgba(255,255,255,.6)}
-.btn.blue{background:var(--royal);color:#fff;box-shadow:0 6px 20px rgba(23,69,143,.35)}
-.btn.ghost{background:rgba(8,29,66,.38);color:#fff;border:1px solid rgba(255,255,255,.55)}
-.btn.ghost .en{opacity:1}
-.btn.soft{background:var(--c-soft);color:var(--ink);border:1px solid var(--rule)}
-.btn .en{display:inline!important;margin-left:.4em;font-size:.88em;opacity:.8;color:inherit!important}
-html.lang-th .btn .en,html.lang-en .btn .th{display:none!important}
-.cta{display:flex;flex-wrap:wrap;gap:12px}
-
-/* header */
-.top{position:sticky;top:0;z-index:30;background:rgba(12,42,92,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;border-bottom:2px solid var(--gold)}
-.top .in{display:flex;align-items:center;gap:12px;min-height:66px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;margin-right:auto}
-.club{display:flex;flex-direction:column;line-height:1.05;white-space:nowrap}
-.club .mark{display:flex;align-items:center;gap:6px}
-.club .mark img{width:34px;height:34px;flex:none}
-.club strong{font-family:Georgia,'Times New Roman',serif;font-size:30px;font-weight:700;letter-spacing:-.01em}
-.club small{font-size:12.5px;font-weight:600;letter-spacing:.03em;opacity:.92;margin-top:2px}
-.brand b{font-family:Fraunces,"Noto Serif Thai",serif;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-left:1px solid rgba(255,255,255,.3);padding-left:10px}
-.top .buy{min-height:38px;padding:0 16px;font-size:14px}
-.lang{display:flex;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:2px}
-.lang button{background:none;border:0;color:inherit;font:inherit;font-size:13px;font-weight:600;padding:6px 11px;border-radius:999px;cursor:pointer;min-height:34px}
-.lang button[aria-pressed=true]{background:var(--gold);color:#000}
-@media (max-width:900px){.brand b{display:none}}
-@media (max-width:640px){html.lang-both .top .buy .en{display:none!important}}
-@media (max-width:400px){.club small{font-size:11px}.club strong{font-size:25px}.club .mark img{width:28px;height:28px}}
-@media (max-width:420px){.top .buy{display:none}}
-
-/* hero sky: royal blue to gold */
-.hero{position:relative;overflow:hidden;color:#fff;cursor:crosshair;
-  background:
-    radial-gradient(55% 22% at 70% 100%,rgba(255,211,107,.6),transparent 70%),
-    linear-gradient(180deg,#081d42 0%,#0c2a5c 26%,#17458f 56%,#0d5fb8 80%,#0b66be 92%,#3f86c9 100%);
-  padding:clamp(40px,7vw,80px) 0 0;min-height:min(92vh,820px);display:flex;flex-direction:column}
-.hero a,.hero button{cursor:pointer}
-.stars{position:absolute;inset:0 0 50% 0;pointer-events:none}
-.stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.05;animation:tw 4s ease-in-out infinite}
-@keyframes tw{0%,100%{opacity:.05}50%{opacity:.9}}
-.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center;flex:1}
-@media (max-width:820px){.hero-grid{grid-template-columns:1fr}.scene{order:-1;max-width:240px;margin:0 auto -10px}}
-.hero h1{font-size:clamp(44px,8vw,92px);margin:.1em 0 .2em;text-shadow:0 2px 30px rgba(247,168,27,.5)}
-.hero h1 .en{font-size:.46em;font-style:italic;font-weight:500;margin-top:.1em}
-.date{display:inline-flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-weight:600;font-size:15px;background:rgba(8,29,66,.45);border:1px solid rgba(247,168,27,.55);padding:8px 16px;border-radius:999px;margin:0}
-.date .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
-.lede{font-size:clamp(18px,2.2vw,22px);line-height:1.55;max-width:30em;margin:18px 0 22px}
-.lede .en{font-size:.86em}
-.perks{list-style:none;padding:0;margin:0 0 24px;display:flex;flex-wrap:wrap;gap:8px}
-.perks li{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:600}
-.perks .en{display:inline!important;margin-left:.35em}
-html.lang-th .perks .en,html.lang-en .perks .th{display:none!important}
-.hint{margin:16px 0 0;font-size:14px;font-weight:600}
-.hero .in{text-shadow:0 1px 12px rgba(8,29,66,.55)}
-.scene{position:relative;aspect-ratio:4/5;width:100%}
-.scene svg{width:100%;height:100%;overflow:visible}
-.bob{animation:bob 9s ease-in-out infinite;transform-origin:50% 80%}
-@keyframes bob{0%,100%{transform:translate(0,0) rotate(-2.5deg)}25%{transform:translate(12px,-18px) rotate(1deg)}50%{transform:translate(0,-32px) rotate(2.8deg)}75%{transform:translate(-12px,-14px) rotate(-.6deg)}}
-.scene svg{transform:translate(var(--tx,0px),var(--ty,0px)) rotate(var(--rot,0deg));transition:transform 1.4s cubic-bezier(.2,.8,.3,1)}
-.flame{animation:flame 1.6s ease-in-out infinite;transform-origin:200px 360px}
-@keyframes flame{0%,100%{opacity:.55;transform:scale(.9)}40%{opacity:1;transform:scale(1.15)}70%{opacity:.75;transform:scale(1)}}
-.halo{animation:halo 1.6s ease-in-out infinite}
-@keyframes halo{0%,100%{opacity:.35}40%{opacity:.75}}
-.fall{animation:fall 5.5s cubic-bezier(.45,0,.9,.6) infinite}
-.fall:nth-of-type(2){animation-delay:1.4s}.fall:nth-of-type(3){animation-delay:2.7s}.fall:nth-of-type(4){animation-delay:3.9s}
-@keyframes fall{0%{transform:translateY(0);opacity:0}8%{opacity:1}70%{transform:translateY(300px);opacity:1}100%{transform:translateY(300px);opacity:0}}
-.burner{position:absolute;left:18%;top:5%;width:64%;height:72%;border:0;background:none;border-radius:50% 50% 40% 40%;cursor:pointer;z-index:3}
-.scene .bob{transition:transform 2.4s ease-in-out}
-.scene.burn .bob{animation:none;transform:translateY(-34px);transition:transform 1.2s cubic-bezier(.2,.8,.3,1)}
-.scene.burn .flame{animation:none;transform:scale(1.9);opacity:1}
-.scene.burn .halo{animation:none;opacity:1}
-.fleet{position:absolute;inset:0;z-index:1;pointer-events:none}
-.fleet svg,.launch{position:absolute;aspect-ratio:100/112;height:auto;filter:drop-shadow(0 0 14px rgba(255,211,107,.5));animation:float var(--d) ease-in-out infinite alternate}
-@keyframes float{from{transform:translate(0,0) rotate(-2deg)}to{transform:translate(var(--x),var(--y)) rotate(2deg)}}
-.launch{z-index:4;pointer-events:none;animation:away var(--d) cubic-bezier(.3,0,.7,1) forwards}
-@keyframes away{0%{transform:translate(-50%,-50%) scale(.2);opacity:0}10%{transform:translate(-50%,-60%) scale(1);opacity:1}50%{transform:translate(calc(-50% + var(--x)),-60vh)}100%{transform:translate(calc(-50% - var(--x)),-130vh);opacity:0}}
-.motes{position:absolute;inset:0;pointer-events:none;z-index:3}
-.motes i{position:absolute;bottom:-10px;width:5px;height:5px;border-radius:50%;background:radial-gradient(circle,#fff4c4,rgba(247,168,27,0) 70%);animation:rise linear infinite}
-@keyframes rise{from{transform:translateY(0);opacity:0}15%{opacity:1}to{transform:translateY(-70vh) translateX(30px);opacity:0}}
-.pile{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
-.hills{position:relative;z-index:1;display:block;width:100%;height:auto;margin-top:-6%}
-@media (max-width:820px){.hills{margin-top:22px;min-height:88px}}
-
-/* how */
-.how{background:var(--lawn-d);color:#f2f7ee}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
-@media (max-width:760px){.steps{grid-template-columns:1fr}}
-.step{background:rgba(255,255,255,.06);border:1px solid rgba(247,168,27,.3);border-radius:var(--r);padding:22px;display:grid;grid-template-columns:72px 1fr;gap:16px;align-items:center}
-.step svg{width:72px;height:72px}
-.step p{margin:0;font-size:18px;font-weight:600;line-height:1.4}
-.step p .en{font-weight:400;font-size:.88em;margin-top:4px}
-.step small{display:block;font-family:Fraunces,serif;font-style:italic;color:var(--gold-l);font-size:15px;margin-bottom:2px}
-.away{margin:24px 0 0;font-size:18px;font-weight:600;color:var(--gold-l)}
-
-/* game */
-.game{background:linear-gradient(180deg,var(--lawn-d),#12361f 30%,var(--paper) 30%)}
-.board{background:var(--panel);border-radius:24px;box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--rule)}
-.board canvas{display:block;width:100%;height:clamp(320px,52vw,500px);touch-action:manipulation;background:#17458f}
-.controls{display:flex;flex-wrap:wrap;align-items:end;gap:12px;padding:18px 20px;border-top:1px solid var(--rule)}
-.controls label{display:grid;gap:4px;font-size:14px;font-weight:600;color:var(--mute)}
-.controls input{font:inherit;font-size:24px;font-weight:700;width:6.2em;min-height:48px;padding:4px 14px;border-radius:14px;border:2px solid var(--rule);background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
-.result{flex:1 1 260px;min-height:48px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:17px;font-weight:600;margin:0}
-.result .en{display:block}
-.result:empty::before{content:"ใส่หมายเลข 1–300 แล้วกดปล่อย · Pick 1–300 and drop";color:var(--mute);font-weight:400}
-
-/* projects */
-.projects .lead{font-size:clamp(18px,2vw,21px);max-width:40em}
-.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:30px}
-.proj{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--rule);border-top:5px solid var(--royal);border-radius:var(--r);padding:22px;box-shadow:var(--shadow);text-decoration:none;color:var(--ink);transition:transform .15s,border-color .15s}
-.proj:hover{transform:translateY(-3px);border-top-color:var(--gold)}
-.proj .n{font-family:Fraunces,serif;font-size:40px;font-weight:700;line-height:1;color:var(--royal)}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .proj .n{color:var(--gold-l)}}
-.proj .n small{font-size:.42em;font-weight:500;font-style:italic;color:var(--mute)}
-.proj h3{font-size:19px;margin:12px 0 6px}
-.proj h3 .en{font-family:"Noto Sans Thai",sans-serif;font-weight:600;font-size:.82em}
-.proj p{margin:0;font-size:15px;color:var(--mute)}
-.proj p .en{font-size:.95em}
-.proj .more{margin-top:auto;padding-top:14px;font-size:14px;font-weight:700;color:var(--c-accent)}
-.proj .more .en{display:inline!important;margin-left:.3em}
-html.lang-th .proj .more .en,html.lang-en .proj .more .th{display:none!important}
-.give{margin-top:30px;display:flex;flex-wrap:wrap;align-items:center;gap:16px;background:linear-gradient(120deg,var(--royal),var(--azure));color:#fff;border-radius:22px;padding:24px 26px}
-.give p{margin:0;flex:1 1 300px;font-size:18px;font-weight:600}
-.give .en{color:#fff!important}
-
-/* afternoon */
-.timeline{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px;max-width:780px}
-.timeline li{display:grid;grid-template-columns:minmax(120px,max-content) 1fr;gap:18px;align-items:baseline;background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);padding:16px 20px;box-shadow:var(--shadow)}
-.timeline time{font-family:Fraunces,serif;font-size:24px;font-weight:700;color:var(--c-accent);font-variant-numeric:tabular-nums;white-space:nowrap}
-.timeline li.peak{background:linear-gradient(120deg,var(--royal-d),var(--royal) 55%,var(--azure));color:#fff;border:0;box-shadow:0 12px 40px rgba(0,103,200,.35)}
-.timeline li.peak time{color:var(--gold-l)}
-.timeline li.peak .en{color:#fff}
-.timeline b{font-size:18px}
-.timeline small{display:block;font-size:14px;color:var(--mute)}
-@media (max-width:520px){.timeline li{grid-template-columns:1fr;gap:2px}}
-
-/* prizes */
-.blue{background:radial-gradient(70% 60% at 50% 0%,#0067c8,#17458f 55%,#0c2a5c);color:#fff}
-.blue .en{color:#fff!important}
-.medals{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:18px;margin-top:30px;align-items:end}
-@media (max-width:760px){.medals{grid-template-columns:1fr}}
-.medal{text-align:center;padding:28px 18px 24px;border-radius:24px;background:rgba(255,255,255,.07);border:1px solid rgba(247,168,27,.35)}
-.medal .disc{width:96px;height:96px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;font-family:Fraunces,serif;font-weight:700;font-size:34px;color:#14213d;box-shadow:0 0 0 6px rgba(255,255,255,.08),0 0 40px var(--g)}
-.medal.g1{--g:rgba(247,168,27,.9);padding-top:40px}.medal.g1 .disc{width:118px;height:118px;font-size:42px;background:radial-gradient(circle at 35% 30%,#fff3c4,#f7a81b 50%,#c47d00)}
-.medal.g2{--g:rgba(220,230,250,.5)}.medal.g2 .disc{background:radial-gradient(circle at 35% 30%,#fff,#d6deef 45%,#8f9cb8)}
-.medal.g3{--g:rgba(230,150,100,.5)}.medal.g3 .disc{background:radial-gradient(circle at 35% 30%,#ffe2cc,#e3a072 45%,#a8623a)}
-.amt{font-family:Fraunces,serif;font-size:clamp(32px,4vw,44px);font-weight:700;line-height:1;color:var(--gold-l)}
-.medal.g1 .amt{font-size:clamp(40px,5vw,56px);text-shadow:0 0 24px rgba(247,168,27,.6)}
-.medal p{margin:8px 0 0}
-.fine{margin-top:22px;font-size:15px;opacity:.9;max-width:44em}
-
-/* balls */
-.tix{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,5vw,56px);align-items:center}
-@media (max-width:760px){.tix{grid-template-columns:1fr}}
-.ticket{position:relative;width:min(320px,100%);aspect-ratio:1.7;border-radius:20px;background:linear-gradient(135deg,#fff7e3,#ffd36b);color:#14213d;box-shadow:var(--shadow),0 0 0 1px rgba(160,100,30,.2);display:grid;grid-template-columns:1fr 92px;overflow:hidden;transform:rotate(-3deg)}
-.ticket::after{content:"";position:absolute;right:92px;top:10px;bottom:10px;border-left:2px dashed rgba(23,69,143,.35)}
-.ticket .l{padding:18px 20px;display:flex;flex-direction:column;justify-content:space-between}
-.ticket .l img{width:44px;height:44px}
-.ticket .l small{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;opacity:.75}
-.ticket .r{display:grid;place-items:center;font-family:Fraunces,serif;font-weight:700;font-size:30px;background:rgba(255,255,255,.45);color:var(--royal)}
-.big{font-family:Fraunces,serif;font-size:clamp(46px,7vw,72px);font-weight:700;line-height:1;margin:0;color:var(--royal)}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .big{color:var(--gold-l)}}
-.big small{font-size:.38em;font-weight:500;color:var(--mute);font-style:italic}
-.ways{list-style:none;padding:0;margin:18px 0;display:grid;gap:10px}
-.ways li{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:12px 16px}
-.ways li::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:var(--gold);margin-top:.55em;box-shadow:0 0 0 4px rgba(247,168,27,.2)}
-
-/* where */
-.where{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
-@media (max-width:760px){.where{grid-template-columns:1fr}}
-.where figure{margin:0;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);position:relative}
-.where figure img{display:block;width:100%;height:auto}
-.where figcaption{position:absolute;left:12px;bottom:10px;font-size:12px;color:#fff;background:rgba(8,29,66,.82);padding:3px 10px;border-radius:999px}
-
-.doodle{position:relative;margin-top:28px;height:clamp(300px,48vw,460px);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:3px solid var(--royal);background:#f5ecd7}
-.doodle iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.doodle-open{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-end;padding:14px;text-decoration:none}
-.doodle-open .chip{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 18px;border-radius:999px;background:var(--royal);color:#fff;font-weight:700;font-size:15px;box-shadow:0 6px 18px rgba(8,29,66,.35)}
-.doodle-open .chip .en{display:inline!important;color:#fff!important;margin-left:.3em}
-html.lang-th .doodle-open .chip .en,html.lang-en .doodle-open .chip .th{display:none!important}
-.doodle-open:hover .chip,.doodle-open:focus-visible .chip{background:var(--azure)}
-
-/* cute clicks */
-.fleet svg{pointer-events:auto;cursor:pointer}
-.hero-grid{pointer-events:none}.hero-grid>*{pointer-events:auto}
-.tap{cursor:pointer}
-@keyframes boing{0%{transform:scale(1)}30%{transform:scale(1.18,.86)}55%{transform:scale(.9,1.12) translateY(-8px)}80%{transform:scale(1.04,.97)}100%{transform:scale(1)}}
-.boing{animation:boing .7s cubic-bezier(.3,1.6,.5,1)!important}
-@keyframes spin{to{transform:rotate(360deg)}}
-.spin{animation:spin .9s cubic-bezier(.3,1.4,.5,1)}
-@keyframes flipY{0%{transform:perspective(400px) rotateY(0)}100%{transform:perspective(400px) rotateY(360deg)}}
-.flip{animation:flipY .8s ease-in-out}
-@keyframes hop{0%,100%{translate:0 0;rotate:0deg}30%{translate:0 -40px;rotate:-12deg}60%{translate:0 -54px;rotate:10deg}}
-.hop{animation:hop 1s cubic-bezier(.3,1.4,.5,1)!important}
-@keyframes shake{0%,100%{transform:rotate(-3deg)}20%{transform:rotate(4deg) scale(1.05)}40%{transform:rotate(-6deg)}60%{transform:rotate(5deg) scale(1.04)}80%{transform:rotate(-4deg)}}
-.ticket.shake{animation:shake .6s ease-in-out}
-.spark{position:fixed;z-index:200;width:9px;height:9px;pointer-events:none;border-radius:50%;animation:spark .9s ease-out forwards}
-.spark.star{border-radius:0;clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%)}
-@keyframes spark{from{transform:translate(0,0) scale(1);opacity:1}to{transform:translate(var(--dx),var(--dy)) scale(.3);opacity:0}}
-.where figure img{transition:transform 1.2s cubic-bezier(.2,.8,.3,1)}
-.where figure.zoom img{transform:scale(1.12)}
-@media (prefers-reduced-motion:reduce){.boing,.spin,.flip,.hop,.ticket.shake{animation:none!important}.spark{display:none}}
-
-/* last time */
-.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:26px}
-.ph{padding:0;border:0;background:none;cursor:zoom-in;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:3/4}
-.ph img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.ph:hover img{transform:scale(1.05)}
-.lb{padding:0;border:0;background:none;max-width:min(92vw,620px);max-height:92vh;cursor:zoom-out}
-.lb::backdrop{background:rgba(8,29,66,.85)}
-.lb img{display:block;max-width:100%;max-height:92vh;border-radius:14px}
-@media (prefers-reduced-motion:reduce){.ph img{transition:none}}
-
-/* share */
-.share{background:linear-gradient(180deg,var(--royal-dd),var(--royal));color:#fff;padding:clamp(48px,7vw,80px) 0}
-.share .en{color:#dbe9ff!important}
-.share-grid{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
-@media (max-width:760px){.share-grid{grid-template-columns:1fr}}
-.share-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.sh{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff;font:inherit;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer}
-.sh:hover{background:rgba(255,255,255,.2)}
-.sh.line{background:#06c755;border-color:#06c755;color:#081d42}
-.sh.fb{background:#145dbf;border-color:#145dbf}
-.sh.wa{background:#25d366;border-color:#25d366;color:#0b2b16}
-.sh.native{background:var(--gold);border-color:var(--gold);color:#000}
-.btn.gold .en,.btn.gold .th,.sh.native .en,.lang button[aria-pressed=true]{color:#000!important;opacity:1!important}
-.sh[hidden]{display:none}
-html.lang-both .sh .en{display:inline!important;margin-left:.35em;opacity:.8;font-size:.92em;color:inherit!important}
-.qr{background:#fff;border-radius:20px;padding:14px;text-align:center;color:#14213d;width:200px}
-.qr img{width:172px;height:172px;display:block}
-.qr small{display:block;font-size:12px;font-weight:600;margin-top:6px}
-.qr .en{color:#4f5d78!important}
-
-/* sticky bar on phones */
-.dock{position:fixed;left:0;right:0;bottom:0;z-index:25;display:none;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(8,29,66,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:2px solid var(--gold);transform:translateY(110%);transition:transform .25s}
-.dock.on{transform:none}
-.dock .btn{flex:1;min-height:46px;font-size:15px;padding:0 12px}
-@media (max-width:760px){.dock{display:flex}body{padding-bottom:76px}}
-
-footer{background:var(--royal-dd);color:#c9d6ef;padding:36px 0 calc(36px + env(safe-area-inset-bottom));font-size:14px}
-footer .in{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between}
-footer .sig{display:flex;flex-direction:column;text-decoration:none;color:#fff;line-height:1.05}
-footer .sig .mark{display:flex;align-items:center;gap:10px}
-footer .sig strong{font-family:Georgia,'Times New Roman',serif;font-size:clamp(40px,7vw,56px);font-weight:700}
-footer .sig img{width:clamp(44px,7vw,56px);height:auto}
-footer .sig small{font-size:clamp(15px,2.2vw,19px);font-weight:600;margin-top:4px;color:#e6f0ff}
-footer a{color:var(--gold-l)}
-footer .en{display:inline!important;margin-left:.4em}
-html.lang-th footer .en,html.lang-en footer .th{display:none!important}
-footer p{margin:0}
-#toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(160px);background:var(--royal-dd);color:#fff;padding:10px 22px;border-radius:999px;font-size:14px;transition:transform .2s;z-index:99;pointer-events:none;max-width:calc(100vw - 32px);border:1px solid var(--gold)}
-#toast.show{transform:translateX(-50%) translateY(0)}
-
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .bob,.flame,.halo,.fall,.stars i,.motes i,.fleet svg{animation:none!important}
-  .fall{opacity:0}
-  .btn,.proj{transition:none}
-}
-@media print{.top,.share-row,.motes,.stars,.fleet,canvas,.controls,.dock{display:none!important}.hero,.how,.blue,.share{background:#fff!important;color:#000!important}}
-</style>
+<script src="js/dingbats.js" defer></script>
+<script type="module" src="js/main.js"></script>
 </head>
 <body>
+<a class="skip" href="#main"><span class="th">ข้ามไปเนื้อหา</span><span class="en">Skip to content</span></a>
 
 <header class="top">
   <div class="in">
-    <a class="brand" href="#top"><span class="club" aria-label="Rotary Club of Chiang Mai International"><span class="mark"><strong>Rotary</strong><img class="wheel" src="img/rotary-wheel.png" alt="" width="34" height="34"></span><small>Club of Chiang Mai International</small></span><b><span class="th">ทิ้งลูกกอล์ฟ 2570</span><span class="en">Golf Ball Drop 2027</span></b></a>
-    <a class="btn gold buy" href="#balls"><span class="th">ซื้อลูก</span><span class="en">Get a ball</span></a>
+    <a class="brand" href="#top" aria-label="Rotary Club of Chiang Mai International"><span class="mark"><strong>Rotary</strong><img class="wheel" src="img/rotary-wheel.png" alt="" width="30" height="30"></span><small>Club of Chiang Mai International</small></a>
+    <nav class="acts" aria-label="ทางลัด · Shortcuts">
+      <a class="btn sun" href="#balls"><span class="th">ซื้อลูก</span><span class="en">Get a ball</span></a>
+      <a class="btn warm" href="#give"><span class="th">ให้</span><span class="en">Give</span></a>
+    </nav>
     <div class="lang" role="group" aria-label="ภาษา · Language">
       <button type="button" data-set="th">ไทย</button>
       <button type="button" data-set="both" aria-pressed="true">ไทย+EN</button>
@@ -354,112 +70,192 @@ footer p{margin:0}
   </div>
 </header>
 
-<main id="top">
+<main id="main">
 
-<section class="hero" aria-labelledby="h1">
-  <div class="stars" aria-hidden="true"></div>
-  <div class="motes" aria-hidden="true"></div>
-  <canvas class="pile" id="pile" aria-hidden="true"></canvas>
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-    <clipPath id="mc"><path d="M50 4C26 4 12 22 12 42c0 18 14 34 29 48h18c15-14 29-30 29-48C88 22 74 4 50 4z"/></clipPath>
-    <linearGradient id="mshade" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".25"/><stop offset=".45" stop-color="#fff" stop-opacity=".2"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient>
-    <symbol id="mini" viewBox="0 0 100 112"><g clip-path="url(#mc)"><path d="M47.0 2.0L47.2 2.0L23.4 13.3L21.3 13.3z" fill="currentColor"/><path d="M47.2 2.0L47.9 2.0L29.7 13.3L23.4 13.3z" fill="#555a6e"/><path d="M47.9 2.0L48.9 2.0L39.0 13.3L29.7 13.3z" fill="currentColor"/><path d="M48.9 2.0L50.0 2.0L50.0 13.3L39.0 13.3z" fill="#555a6e"/><path d="M50.0 2.0L51.1 2.0L61.0 13.3L50.0 13.3z" fill="currentColor"/><path d="M51.1 2.0L52.1 2.0L70.3 13.3L61.0 13.3z" fill="#555a6e"/><path d="M52.1 2.0L52.8 2.0L76.6 13.3L70.3 13.3z" fill="currentColor"/><path d="M52.8 2.0L53.0 2.0L78.7 13.3L76.6 13.3z" fill="#555a6e"/><path d="M21.3 13.3L23.4 13.3L15.6 24.7L12.8 24.7z" fill="#dcd7da"/><path d="M23.4 13.3L29.7 13.3L23.7 24.7L15.6 24.7z" fill="currentColor"/><path d="M29.7 13.3L39.0 13.3L35.8 24.7L23.7 24.7z" fill="#dcd7da"/><path d="M39.0 13.3L50.0 13.3L50.0 24.7L35.8 24.7z" fill="currentColor"/><path d="M50.0 13.3L61.0 13.3L64.2 24.7L50.0 24.7z" fill="#dcd7da"/><path d="M61.0 13.3L70.3 13.3L76.3 24.7L64.2 24.7z" fill="currentColor"/><path d="M70.3 13.3L76.6 13.3L84.4 24.7L76.3 24.7z" fill="#dcd7da"/><path d="M76.6 13.3L78.7 13.3L87.2 24.7L84.4 24.7z" fill="currentColor"/><path d="M12.8 24.7L15.6 24.7L12.5 36.0L9.4 36.0z" fill="currentColor"/><path d="M15.6 24.7L23.7 24.7L21.3 36.0L12.5 36.0z" fill="#dcd7da"/><path d="M23.7 24.7L35.8 24.7L34.5 36.0L21.3 36.0z" fill="currentColor"/><path d="M35.8 24.7L50.0 24.7L50.0 36.0L34.5 36.0z" fill="#dcd7da"/><path d="M50.0 24.7L64.2 24.7L65.5 36.0L50.0 36.0z" fill="currentColor"/><path d="M64.2 24.7L76.3 24.7L78.7 36.0L65.5 36.0z" fill="#dcd7da"/><path d="M76.3 24.7L84.4 24.7L87.5 36.0L78.7 36.0z" fill="currentColor"/><path d="M84.4 24.7L87.2 24.7L90.6 36.0L87.5 36.0z" fill="#dcd7da"/><path d="M9.4 36.0L12.5 36.0L12.5 47.3L9.4 47.3z" fill="#555a6e"/><path d="M12.5 36.0L21.3 36.0L21.3 47.3L12.5 47.3z" fill="currentColor"/><path d="M21.3 36.0L34.5 36.0L34.5 47.3L21.3 47.3z" fill="#555a6e"/><path d="M34.5 36.0L50.0 36.0L50.0 47.3L34.5 47.3z" fill="currentColor"/><path d="M50.0 36.0L65.5 36.0L65.5 47.3L50.0 47.3z" fill="#555a6e"/><path d="M65.5 36.0L78.7 36.0L78.7 47.3L65.5 47.3z" fill="currentColor"/><path d="M78.7 36.0L87.5 36.0L87.5 47.3L78.7 47.3z" fill="#555a6e"/><path d="M87.5 36.0L90.6 36.0L90.6 47.3L87.5 47.3z" fill="currentColor"/><path d="M9.4 47.3L12.5 47.3L15.7 58.7L12.9 58.7z" fill="currentColor"/><path d="M12.5 47.3L21.3 47.3L23.7 58.7L15.7 58.7z" fill="#555a6e"/><path d="M21.3 47.3L34.5 47.3L35.8 58.7L23.7 58.7z" fill="currentColor"/><path d="M34.5 47.3L50.0 47.3L50.0 58.7L35.8 58.7z" fill="#555a6e"/><path d="M50.0 47.3L65.5 47.3L64.2 58.7L50.0 58.7z" fill="currentColor"/><path d="M65.5 47.3L78.7 47.3L76.3 58.7L64.2 58.7z" fill="#555a6e"/><path d="M78.7 47.3L87.5 47.3L84.3 58.7L76.3 58.7z" fill="currentColor"/><path d="M87.5 47.3L90.6 47.3L87.1 58.7L84.3 58.7z" fill="#555a6e"/><path d="M12.9 58.7L15.7 58.7L21.9 70.0L19.5 70.0z" fill="#dcd7da"/><path d="M15.7 58.7L23.7 58.7L28.5 70.0L21.9 70.0z" fill="currentColor"/><path d="M23.7 58.7L35.8 58.7L38.3 70.0L28.5 70.0z" fill="#dcd7da"/><path d="M35.8 58.7L50.0 58.7L50.0 70.0L38.3 70.0z" fill="currentColor"/><path d="M50.0 58.7L64.2 58.7L61.7 70.0L50.0 70.0z" fill="#dcd7da"/><path d="M64.2 58.7L76.3 58.7L71.5 70.0L61.7 70.0z" fill="currentColor"/><path d="M76.3 58.7L84.3 58.7L78.1 70.0L71.5 70.0z" fill="#dcd7da"/><path d="M84.3 58.7L87.1 58.7L80.5 70.0L78.1 70.0z" fill="currentColor"/><path d="M19.5 70.0L21.9 70.0L38.9 92.0L38.0 92.0z" fill="#8b8e9c"/><path d="M21.9 70.0L28.5 70.0L41.5 92.0L38.9 92.0z" fill="#2b3352"/><path d="M28.5 70.0L38.3 70.0L45.4 92.0L41.5 92.0z" fill="#8b8e9c"/><path d="M38.3 70.0L50.0 70.0L50.0 92.0L45.4 92.0z" fill="#2b3352"/><path d="M50.0 70.0L61.7 70.0L54.6 92.0L50.0 92.0z" fill="#8b8e9c"/><path d="M61.7 70.0L71.5 70.0L58.5 92.0L54.6 92.0z" fill="#2b3352"/><path d="M71.5 70.0L78.1 70.0L61.1 92.0L58.5 92.0z" fill="#8b8e9c"/><path d="M78.1 70.0L80.5 70.0L62.0 92.0L61.1 92.0z" fill="#2b3352"/><path d="M47.2 2.0L28.2 9.5L20.1 17.0L15.7 24.5L13.2 32.0L12.2 39.5L12.5 47.0L14.2 54.5L17.2 62.0L21.5 69.5L27.2 77.0L33.6 84.5L38.9 92.0M47.9 2.0L33.3 9.5L27.1 17.0L23.8 24.5L21.9 32.0L21.1 39.5L21.3 47.0L22.6 54.5L24.9 62.0L28.2 69.5L32.5 77.0L37.4 84.5L41.5 92.0M48.9 2.0L41.0 9.5L37.6 17.0L35.8 24.5L34.8 32.0L34.3 39.5L34.5 47.0L35.2 54.5L36.4 62.0L38.2 69.5L40.6 77.0L43.2 84.5L45.4 92.0M50.0 2.0L50.0 9.5L50.0 17.0L50.0 24.5L50.0 32.0L50.0 39.5L50.0 47.0L50.0 54.5L50.0 62.0L50.0 69.5L50.0 77.0L50.0 84.5L50.0 92.0M51.1 2.0L59.0 9.5L62.4 17.0L64.2 24.5L65.2 32.0L65.7 39.5L65.5 47.0L64.8 54.5L63.6 62.0L61.8 69.5L59.4 77.0L56.8 84.5L54.6 92.0M52.1 2.0L66.7 9.5L72.9 17.0L76.2 24.5L78.1 32.0L78.9 39.5L78.7 47.0L77.4 54.5L75.1 62.0L71.8 69.5L67.5 77.0L62.6 84.5L58.5 92.0M52.8 2.0L71.8 9.5L79.9 17.0L84.3 24.5L86.8 32.0L87.8 39.5L87.5 47.0L85.8 54.5L82.8 62.0L78.5 69.5L72.8 77.0L66.4 84.5L61.1 92.0" fill="none" stroke="#3a3f52" stroke-width="0.6" opacity=".35"/><rect width="100" height="100" fill="url(#mshade)"/></g><path d="M42 90l4 8M58 90l-4 8" stroke="#0c2a5c" stroke-width="2"/><rect x="44" y="98" width="12" height="10" rx="2" fill="#a8683a"/></symbol>
-  </defs></svg>
-  <div class="fleet" aria-hidden="true">
-    <svg style="left:4%;top:12%;width:64px;color:#ef6a55;--d:11s;--x:18px;--y:-14px"><use href="#mini"/></svg>
-    <svg style="left:30%;top:4%;width:42px;color:#f5b04a;--d:13s;--x:-14px;--y:10px"><use href="#mini"/></svg>
-    <svg style="left:46%;top:22%;width:30px;color:#f08a5a;--d:9s;--x:12px;--y:-8px;opacity:.85"><use href="#mini"/></svg>
-    <svg style="right:5%;top:8%;width:78px;color:#e8475f;--d:12s;--x:-20px;--y:16px"><use href="#mini"/></svg>
-    <svg style="right:22%;top:40%;width:36px;color:#ffd36b;--d:10s;--x:10px;--y:-12px;opacity:.9"><use href="#mini"/></svg>
-    <svg style="left:12%;top:46%;width:28px;color:#c94a3f;--d:14s;--x:-8px;--y:-10px;opacity:.8"><use href="#mini"/></svg>
-  </div>
-  <div class="in hero-grid">
-    <div>
-      <p class="date"><span class="dot" aria-hidden="true"></span><span><span class="th">เสาร์ 30 ม.ค. 2570 · 11:30–16:30 น.</span><span class="en">Sat 30 Jan 2027 · 11:30 am–4:30 pm</span></span><span><span class="th">ฮอไรซอน วิลเลจ ดอยสะเก็ด</span><span class="en">Horizon Village, Doi Saket</span></span></p>
-      <h1 id="h1"><span class="th">ทิ้งลูกกอล์ฟ</span><span class="en">The Golf Ball Drop</span></h1>
-      <p class="lede"><span class="th">บอลลูนลมร้อนปล่อยลูกกอล์ฟติดหมายเลข 300 ลูกลงมาพร้อมกัน สามลูกที่หยุดใกล้เครื่องหมาย X ที่สุดได้รางวัล เงินที่ได้เข้าสู่โครงการเพื่อเด็กของสโมสรโรตารีสากลเชียงใหม่</span><span class="en">A hot-air balloon lets go of 300 numbered golf balls at once. The three that stop closest to the X win. The money goes to the Chiang Mai International Rotary Club's children's projects.</span></p>
-      <ul class="perks">
-        <li><span class="th">ลูกละ ฿1,000</span><span class="en">฿1,000 a ball</span></li>
-        <li><span class="th">ไม่ต้องอยู่ในงานก็ชนะได้</span><span class="en">no need to be there to win</span></li>
-        <li><span class="th">รางวัลที่ 1 ฿30,000</span><span class="en">1st prize ฿30,000</span></li>
-      </ul>
-      <div class="cta">
-        <a class="btn gold" href="#balls"><span class="th">ซื้อลูกกอล์ฟ</span><span class="en">Get a ball</span></a>
-        <a class="btn ghost" href="#projects"><span class="th">เงินไปไหน</span><span class="en">Where it goes</span></a>
-        <a class="btn ghost" href="#share"><span class="th">ชวนเพื่อน</span><span class="en">Share</span></a>
-      </div>
-      <p class="hint"><span class="th">ท้องฟ้าแตะได้ บอลลูนใหญ่ก็แตะได้</span><span class="en">The sky answers a tap, and so does the big balloon.</span></p>
+<section class="hero" id="top" aria-labelledby="h1">
+  <div class="hero-copy">
+    <div class="hc-top">
+    <p class="date"><span class="th">เสาร์ 30 ม.ค. 2570 · 11:30–16:30 น. · ฮอไรซอน วิลเลจ ดอยสะเก็ด</span><span class="en">Sat 30 Jan 2027 · 11:30 am–4:30 pm · Horizon Village, Doi Saket</span></p>
+    <h1 id="h1" class="riso-type"><span class="th">ทิ้งลูกกอล์ฟ</span><span class="en">The Golf Ball Drop</span></h1>
     </div>
-
-    <div class="scene" id="scene">
-      <button type="button" class="burner" id="burner" aria-label="จุดไฟบอลลูน · Fire the burner"></button>
-      <svg viewBox="0 0 400 500" aria-hidden="true">
-        <defs>
-          <radialGradient id="glowA" cx="50%" cy="55%" r="55%"><stop offset="0" stop-color="#fff1c2" stop-opacity=".9"/><stop offset=".5" stop-color="#f7a81b" stop-opacity=".35"/><stop offset="1" stop-color="#f7a81b" stop-opacity="0"/></radialGradient>
-          <radialGradient id="flameG" cx="50%" cy="60%" r="50%"><stop offset="0" stop-color="#fffbe6"/><stop offset=".4" stop-color="#ffd166"/><stop offset="1" stop-color="#ff7a3c" stop-opacity="0"/></radialGradient>
-          <linearGradient id="shade" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></linearGradient>
-          <clipPath id="env"><path d="M200 34C116 34 70 98 70 168c0 64 50 122 102 170h56c52-48 102-106 102-170C330 98 284 34 200 34z"/></clipPath>
-          <radialGradient id="ballG" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#eef1f8"/><stop offset="1" stop-color="#aab4c8"/></radialGradient>
-        </defs>
-        <circle cx="200" cy="200" r="190" fill="url(#glowA)" class="halo"/>
-        <g class="bob">
-          <g clip-path="url(#env)"><path d="M197.0 30.0L197.1 30.0L124.9 55.8L122.3 55.8z" fill="#ef6a55"/><path d="M197.1 30.0L197.4 30.0L132.7 55.8L124.9 55.8z" fill="#555a6e"/><path d="M197.4 30.0L197.9 30.0L145.0 55.8L132.7 55.8z" fill="#f08a5a"/><path d="M197.9 30.0L198.5 30.0L161.1 55.8L145.0 55.8z" fill="#555a6e"/><path d="M198.5 30.0L199.2 30.0L179.9 55.8L161.1 55.8z" fill="#ef6a55"/><path d="M199.2 30.0L200.0 30.0L200.0 55.8L179.9 55.8z" fill="#555a6e"/><path d="M200.0 30.0L200.8 30.0L220.1 55.8L200.0 55.8z" fill="#f08a5a"/><path d="M200.8 30.0L201.5 30.0L238.9 55.8L220.1 55.8z" fill="#555a6e"/><path d="M201.5 30.0L202.1 30.0L255.0 55.8L238.9 55.8z" fill="#ef6a55"/><path d="M202.1 30.0L202.6 30.0L267.3 55.8L255.0 55.8z" fill="#555a6e"/><path d="M202.6 30.0L202.9 30.0L275.1 55.8L267.3 55.8z" fill="#f08a5a"/><path d="M202.9 30.0L203.0 30.0L277.7 55.8L275.1 55.8z" fill="#555a6e"/><path d="M122.3 55.8L124.9 55.8L98.4 81.6L94.8 81.6z" fill="#dcd7da"/><path d="M124.9 55.8L132.7 55.8L108.9 81.6L98.4 81.6z" fill="#ef6a55"/><path d="M132.7 55.8L145.0 55.8L125.6 81.6L108.9 81.6z" fill="#dcd7da"/><path d="M145.0 55.8L161.1 55.8L147.4 81.6L125.6 81.6z" fill="#ef6a55"/><path d="M161.1 55.8L179.9 55.8L172.8 81.6L147.4 81.6z" fill="#dcd7da"/><path d="M179.9 55.8L200.0 55.8L200.0 81.6L172.8 81.6z" fill="#ef6a55"/><path d="M200.0 55.8L220.1 55.8L227.2 81.6L200.0 81.6z" fill="#dcd7da"/><path d="M220.1 55.8L238.9 55.8L252.6 81.6L227.2 81.6z" fill="#ef6a55"/><path d="M238.9 55.8L255.0 55.8L274.4 81.6L252.6 81.6z" fill="#dcd7da"/><path d="M255.0 55.8L267.3 55.8L291.1 81.6L274.4 81.6z" fill="#ef6a55"/><path d="M267.3 55.8L275.1 55.8L301.6 81.6L291.1 81.6z" fill="#dcd7da"/><path d="M275.1 55.8L277.7 55.8L305.2 81.6L301.6 81.6z" fill="#ef6a55"/><path d="M94.8 81.6L98.4 81.6L83.7 107.3L79.6 107.3z" fill="#ef6a55"/><path d="M98.4 81.6L108.9 81.6L95.7 107.3L83.7 107.3z" fill="#dcd7da"/><path d="M108.9 81.6L125.6 81.6L114.9 107.3L95.7 107.3z" fill="#ef6a55"/><path d="M125.6 81.6L147.4 81.6L139.8 107.3L114.9 107.3z" fill="#dcd7da"/><path d="M147.4 81.6L172.8 81.6L168.8 107.3L139.8 107.3z" fill="#ef6a55"/><path d="M172.8 81.6L200.0 81.6L200.0 107.3L168.8 107.3z" fill="#dcd7da"/><path d="M200.0 81.6L227.2 81.6L231.2 107.3L200.0 107.3z" fill="#ef6a55"/><path d="M227.2 81.6L252.6 81.6L260.2 107.3L231.2 107.3z" fill="#dcd7da"/><path d="M252.6 81.6L274.4 81.6L285.1 107.3L260.2 107.3z" fill="#ef6a55"/><path d="M274.4 81.6L291.1 81.6L304.3 107.3L285.1 107.3z" fill="#dcd7da"/><path d="M291.1 81.6L301.6 81.6L316.3 107.3L304.3 107.3z" fill="#ef6a55"/><path d="M301.6 81.6L305.2 81.6L320.4 107.3L316.3 107.3z" fill="#dcd7da"/><path d="M79.6 107.3L83.7 107.3L75.3 133.1L70.9 133.1z" fill="#555a6e"/><path d="M83.7 107.3L95.7 107.3L88.2 133.1L75.3 133.1z" fill="#ef6a55"/><path d="M95.7 107.3L114.9 107.3L108.7 133.1L88.2 133.1z" fill="#555a6e"/><path d="M114.9 107.3L139.8 107.3L135.5 133.1L108.7 133.1z" fill="#ef6a55"/><path d="M139.8 107.3L168.8 107.3L166.6 133.1L135.5 133.1z" fill="#555a6e"/><path d="M168.8 107.3L200.0 107.3L200.0 133.1L166.6 133.1z" fill="#ef6a55"/><path d="M200.0 107.3L231.2 107.3L233.4 133.1L200.0 133.1z" fill="#555a6e"/><path d="M231.2 107.3L260.2 107.3L264.5 133.1L233.4 133.1z" fill="#ef6a55"/><path d="M260.2 107.3L285.1 107.3L291.3 133.1L264.5 133.1z" fill="#555a6e"/><path d="M285.1 107.3L304.3 107.3L311.8 133.1L291.3 133.1z" fill="#ef6a55"/><path d="M304.3 107.3L316.3 107.3L324.7 133.1L311.8 133.1z" fill="#555a6e"/><path d="M316.3 107.3L320.4 107.3L329.1 133.1L324.7 133.1z" fill="#ef6a55"/><path d="M70.9 133.1L75.3 133.1L71.8 158.9L67.3 158.9z" fill="#ef6a55"/><path d="M75.3 133.1L88.2 133.1L85.1 158.9L71.8 158.9z" fill="#555a6e"/><path d="M88.2 133.1L108.7 133.1L106.2 158.9L85.1 158.9z" fill="#ef6a55"/><path d="M108.7 133.1L135.5 133.1L133.6 158.9L106.2 158.9z" fill="#555a6e"/><path d="M135.5 133.1L166.6 133.1L165.6 158.9L133.6 158.9z" fill="#ef6a55"/><path d="M166.6 133.1L200.0 133.1L200.0 158.9L165.6 158.9z" fill="#555a6e"/><path d="M200.0 133.1L233.4 133.1L234.4 158.9L200.0 158.9z" fill="#ef6a55"/><path d="M233.4 133.1L264.5 133.1L266.4 158.9L234.4 158.9z" fill="#555a6e"/><path d="M264.5 133.1L291.3 133.1L293.8 158.9L266.4 158.9z" fill="#ef6a55"/><path d="M291.3 133.1L311.8 133.1L314.9 158.9L293.8 158.9z" fill="#555a6e"/><path d="M311.8 133.1L324.7 133.1L328.2 158.9L314.9 158.9z" fill="#ef6a55"/><path d="M324.7 133.1L329.1 133.1L332.7 158.9L328.2 158.9z" fill="#555a6e"/><path d="M67.3 158.9L71.8 158.9L72.7 184.7L68.2 184.7z" fill="#dcd7da"/><path d="M71.8 158.9L85.1 158.9L85.8 184.7L72.7 184.7z" fill="#ef6a55"/><path d="M85.1 158.9L106.2 158.9L106.8 184.7L85.8 184.7z" fill="#dcd7da"/><path d="M106.2 158.9L133.6 158.9L134.1 184.7L106.8 184.7z" fill="#ef6a55"/><path d="M133.6 158.9L165.6 158.9L165.9 184.7L134.1 184.7z" fill="#dcd7da"/><path d="M165.6 158.9L200.0 158.9L200.0 184.7L165.9 184.7z" fill="#ef6a55"/><path d="M200.0 158.9L234.4 158.9L234.1 184.7L200.0 184.7z" fill="#dcd7da"/><path d="M234.4 158.9L266.4 158.9L265.9 184.7L234.1 184.7z" fill="#ef6a55"/><path d="M266.4 158.9L293.8 158.9L293.2 184.7L265.9 184.7z" fill="#dcd7da"/><path d="M293.8 158.9L314.9 158.9L314.2 184.7L293.2 184.7z" fill="#ef6a55"/><path d="M314.9 158.9L328.2 158.9L327.3 184.7L314.2 184.7z" fill="#dcd7da"/><path d="M328.2 158.9L332.7 158.9L331.8 184.7L327.3 184.7z" fill="#ef6a55"/><path d="M68.2 184.7L72.7 184.7L78.3 210.4L74.0 210.4z" fill="#ef6a55"/><path d="M72.7 184.7L85.8 184.7L90.9 210.4L78.3 210.4z" fill="#dcd7da"/><path d="M85.8 184.7L106.8 184.7L110.9 210.4L90.9 210.4z" fill="#ef6a55"/><path d="M106.8 184.7L134.1 184.7L137.0 210.4L110.9 210.4z" fill="#dcd7da"/><path d="M134.1 184.7L165.9 184.7L167.4 210.4L137.0 210.4z" fill="#f5b04a"/><path d="M165.9 184.7L200.0 184.7L200.0 210.4L167.4 210.4z" fill="#dcd7da"/><path d="M200.0 184.7L234.1 184.7L232.6 210.4L200.0 210.4z" fill="#ef6a55"/><path d="M234.1 184.7L265.9 184.7L263.0 210.4L232.6 210.4z" fill="#dcd7da"/><path d="M265.9 184.7L293.2 184.7L289.1 210.4L263.0 210.4z" fill="#ef6a55"/><path d="M293.2 184.7L314.2 184.7L309.1 210.4L289.1 210.4z" fill="#dcd7da"/><path d="M314.2 184.7L327.3 184.7L321.7 210.4L309.1 210.4z" fill="#f5b04a"/><path d="M327.3 184.7L331.8 184.7L326.0 210.4L321.7 210.4z" fill="#dcd7da"/><path d="M74.0 210.4L78.3 210.4L89.0 236.2L85.1 236.2z" fill="#555a6e"/><path d="M78.3 210.4L90.9 210.4L100.5 236.2L89.0 236.2z" fill="#f5b04a"/><path d="M90.9 210.4L110.9 210.4L118.8 236.2L100.5 236.2z" fill="#555a6e"/><path d="M110.9 210.4L137.0 210.4L142.6 236.2L118.8 236.2z" fill="#ef6a55"/><path d="M137.0 210.4L167.4 210.4L170.3 236.2L142.6 236.2z" fill="#555a6e"/><path d="M167.4 210.4L200.0 210.4L200.0 236.2L170.3 236.2z" fill="#ef6a55"/><path d="M200.0 210.4L232.6 210.4L229.7 236.2L200.0 236.2z" fill="#555a6e"/><path d="M232.6 210.4L263.0 210.4L257.4 236.2L229.7 236.2z" fill="#f5b04a"/><path d="M263.0 210.4L289.1 210.4L281.2 236.2L257.4 236.2z" fill="#555a6e"/><path d="M289.1 210.4L309.1 210.4L299.5 236.2L281.2 236.2z" fill="#ef6a55"/><path d="M309.1 210.4L321.7 210.4L311.0 236.2L299.5 236.2z" fill="#555a6e"/><path d="M321.7 210.4L326.0 210.4L314.9 236.2L311.0 236.2z" fill="#ef6a55"/><path d="M85.1 236.2L89.0 236.2L104.2 262.0L100.8 262.0z" fill="#ef6a55"/><path d="M89.0 236.2L100.5 236.2L114.1 262.0L104.2 262.0z" fill="#555a6e"/><path d="M100.5 236.2L118.8 236.2L129.9 262.0L114.1 262.0z" fill="#ef6a55"/><path d="M118.8 236.2L142.6 236.2L150.4 262.0L129.9 262.0z" fill="#555a6e"/><path d="M142.6 236.2L170.3 236.2L174.3 262.0L150.4 262.0z" fill="#f5b04a"/><path d="M170.3 236.2L200.0 236.2L200.0 262.0L174.3 262.0z" fill="#555a6e"/><path d="M200.0 236.2L229.7 236.2L225.7 262.0L200.0 262.0z" fill="#ef6a55"/><path d="M229.7 236.2L257.4 236.2L249.6 262.0L225.7 262.0z" fill="#555a6e"/><path d="M257.4 236.2L281.2 236.2L270.1 262.0L249.6 262.0z" fill="#ef6a55"/><path d="M281.2 236.2L299.5 236.2L285.9 262.0L270.1 262.0z" fill="#555a6e"/><path d="M299.5 236.2L311.0 236.2L295.8 262.0L285.9 262.0z" fill="#f5b04a"/><path d="M311.0 236.2L314.9 236.2L299.2 262.0L295.8 262.0z" fill="#555a6e"/><path d="M100.8 262.0L104.2 262.0L170.1 342.0L169.0 342.0z" fill="#8b8e9c"/><path d="M104.2 262.0L114.1 262.0L173.2 342.0L170.1 342.0z" fill="#2b3352"/><path d="M114.1 262.0L129.9 262.0L178.1 342.0L173.2 342.0z" fill="#8b8e9c"/><path d="M129.9 262.0L150.4 262.0L184.5 342.0L178.1 342.0z" fill="#2b3352"/><path d="M150.4 262.0L174.3 262.0L192.0 342.0L184.5 342.0z" fill="#8b8e9c"/><path d="M174.3 262.0L200.0 262.0L200.0 342.0L192.0 342.0z" fill="#2b3352"/><path d="M200.0 262.0L225.7 262.0L208.0 342.0L200.0 342.0z" fill="#8b8e9c"/><path d="M225.7 262.0L249.6 262.0L215.5 342.0L208.0 342.0z" fill="#2b3352"/><path d="M249.6 262.0L270.1 262.0L221.9 342.0L215.5 342.0z" fill="#8b8e9c"/><path d="M270.1 262.0L285.9 262.0L226.8 342.0L221.9 342.0z" fill="#2b3352"/><path d="M285.9 262.0L295.8 262.0L229.9 342.0L226.8 342.0z" fill="#8b8e9c"/><path d="M295.8 262.0L299.2 262.0L231.0 342.0L229.9 342.0z" fill="#2b3352"/><path d="M197.1 30.0L124.1 56.0L98.4 82.0L83.3 108.0L75.1 134.0L71.7 160.0L72.8 186.0L78.9 212.0L89.9 238.0L105.3 264.0L124.6 290.0L147.7 316.0L170.1 342.0M197.4 30.0L132.0 56.0L108.9 82.0L95.4 108.0L88.0 134.0L85.0 160.0L86.0 186.0L91.5 212.0L101.3 238.0L115.1 264.0L132.4 290.0L153.1 316.0L173.2 342.0M197.9 30.0L144.4 56.0L125.6 82.0L114.6 108.0L108.6 134.0L106.1 160.0L106.9 186.0L111.4 212.0L119.4 238.0L130.7 264.0L144.8 290.0L161.7 316.0L178.1 342.0M198.5 30.0L160.7 56.0L147.4 82.0L139.6 108.0L135.4 134.0L133.6 160.0L134.2 186.0L137.3 212.0L143.0 238.0L151.0 264.0L161.0 290.0L172.9 316.0L184.5 342.0M199.2 30.0L179.7 56.0L172.8 82.0L168.7 108.0L166.5 134.0L165.6 160.0L165.9 186.0L167.6 212.0L170.5 238.0L174.6 264.0L179.8 290.0L186.0 316.0L192.0 342.0M200.0 30.0L200.0 56.0L200.0 82.0L200.0 108.0L200.0 134.0L200.0 160.0L200.0 186.0L200.0 212.0L200.0 238.0L200.0 264.0L200.0 290.0L200.0 316.0L200.0 342.0M200.8 30.0L220.3 56.0L227.2 82.0L231.3 108.0L233.5 134.0L234.4 160.0L234.1 186.0L232.4 212.0L229.5 238.0L225.4 264.0L220.2 290.0L214.0 316.0L208.0 342.0M201.5 30.0L239.3 56.0L252.6 82.0L260.4 108.0L264.6 134.0L266.4 160.0L265.8 186.0L262.7 212.0L257.0 238.0L249.0 264.0L239.0 290.0L227.1 316.0L215.5 342.0M202.1 30.0L255.6 56.0L274.4 82.0L285.4 108.0L291.4 134.0L293.9 160.0L293.1 186.0L288.6 212.0L280.6 238.0L269.3 264.0L255.2 290.0L238.3 316.0L221.9 342.0M202.6 30.0L268.0 56.0L291.1 82.0L304.6 108.0L312.0 134.0L315.0 160.0L314.0 186.0L308.5 212.0L298.7 238.0L284.9 264.0L267.6 290.0L246.9 316.0L226.8 342.0M202.9 30.0L275.9 56.0L301.6 82.0L316.7 108.0L324.9 134.0L328.3 160.0L327.2 186.0L321.1 212.0L310.1 238.0L294.7 264.0L275.4 290.0L252.3 316.0L229.9 342.0" fill="none" stroke="#3a3f52" stroke-width="1" opacity=".35"/><rect x="60" y="30" width="290" height="320" fill="url(#shade)"/></g>
-          <path d="M172 338l12 34M228 338l-12 34M200 338v34" stroke="#0c2a5c" stroke-width="2"/>
-          <ellipse cx="200" cy="360" rx="26" ry="34" fill="url(#flameG)" class="flame"/>
-          <rect id="basket" x="180" y="372" width="40" height="30" rx="5" fill="#a8683a"/>
-          <path d="M180 380h40M180 390h40" stroke="#7a4522" stroke-width="2"/>
-        </g>
-        <path d="M200 402 L150 700 M200 402 L262 700" stroke="#0c2a5c" stroke-width="1.2" opacity=".5"/>
-      </svg>
+    <div class="hc-more">
+    <p class="lede"><span class="th">บอลลูนลมร้อนปล่อยลูกกอล์ฟติดหมายเลข 300 ลูกลงมาพร้อมกัน สามลูกที่หยุดใกล้เครื่องหมาย X ที่สุดได้รางวัล เงินที่ได้เข้าสู่โครงการเพื่อเด็กของสโมสรโรตารีสากลเชียงใหม่</span><span class="en">A hot-air balloon lets go of 300 numbered golf balls at once. The three that stop closest to the X win. The money goes to the Chiang Mai International Rotary Club's children's projects.</span></p>
+    <ul class="perks">
+      <li><i data-dingbat="golf-ball" data-look="riso"></i><span class="th">ลูกละ ฿1,000</span><span class="en">฿1,000 a ball</span></li>
+      <li><i data-dingbat="airplane" data-look="riso"></i><span class="th">ไม่ต้องอยู่ในงานก็ชนะได้</span><span class="en">no need to be there to win</span></li>
+      <li><i data-dingbat="coin" data-look="riso"></i><span class="th">รางวัลที่ 1 ฿30,000</span><span class="en">1st prize ฿30,000</span></li>
+    </ul>
+    <div class="cta">
+      <a class="btn sun big" href="#balls"><span class="th">ซื้อลูกกอล์ฟ</span><span class="en">Get a ball</span></a>
+      <a class="btn warm big" href="#give"><span class="th">ให้โดยตรง</span><span class="en">Give</span></a>
+      <a class="btn paper" href="#try"><span class="th">ลองทิ้งดู</span><span class="en">Try a drop</span></a>
+    </div>
+    <p class="count" id="count" aria-live="off"></p>
+    <a class="raised-pill" id="raised-pill" href="#raised" hidden></a>
     </div>
   </div>
-  <svg class="hills" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
-    <defs><linearGradient id="haze" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b97d1" stop-opacity="0"/><stop offset=".55" stop-color="#5b97d1" stop-opacity=".42"/><stop offset=".8" stop-color="#5b97d1" stop-opacity=".2"/><stop offset="1" stop-color="#5b97d1" stop-opacity="0"/></linearGradient></defs>
-    <path d="M0 120 C180 60 330 110 520 80 S900 40 1080 90 1320 70 1440 60V220H0z" fill="#3a6ea8" opacity=".55"/>
-    <g fill="#f4f1ea"><path d="M413 118h14l-3-13h-8z M417 105L420 81L423 105z"/><path d="M463 118h14l-3-12h-8z M467 106L470 84L473 106z"/><path d="M1223 118h14l-3-13h-8z M1227 105L1230 80L1233 105z"/><path d="M1283 118h14l-3-10h-8z M1287 108L1290 90L1293 108z"/><path d="M1343 118h14l-3-11h-8z M1347 107L1350 87L1353 107z"/></g>
-    <g fill="#2c6b3c"><circle cx="-20" cy="112" r="17"/><circle cx="-8" cy="118" r="13"/><circle cx="26" cy="117" r="23"/><circle cx="42" cy="123" r="17"/><circle cx="72" cy="114" r="17"/><circle cx="84" cy="120" r="13"/><circle cx="118" cy="115" r="24"/><circle cx="135" cy="121" r="18"/><circle cx="164" cy="114" r="23"/><circle cx="180" cy="120" r="18"/><circle cx="210" cy="121" r="17"/><circle cx="222" cy="127" r="13"/><circle cx="256" cy="119" r="20"/><circle cx="270" cy="125" r="15"/><circle cx="302" cy="118" r="26"/><circle cx="320" cy="124" r="19"/><circle cx="348" cy="113" r="16"/><circle cx="359" cy="119" r="12"/><circle cx="394" cy="125" r="20"/><circle cx="408" cy="131" r="15"/><circle cx="440" cy="115" r="19"/><circle cx="454" cy="121" r="14"/><circle cx="486" cy="117" r="26"/><circle cx="504" cy="123" r="19"/><circle cx="532" cy="115" r="18"/><circle cx="545" cy="121" r="14"/><circle cx="578" cy="120" r="21"/><circle cx="593" cy="126" r="16"/><circle cx="624" cy="135" r="24"/><circle cx="641" cy="141" r="18"/><circle cx="670" cy="127" r="18"/><circle cx="683" cy="133" r="14"/><circle cx="716" cy="134" r="26"/><circle cx="734" cy="140" r="19"/><circle cx="762" cy="122" r="23"/><circle cx="778" cy="128" r="18"/><circle cx="808" cy="134" r="23"/><circle cx="824" cy="140" r="17"/><circle cx="854" cy="125" r="24"/><circle cx="871" cy="131" r="18"/><circle cx="900" cy="122" r="18"/><circle cx="913" cy="128" r="13"/><circle cx="946" cy="121" r="18"/><circle cx="959" cy="127" r="14"/><circle cx="992" cy="113" r="19"/><circle cx="1006" cy="119" r="15"/><circle cx="1038" cy="117" r="20"/><circle cx="1052" cy="123" r="15"/><circle cx="1084" cy="121" r="24"/><circle cx="1101" cy="127" r="18"/><circle cx="1130" cy="125" r="26"/><circle cx="1148" cy="131" r="19"/><circle cx="1176" cy="126" r="24"/><circle cx="1193" cy="132" r="18"/><circle cx="1222" cy="116" r="18"/><circle cx="1234" cy="122" r="13"/><circle cx="1268" cy="121" r="21"/><circle cx="1283" cy="127" r="16"/><circle cx="1314" cy="121" r="17"/><circle cx="1326" cy="127" r="13"/><circle cx="1360" cy="115" r="25"/><circle cx="1378" cy="121" r="19"/><circle cx="1406" cy="120" r="23"/><circle cx="1422" cy="126" r="17"/><circle cx="1452" cy="113" r="20"/><circle cx="1466" cy="119" r="15"/></g>
-    <rect y="40" width="1440" height="110" fill="url(#haze)"/>
-    <path id="green" d="M0 150 C220 110 420 160 700 128 S1180 110 1440 140V220H0z" fill="#3f8a50"/>
-    <path d="M0 180 C300 160 600 200 900 176 S1300 168 1440 180V220H0z" fill="#1c4f30"/>
-    
-    <g class="xmark" transform="translate(1040 150)" stroke="#fff" stroke-width="5" stroke-linecap="round"><path d="M-16-6L16 6M-16 6L16-6"/></g>
-  </svg>
+  <div class="hero-stage" id="stage">
+    <canvas id="hero-cv" role="img" aria-label="ภาพพิมพ์ริโซ: บอลลูนลายตารางเหนือสนามหญ้าที่มีเครื่องหมาย X ผู้ชมยืนหลังเทป · Riso print: the checkered balloon over a lawn marked with an X, people watching behind the tape"></canvas>
+    <button type="button" class="cord" id="cord"><span class="th">ดึงเชือก ปล่อยลูก!</span><span class="en">Pull the cord: drop the balls!</span></button>
+    <p class="hint" aria-hidden="true"><span class="th">แตะบอลลูนจุดไฟ ลากได้ แตะท้องฟ้า แตะคน</span><span class="en">Tap the balloon to fire it, drag it, tap the sky, tap the people</span></p>
+  </div>
 </section>
+
+<div class="rule" aria-hidden="true"><i data-dingbat="bunting" data-look="riso"></i></div>
 
 <section class="sec how" aria-labelledby="how-h">
   <div class="in">
     <p class="kick"><span class="th">เล่นยังไง</span><span class="en">How it works</span></p>
-    <h2 id="how-h"><span class="th">ง่ายแค่สามขั้น</span><span class="en">Three steps</span></h2>
-    <div class="steps">
-      <div class="step">
-        <svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30" fill="#fff8ea"/><circle cx="36" cy="36" r="30" fill="none" stroke="#f7a81b" stroke-width="3"/><text x="36" y="44" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="22" fill="#17458f">137</text></svg>
-        <p><small>1</small><span class="th">ซื้อลูกกอล์ฟ ได้หมายเลขประจำตัว 1 ถึง 300</span><span class="en">Get a ball. It carries your number, 1 to 300.</span></p>
-      </div>
-      <div class="step">
-        <svg viewBox="0 0 72 72" aria-hidden="true"><clipPath id="stepb"><path d="M36 6C22 6 14 17 14 29c0 11 9 21 18 29h8c9-8 18-18 18-29C58 17 50 6 36 6z"/></clipPath><g clip-path="url(#stepb)"><rect x="12" y="4" width="48" height="56" fill="#dcd7da"/><path d="M12 4h9v9h-9zM30 4h9v9h-9zM48 4h9v9h-9zM21 13h9v9h-9zM39 13h9v9h-9zM12 22h9v9h-9zM30 22h9v9h-9zM48 22h9v9h-9zM21 31h9v9h-9zM39 31h9v9h-9z" fill="#ef6a55"/><path d="M21 4h9v9h-9zM39 22h9v9h-9zM12 31h9v9h-9zM48 31h9v9h-9z" fill="#555a6e"/><path d="M30 31h9v9h-9z" fill="#f5b04a"/><path d="M12 40h48v20H12z" fill="#8b8e9c"/><path d="M18 40h6v20h-6zM30 40h6v20h-6zM42 40h6v20h-6zM54 40h6v20h-6z" fill="#2b3352"/></g><rect x="31" y="60" width="10" height="7" rx="2" fill="#a8683a"/><circle cx="24" cy="68" r="2.5" fill="#fff"/><circle cx="48" cy="66" r="2.5" fill="#fff"/></svg>
-        <p><small>2</small><span class="th">บอลลูนปล่อยลูกทั้ง 300 ลูกลงเหนือเครื่องหมาย X</span><span class="en">The balloon drops all 300 over a big X.</span></p>
-      </div>
-      <div class="step">
-        <svg viewBox="0 0 72 72" aria-hidden="true"><ellipse cx="36" cy="54" rx="32" ry="12" fill="#5f9a5a"/><path d="M26 48l20 12M26 60l20-12" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><circle cx="40" cy="53" r="4.5" fill="#fff"/><circle cx="40" cy="53" r="9" fill="none" stroke="#f7a81b" stroke-width="2.5"/><circle cx="12" cy="52" r="3" fill="#fff" opacity=".7"/><circle cx="62" cy="56" r="3" fill="#fff" opacity=".7"/></svg>
-        <p><small>3</small><span class="th">สามลูกที่ใกล้ X ที่สุดได้รางวัล</span><span class="en">The three closest to the X win.</span></p>
-      </div>
-    </div>
+    <h2 id="how-h" class="riso-type"><span class="th">ง่ายแค่สามขั้น</span><span class="en">Three steps</span></h2>
+    <ol class="steps">
+      <li><i data-dingbat="golf-ball" data-look="riso"></i><p><span class="th">ซื้อลูกกอล์ฟ ได้หมายเลขประจำตัว 1 ถึง 300</span><span class="en">Get a ball. It carries your number, 1 to 300.</span></p></li>
+      <li><i data-dingbat="balloon" data-look="riso"></i><p><span class="th">บอลลูนปล่อยลูกทั้ง 300 ลูกลงเหนือเครื่องหมาย X</span><span class="en">The balloon drops all 300 over a big X.</span></p></li>
+      <li><i data-dingbat="x-mark" data-look="riso"></i><p><span class="th">สามลูกที่ใกล้ X ที่สุดได้รางวัล</span><span class="en">The three closest to the X win.</span></p></li>
+    </ol>
     <p class="away"><span class="th">ไม่ต้องอยู่ในงานก็ชนะได้ ซื้อให้เพื่อนต่างประเทศก็ได้</span><span class="en">Winners need not be there, so a ball makes a gift for a friend anywhere.</span></p>
   </div>
 </section>
 
-<section class="sec game" id="try" aria-labelledby="try-h">
+<section class="sec play" id="try" aria-labelledby="try-h">
   <div class="in">
-    <h2 id="try-h" style="color:#fff"><span class="th">ลองทิ้งดู</span><span class="en" style="color:#dbe9ff">Try a drop</span></h2>
-    <div class="board">
-      <canvas id="cv" role="img" aria-label="ภาพจำลอง: บอลลูนปล่อยลูกกอล์ฟ 300 ลูกลงสนาม · Simulation: a balloon drops 300 golf balls onto a lawn marked with an X"></canvas>
-      <div class="controls">
-        <label for="num"><span class="th">หมายเลขของคุณ</span><span class="en">Your number</span>
-          <input id="num" type="number" inputmode="numeric" min="1" max="300" value="137">
-        </label>
-        <button type="button" class="btn soft" id="rnd"><span class="th">สุ่ม</span><span class="en">Random</span></button>
-        <button type="button" class="btn gold" id="go"><span class="th">ปล่อย!</span><span class="en">Drop!</span></button>
-        <div class="result" id="res" role="status" aria-live="polite"></div>
+    <p class="kick"><span class="th">ลองดู</span><span class="en">Try it</span></p>
+    <h2 id="try-h" class="riso-type"><span class="th">ลองทิ้งดู</span><span class="en">Try a drop</span></h2>
+    <div class="play-grid">
+      <figure class="luck print">
+        <canvas id="luck-cv" role="img" aria-label="เครื่องเลขนำโชค: ลูกกอล์ฟกระดอนผ่านหมุดลงช่อง · Lucky number machine: a golf ball bounces down through pins into a slot"></canvas>
+        <figcaption>
+          <span class="th">เครื่องเลขนำโชค แตะเพื่อปล่อยลูก</span><span class="en">The lucky number machine. Tap to let a ball go.</span>
+          <output id="luck-out" class="num" aria-live="polite">?</output>
+          <button type="button" class="btn sun" id="luck-go"><span class="th">ปล่อยลูก</span><span class="en">Drop a ball</span></button>
+        </figcaption>
+      </figure>
+      <div class="board print">
+        <canvas id="cv" role="img" aria-label="ภาพจำลอง: บอลลูนปล่อยลูกกอล์ฟ 300 ลูกลงสนาม · Simulation: a balloon drops 300 golf balls onto a lawn marked with an X"></canvas>
+        <div class="controls">
+          <label for="num"><span class="th">หมายเลขของคุณ</span><span class="en">Your number</span>
+            <input id="num" type="number" inputmode="numeric" min="1" max="300" value="137">
+          </label>
+          <label for="wind"><span class="th">ลม</span><span class="en">Breeze</span>
+            <input id="wind" type="range" min="-3" max="3" step="1" value="0">
+          </label>
+          <button type="button" class="btn sun big" id="go"><span class="th">ปล่อย!</span><span class="en">Drop!</span></button>
+          <div class="result" id="res" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec prizes" id="prizes" aria-labelledby="pr-h">
+  <canvas class="rain" id="coin-cv" aria-hidden="true"></canvas>
+  <div class="in">
+    <p class="kick"><span class="th">รางวัล</span><span class="en">Prizes</span></p>
+    <h2 id="pr-h" class="riso-type"><span class="th">สามลูกที่ใกล้ X ที่สุด</span><span class="en">The three closest to the X</span></h2>
+    <div class="medals">
+      <button type="button" class="medal m1" data-amt="30000"><span class="disc">1</span><span class="amt">฿30,000</span><span class="lab"><span class="th">ใกล้ X ที่สุด</span><span class="en">Closest to the X</span></span></button>
+      <button type="button" class="medal m2" data-amt="10000"><span class="disc">2</span><span class="amt">฿10,000</span><span class="lab"><span class="th">อันดับสอง</span><span class="en">Second</span></span></button>
+      <button type="button" class="medal m3" data-amt="5000"><span class="disc">3</span><span class="amt">฿5,000</span><span class="lab"><span class="th">อันดับสาม</span><span class="en">Third</span></span></button>
+    </div>
+    <p class="fine"><span class="th">รางวัลเป็นบัตรกำนัลตามที่ผู้ชนะเลือก ใช้ได้ในหลายประเทศ ไม่ใช่เงินสด</span><span class="en">Prizes are gift vouchers of the winner's choice, valid internationally, not cash.</span></p>
+  </div>
+</section>
+
+<section class="sec balls" id="balls" aria-labelledby="b-h">
+  <div class="in tix">
+    <button type="button" class="ticket" id="ticket" aria-label="ตั๋วตัวอย่าง แตะเพื่อสุ่มเลขใหม่ · A sample ticket; tap for a new number">
+      <span class="t-l"><img src="img/rotary-wheel.png" alt="" width="40" height="40"><b>Golf Ball Drop</b><small>30 · 01 · 2027 · 15:00</small><small>Horizon Village</small></span>
+      <span class="t-r"><small>No.</small><b id="tnum">137</b></span>
+    </button>
+    <div>
+      <p class="kick"><span class="th">ลูกกอล์ฟ</span><span class="en">Balls</span></p>
+      <h2 id="b-h" class="riso-type big">฿1,000 <small><span class="th">ต่อลูก · มี 300 ลูก</span><span class="en">a ball · 300 in all</span></small></h2>
+      <ul class="ways">
+        <li><i data-dingbat="clap" data-look="riso"></i><span><span class="th">สมาชิกสโมสรโรตารีสากลเชียงใหม่ทุกท่านมีลูกกอล์ฟจำหน่าย ตั้งแต่ 1 พ.ย.</span><span class="en">Every Chiang Mai International Rotary Club member has balls to sell, from 1 November.</span></span></li>
+        <li><i data-dingbat="flag" data-look="riso"></i><span><span class="th">มีจุดขายในงานจนถึงบ่ายสามโมง</span><span class="en">Sellers at the event until 3 pm.</span></span></li>
+        <li><i data-dingbat="envelope" data-look="riso"></i><span><span class="th">สอบถาม: NaN Peacock ประธานฝ่ายระดมทุน · nan@motdang.net</span><span class="en">Questions: NaN Peacock, fundraising chair · nan@motdang.net</span></span></li>
+      </ul>
+      <div class="cta">
+        <a class="btn sun big" href="mailto:nan@motdang.net?subject=Golf%20Ball%20Drop%202027"><span class="th">อีเมลขอซื้อลูก</span><span class="en">Email for a ball</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec raised" id="raised" aria-labelledby="r-h">
+  <div class="in">
+    <p class="kick"><span class="th">ยอดสด</span><span class="en">Live</span></p>
+    <h2 id="r-h" class="riso-type"><span class="th">ระดมได้แล้ว</span><span class="en">Raised so far</span></h2>
+    <div class="r-card print">
+      <div class="r-head">
+        <p class="r-big"><b id="r-raised">฿0</b> <span class="r-of"><span id="r-pct">0%</span> <span class="th">ของเป้า</span><span class="en">of</span> <span id="r-goal">฿300,000</span> <small><span class="th">(ลูกกอล์ฟครบ 300 ลูก)</span><span class="en">(all 300 balls)</span></small></span></p>
+        <div class="r-bar" id="r-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="ระดมได้แล้ว · Raised"><i class="p" id="r-bar-paid"></i><i class="g" id="r-bar-gift"></i></div>
+        <ul class="r-legend">
+          <li><i class="sw p"></i><span><span class="th">ลูกที่จ่ายแล้ว</span><span class="en">Balls paid</span> <b id="r-balls">0</b> · <b id="r-ballb">฿0</b></span></li>
+          <li><i class="sw g"></i><span><span class="th">เงินบริจาค</span><span class="en">Gifts</span> <b id="r-gifts">0</b> · <b id="r-giftb">฿0</b></span></li>
+        </ul>
+      </div>
+      <div class="r-body">
+        <div class="r-grid" id="r-grid" role="img"></div>
+        <div class="r-chart">
+          <svg id="r-line" role="img" aria-label="ยอดสะสมรายวัน · Running total by day"></svg>
+          <div class="r-tip" id="r-tip" hidden></div>
+        </div>
+      </div>
+      <details class="r-tab"><summary><span class="th">ดูเป็นตาราง</span><span class="en">As a table</span></summary>
+        <table id="r-table"><thead><tr><th><span class="th">วันที่</span><span class="en">Day</span></th><th><span class="th">ยอดสะสม</span><span class="en">Running total</span></th></tr></thead><tbody></tbody></table>
+      </details>
+      <p class="r-note" id="r-note"></p>
+      <p class="r-how"><span class="th">สมาชิกบันทึกลูกที่จ่ายแล้ว และเหรัญญิกบันทึกเงินบริจาค ในกลุ่มไลน์ของงาน ยอดนี้อ่านจากบันทึกนั้นทุกนาที</span><span class="en">Members record paid balls, and the treasurer records gifts, in the event's LINE group; this reads those records every minute.</span></p>
+    </div>
+  </div>
+</section>
+
+<div class="rule" aria-hidden="true"><i data-dingbat="string-lights" data-look="riso"></i></div>
+
+<section class="sec give" id="give" aria-labelledby="give-h">
+  <div class="in">
+    <p class="kick"><span class="th">ให้</span><span class="en">Give</span></p>
+    <h2 id="give-h" class="riso-type"><span class="th">เติมลมให้บอลลูน</span><span class="en">Fill the balloon</span></h2>
+    <p class="lead"><span class="th">ไม่ต้องซื้อลูกก็ช่วยได้ ให้ตรงถึงโครงการเพื่อเด็กของสโมสร</span><span class="en">No ball needed: give straight to the club's children's projects.</span></p>
+    <div class="give-grid">
+      <figure class="print fill">
+        <canvas id="give-cv" role="img" aria-label="บอลลูนพองตามจำนวนเงิน · A balloon that fills with the amount you pick"></canvas>
+        <figcaption id="give-say" aria-live="polite"></figcaption>
+      </figure>
+      <div class="give-steps">
+        <fieldset class="amounts">
+          <legend><span class="th">เลือกจำนวน</span><span class="en">Pick an amount</span></legend>
+          <div class="chips">
+            <button type="button" data-amt="500">฿500</button>
+            <button type="button" data-amt="1000" aria-pressed="true">฿1,000</button>
+            <button type="button" data-amt="5000">฿5,000</button>
+            <button type="button" data-amt="10000">฿10,000</button>
+            <label class="other"><span class="th">อื่น ๆ</span><span class="en">Other</span> ฿<input id="give-amt" type="number" inputmode="numeric" min="1" step="1" placeholder="2,500"></label>
+          </div>
+        </fieldset>
+        <ol class="how-give">
+          <li>
+            <h3><span class="th">โอนเข้าบัญชีสโมสร</span><span class="en">Transfer to the club's account</span></h3>
+            <dl class="bank">
+              <dt><span class="th">ธนาคาร</span><span class="en">Bank</span></dt><dd><span class="th">ธนาคารกรุงเทพ สาขาช้างเผือก (0390)</span><span class="en">Bangkok Bank, Chang Phuek branch (0390)</span></dd>
+              <dt><span class="th">เลขที่บัญชี</span><span class="en">Account</span></dt><dd class="acct"><b id="acct">390-4-85413-4</b> <button type="button" class="copy" data-copy="3904854134"><i data-dingbat="copy" data-look="riso"></i><span class="th">คัดลอก</span><span class="en">Copy</span></button></dd>
+              <dt><span class="th">ชื่อบัญชี</span><span class="en">Name</span></dt><dd>Mr. OWEN JOHN HODGSON และ น.ส. เยาวภา รัตนะโสภา (Yaowapa Ratanasopa)</dd>
+            </dl>
+          </li>
+          <li>
+            <h3><span class="th">ส่งสลิปให้เหรัญญิก</span><span class="en">Email your slip to the treasurer</span></h3>
+            <p><span class="th">สโมสรต้องใช้รายละเอียดการโอน จึงจะรู้ว่าเงินนี้มาจากคุณ</span><span class="en">The club needs the transfer details to know the money came from you.</span></p>
+            <a class="btn key" id="give-mail" href="mailto:treasurer@cmirotary.org"><i data-dingbat="envelope" data-look="riso"></i><span class="th">อีเมลเหรัญญิก</span><span class="en">Email the treasurer</span></a>
+          </li>
+          <li>
+            <h3><span class="th">โอนจากต่างประเทศ</span><span class="en">From abroad</span></h3>
+            <p>SWIFT <b>BKKBTHBK</b> <button type="button" class="copy" data-copy="BKKBTHBK"><i data-dingbat="copy" data-look="riso"></i><span class="th">คัดลอก</span><span class="en">Copy</span></button><br><span class="th">ธนาคารกรุงเทพ 125 ถนนช้างเผือก เชียงใหม่ 50200</span><span class="en">Bangkok Bank, 125 Chang Phuek Road, Chiang Mai 50200, Thailand</span></p>
+          </li>
+        </ol>
+        <div class="sent">
+          <button type="button" class="btn warm big" id="give-sent"><span class="th">โอนแล้ว!</span><span class="en">I've sent it!</span></button>
+          <p class="src"><span class="th">รายละเอียดบัญชีตาม</span><span class="en">Account details as on</span> <a href="https://www.cmirotary.org/donate" target="_blank" rel="noopener">cmirotary.org/donate</a></p>
+        </div>
       </div>
     </div>
   </div>
@@ -468,530 +264,125 @@ footer p{margin:0}
 <section class="sec projects" id="projects" aria-labelledby="pj-h">
   <div class="in">
     <p class="kick"><span class="th">เงินไปไหน</span><span class="en">Where the money goes</span></p>
-    <h2 id="pj-h"><span class="th">โครงการเพื่อเด็กของสโมสร</span><span class="en">The club's children's projects</span></h2>
+    <h2 id="pj-h" class="riso-type"><span class="th">โครงการเพื่อเด็กของสโมสร</span><span class="en">The club's children's projects</span></h2>
     <p class="lead"><span class="th">เงินจากงานทิ้งลูกกอล์ฟสนับสนุนโครงการเพื่อเด็กของสโมสรโรตารีสากลเชียงใหม่ ทั้งปัจจุบันและอนาคต เน้นความปลอดภัย สุขภาพ และการศึกษาของเด็กในภาคเหนือ</span><span class="en">The Golf Ball Drop funds the club's current and future children's projects: child safety, health and education in Northern Thailand.</span></p>
     <div class="pgrid">
       <a class="proj" href="https://www.cmirotary.org/children-s-water-safety-program" target="_blank" rel="noopener">
+        <i data-dingbat="ocean-wave" data-look="riso"></i>
         <span class="n">700 <small><span class="th">นักเรียน ป.4 ต่อปี</span><span class="en">4th graders a year</span></small></span>
         <h3><span class="th">สอนว่ายน้ำเอาชีวิตรอด</span><span class="en">Children's Water Safety</span></h3>
         <p><span class="th">นักเรียน ป.4 ทุกคนใน 11 โรงเรียนเทศบาลเชียงใหม่ เรียนว่ายน้ำ 15 ชั่วโมง พร้อมอุปกรณ์ครบ ตั้งแต่ปี 2559</span><span class="en">Every 4th grader in Chiang Mai's 11 municipal schools gets 15 hours of swimming lessons and full kit, since 2016. Drowning kills more than 1,300 Thai children a year.</span></p>
         <span class="more"><span class="th">อ่านต่อ</span><span class="en">More</span> →</span>
       </a>
       <a class="proj" href="https://www.cmirotary.org/school-vision-screening" target="_blank" rel="noopener">
+        <i data-dingbat="eye" data-look="riso"></i>
         <span class="n">800 <small><span class="th">เด็กได้ตรวจต่อปี</span><span class="en">children screened a year</span></small></span>
         <h3><span class="th">ตรวจสายตาเด็กนักเรียน</span><span class="en">School Vision Screening</span></h3>
         <p><span class="th">ตรวจสายตานักเรียน ป.3 และ ป.5 ใน 11 โรงเรียนเทศบาลและโรงเรียนวัดสวนดอก ราว 15% ได้รับแว่นสายตาฟรี</span><span class="en">3rd and 5th graders at the 11 municipal schools and Wat Suan Dok School. About 15% get free prescription glasses.</span></p>
         <span class="more"><span class="th">อ่านต่อ</span><span class="en">More</span> →</span>
       </a>
       <a class="proj" href="https://www.cmirotary.org/community-service-projects" target="_blank" rel="noopener">
+        <i data-dingbat="pencil" data-look="riso"></i>
         <span class="n">CMIRC <small><span class="th">ทุนของสโมสรเอง</span><span class="en">the club's own</span></small></span>
         <h3><span class="th">ทุนการศึกษาของสโมสร</span><span class="en">Club Scholarships</span></h3>
         <p><span class="th">โครงการทุนการศึกษาของสโมสรเอง มีเดวิด ลูเซโรเป็นประธาน</span><span class="en">The club's own scholarship programme, chaired by David Lucero.</span></p>
         <span class="more"><span class="th">อ่านต่อ</span><span class="en">More</span> →</span>
       </a>
       <a class="proj" href="https://www.cmirotary.org/bcmf-bk-kee-patient-house" target="_blank" rel="noopener">
+        <i data-dingbat="home" data-look="riso"></i>
         <span class="n">24 <small><span class="th">ผู้ป่วยและผู้ดูแล</span><span class="en">patients and carers</span></small></span>
         <h3><span class="th">บ้านพักผู้ป่วย B.K. Kee</span><span class="en">B.K. Kee Patient House</span></h3>
         <p><span class="th">ที่พักสำหรับครอบครัวผู้ป่วยจากชายแดนไทย–เมียนมาที่รอรับการรักษาในเชียงใหม่ สโมสรช่วยปรับปรุงบ้านและเยี่ยมทุกสัปดาห์</span><span class="en">A home for border families waiting for treatment in Chiang Mai; the club funds improvements and visits every week.</span></p>
         <span class="more"><span class="th">อ่านต่อ</span><span class="en">More</span> →</span>
       </a>
       <a class="proj" href="https://www.cmirotary.org/winter-clothing-school-supplies-app" target="_blank" rel="noopener">
-        <span class="n"><span class="th">พ.ย.–ม.ค.</span><span class="en" style="display:inline">Nov–Jan</span></span>
+        <i data-dingbat="snowflake" data-look="riso"></i>
+        <span class="n"><span class="th">พ.ย.–ม.ค.</span><span class="en">Nov–Jan</span></span>
         <h3><span class="th">เสื้อกันหนาวและอุปกรณ์การเรียน</span><span class="en">Winter Clothing &amp; School Supplies</span></h3>
         <p><span class="th">เสื้อผ้ากันหนาว ดินสอ กระดาษ และหนังสือ สำหรับเด็กชาวเขาและเด็กข้ามชาติทั่วภาคเหนือ</span><span class="en">Warm clothes, pencils, paper and books for hill-tribe and migrant children across the North.</span></p>
         <span class="more"><span class="th">อ่านต่อ</span><span class="en">More</span> →</span>
       </a>
     </div>
-    <div class="give">
-      <p><span class="th">ไม่อยากลุ้น แต่อยากช่วย? บริจาคตรงถึงสโมสรได้</span><span class="en">Rather give than play? The club takes donations directly.</span></p>
-      <a class="btn gold" href="https://www.cmirotary.org/donate" target="_blank" rel="noopener"><span class="th">บริจาค</span><span class="en">Donate</span></a>
-      <a class="btn ghost" href="https://www.cmirotary.org/" target="_blank" rel="noopener"><span class="th">รู้จักสโมสร</span><span class="en">Meet the club</span></a>
-    </div>
   </div>
 </section>
 
-<section class="sec" style="padding-top:0" aria-labelledby="day-h">
+<section class="sec day" aria-labelledby="day-h">
   <div class="in">
     <p class="kick"><span class="th">วันงาน</span><span class="en">On the day</span></p>
-    <h2 id="day-h"><span class="th">บ่ายวันเสาร์ที่ฮอไรซอน</span><span class="en">A Saturday afternoon at Horizon</span></h2>
+    <h2 id="day-h" class="riso-type"><span class="th">บ่ายวันเสาร์ที่ฮอไรซอน</span><span class="en">A Saturday afternoon at Horizon</span></h2>
     <ol class="timeline">
-      <li><time>11:30</time><div><b><span class="th">ปิกนิกและบาร์บีคิว</span><span class="en">Picnic and BBQ</span></b><span class="th">ของ Chiang Mai Expats Club (ค่าเข้าปิกนิกแยกต่างหาก)</span><span class="en">the Chiang Mai Expats Club's (picnic entry is paid separately)</span></div></li>
-      <li><time>12:00</time><div><b><span class="th">เต็นท์บอลลูนสำหรับเด็ก</span><span class="en">Balloon tent for children</span></b></div></li>
-      <li><time>13:00–15:00</time><div><b><span class="th">ขึ้นบอลลูนผูกเชือก</span><span class="en">Tethered balloon rides</span></b><span class="th">ผู้ใหญ่ ฿100 · เด็ก ฿50</span><span class="en">Adults ฿100 · children ฿50</span></div></li>
-      <li class="peak"><time>15:00</time><div><b><span class="th">ทิ้งลูกกอล์ฟ</span><span class="en">The drop</span></b><span class="th">300 ลูก ลงพร้อมกัน</span><span class="en">300 balls, all at once</span></div></li>
+      <li><time>11:30</time><i data-dingbat="burger" data-look="riso"></i><div><b><span class="th">ปิกนิกและบาร์บีคิว</span><span class="en">Picnic and BBQ</span></b><span class="th">ของ Chiang Mai Expats Club (ค่าเข้าปิกนิกแยกต่างหาก)</span><span class="en">the Chiang Mai Expats Club's (picnic entry is paid separately)</span></div></li>
+      <li><time>12:00</time><i data-dingbat="party" data-look="riso"></i><div><b><span class="th">เต็นท์บอลลูนสำหรับเด็ก</span><span class="en">Balloon tent for children</span></b></div></li>
+      <li><time>13:00–15:00</time><i data-dingbat="balloon" data-look="riso"></i><div><b><span class="th">ขึ้นบอลลูนผูกเชือก</span><span class="en">Tethered balloon rides</span></b><span class="th">ผู้ใหญ่ ฿100 · เด็ก ฿50</span><span class="en">Adults ฿100 · children ฿50</span></div></li>
+      <li class="peak"><time>15:00</time><i data-dingbat="golf-ball" data-look="riso"></i><div><b><span class="th">ทิ้งลูกกอล์ฟ</span><span class="en">The drop</span></b><span class="th">300 ลูก ลงพร้อมกัน</span><span class="en">300 balls, all at once</span></div></li>
     </ol>
   </div>
 </section>
 
-<section class="sec" style="padding-top:0" aria-labelledby="past-h">
+<section class="sec past" aria-labelledby="past-h">
   <div class="in">
     <p class="kick"><span class="th">ครั้งที่แล้ว</span><span class="en">Last time</span></p>
-    <h2 id="past-h"><span class="th">31 มกราคม 2569</span><span class="en">31 January 2026</span></h2>
+    <h2 id="past-h" class="riso-type"><span class="th">31 มกราคม 2569</span><span class="en">31 January 2026</span></h2>
     <div class="photos"><button type="button" class="ph" data-src="img/2026/gbd-2026-141038.jpg"><img src="img/2026/gbd-2026-141038.jpg" alt="บอลลูนลายตารางเหนือสนามหญ้า ผู้คนยืนดูหลังเทปเหลือง · The checkered balloon over the lawn, people watching from behind the yellow tape" width="768" height="1024" loading="lazy"></button><button type="button" class="ph" data-src="img/2026/gbd-2026-141051.jpg"><img src="img/2026/gbd-2026-141051.jpg" alt="บอลลูนลอยสูงพร้อมตะกร้า · The balloon up high with its basket" width="768" height="1024" loading="lazy"></button><button type="button" class="ph" data-src="img/2026/gbd-2026-141130.jpg"><img src="img/2026/gbd-2026-141130.jpg" alt="ผู้ชมบนสนามหญ้ามองขึ้นไปที่บอลลูน · The crowd on the lawn looking up at the balloon" width="768" height="1024" loading="lazy"></button><button type="button" class="ph" data-src="img/2026/gbd-2026-141034.jpg"><img src="img/2026/gbd-2026-141034.jpg" alt="บอลลูนกับแถวต้นไม้และผู้ชม · The balloon, the tree line and the crowd" width="768" height="1024" loading="lazy"></button><button type="button" class="ph" data-src="img/2026/gbd-2026-141324.jpg"><img src="img/2026/gbd-2026-141324.jpg" alt="บอลลูนมองผ่านกิ่งไม้มีหนาม · The balloon seen through a thorny branch" width="768" height="1024" loading="lazy"></button><button type="button" class="ph" data-src="img/2026/gbd-2026-140902.jpg"><img src="img/2026/gbd-2026-140902.jpg" alt="บอลลูนหลังต้นปาล์ม · The balloon behind the palms" width="768" height="1024" loading="lazy"></button></div>
   </div>
   <dialog class="lb" id="lb" aria-label="รูปภาพ · Photo"><img alt=""></dialog>
 </section>
 
-<section class="sec blue" id="prizes" aria-labelledby="pr-h">
-  <div class="in">
-    <p class="kick"><span class="th">รางวัล</span><span class="en">Prizes</span></p>
-    <h2 id="pr-h"><span class="th">สามลูกที่ใกล้ X ที่สุด</span><span class="en">The three closest to the X</span></h2>
-    <div class="medals">
-      <div class="medal g1"><div class="disc">1</div><div class="amt">฿30,000</div><p><span class="th">ใกล้ X ที่สุด</span><span class="en">Closest to the X</span></p></div>
-      <div class="medal g2"><div class="disc">2</div><div class="amt">฿10,000</div><p><span class="th">อันดับสอง</span><span class="en">Second</span></p></div>
-      <div class="medal g3"><div class="disc">3</div><div class="amt">฿5,000</div><p><span class="th">อันดับสาม</span><span class="en">Third</span></p></div>
-    </div>
-    <p class="fine"><span class="th">รางวัลเป็นบัตรกำนัลตามที่ผู้ชนะเลือก ใช้ได้ในหลายประเทศ ไม่ใช่เงินสด</span><span class="en">Prizes are gift vouchers of the winner's choice, valid internationally, not cash.</span></p>
-  </div>
-</section>
-
-<section class="sec" id="balls" aria-labelledby="b-h">
-  <div class="in tix">
-    <div class="ticket" aria-hidden="true">
-      <div class="l"><img src="img/rotary-wheel.png" alt="" width="44" height="44"><small>Golf Ball Drop 2027</small><small>30 · 01 · 2027</small></div>
-      <div class="r">137</div>
-    </div>
-    <div>
-      <p class="kick"><span class="th">ลูกกอล์ฟ</span><span class="en">Balls</span></p>
-      <h2 id="b-h" class="big">฿1,000 <small><span class="th">ต่อลูก · มี 300 ลูก</span><span class="en">a ball · 300 in all</span></small></h2>
-      <ul class="ways">
-        <li><span><span class="th">สมาชิกสโมสรโรตารีสากลเชียงใหม่ทุกท่านมีลูกกอล์ฟจำหน่าย ตั้งแต่ 1 พ.ย.</span><span class="en">Every Chiang Mai International Rotary Club member has balls to sell, from 1 November.</span></span></li>
-        <li><span><span class="th">มีจุดขายในงานจนถึงบ่ายสามโมง</span><span class="en">Sellers at the event until 3 pm.</span></span></li>
-        <li><span><span class="th">สอบถาม: NaN Peacock ประธานฝ่ายระดมทุน · nan@motdang.net</span><span class="en">Questions: NaN Peacock, fundraising chair · nan@motdang.net</span></span></li>
-      </ul>
-      <div class="cta">
-        <a class="btn blue" href="mailto:nan@motdang.net?subject=Golf%20Ball%20Drop%202027"><span class="th">อีเมลขอซื้อลูก</span><span class="en">Email for a ball</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0" aria-labelledby="w-h">
-  <div class="in where">
+<section class="sec where" aria-labelledby="w-h">
+  <div class="in where-grid">
     <div>
       <p class="kick"><span class="th">สถานที่</span><span class="en">Where</span></p>
-      <h2 id="w-h">Horizon Village &amp; Resort</h2>
+      <h2 id="w-h" class="riso-type">Horizon Village &amp; Resort</h2>
       <p><span class="th">200 หมู่ 7 ถนนเชียงใหม่–ดอยสะเก็ด (ทางหลวง 118) ต.เชิงดอย อ.ดอยสะเก็ด เชียงใหม่ 50220</span><span class="en">200 Moo 7, Chiang Mai–Doi Saket Road (Highway 118), Choeng Doi, Doi Saket, Chiang Mai 50220</span></p>
       <div class="cta">
-        <a class="btn blue" href="https://www.google.com/maps/search/?api=1&amp;query=Horizon+Village+%26+Resort+Doi+Saket" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" viewBox="0 0 24 24"><use href="icons.svg#i-map"></use></svg><span class="th">แผนที่</span><span class="en">Map</span></a>
-        <a class="btn soft" href="golf-ball-drop-2027.ics" download><svg class="ic" aria-hidden="true" viewBox="0 0 24 24"><use href="icons.svg#i-cal"></use></svg><span class="th">ลงปฏิทิน</span><span class="en">Add to calendar</span></a>
+        <a class="btn sky" href="https://www.google.com/maps/search/?api=1&amp;query=Horizon+Village+%26+Resort+Doi+Saket" target="_blank" rel="noopener"><i data-dingbat="pin" data-look="riso"></i><span class="th">แผนที่</span><span class="en">Map</span></a>
+        <a class="btn paper" href="golf-ball-drop-2027.ics" download><i data-dingbat="calendar" data-look="riso"></i><span class="th">ลงปฏิทิน</span><span class="en">Add to calendar</span></a>
       </div>
     </div>
-    <figure><img src="img/chiang-mai.jpg" alt="เชียงใหม่ยามเย็น · Chiang Mai at dusk" width="1195" height="699" loading="lazy"><figcaption>Chiang Mai · cmirotary.org</figcaption></figure>
-  </div>
-  <div class="in">
-    <div class="doodle">
+    <div class="doodle print">
       <iframe src="https://motdang.net/sites/doodle-map/?embed=1&amp;pin=18.85707,99.09915&amp;pn=%E0%B8%AE%E0%B8%AD%E0%B9%84%E0%B8%A3%E0%B8%8B%E0%B8%B1%E0%B8%99%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97%20%C2%B7%20Horizon%20Village%20%26%20Resort" title="แผนที่วาด ฮอไรซอน วิลเลจ · Doodle map of Horizon Village &amp; Resort" loading="lazy"></iframe>
-      <a class="doodle-open" href="https://motdang.net/cm/p/horizon-village-resort-695036744.html" target="_blank" rel="noopener"><span class="chip"><span class="th">เปิดในมดแดง</span><span class="en">Open on Mot Dang</span> ↗</span></a>
+      <a class="chip" href="https://motdang.net/cm/p/horizon-village-resort-695036744.html" target="_blank" rel="noopener"><span class="th">เปิดในมดแดง</span><span class="en">Open on Mot Dang</span> ↗</a>
     </div>
+  </div>
+</section>
+
+<section class="sec share" id="share" aria-labelledby="share-h">
+  <div class="in share-grid">
+    <div>
+      <p class="kick"><span class="th">ชวนเพื่อน</span><span class="en">Share</span></p>
+      <h2 id="share-h" class="riso-type"><span class="th">ยิ่งขายได้มาก เด็กยิ่งได้มาก</span><span class="en">Every ball sold is money for the children's projects</span></h2>
+      <p><span class="th">ส่งหน้านี้ให้เพื่อนหนึ่งคน อาจได้อีกหนึ่งลูก</span><span class="en">Send this page to one friend; that can be one more ball.</span></p>
+      <div class="share-row">
+        <button type="button" class="sh" id="sh-native" hidden><i data-dingbat="share" data-look="riso"></i><span class="th">แชร์</span><span class="en">Share</span></button>
+        <a class="sh" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fnanobotco.github.io%2Fgolf-ball-drop%2F" target="_blank" rel="noopener">LINE</a>
+        <a class="sh" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnanobotco.github.io%2Fgolf-ball-drop%2F" target="_blank" rel="noopener">Facebook</a>
+        <a class="sh" href="https://wa.me/?text=Golf%20Ball%20Drop%202027%20%C2%B7%2030%20Jan%20%C2%B7%20Horizon%20Village%20https%3A%2F%2Fnanobotco.github.io%2Fgolf-ball-drop%2F" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="sh" href="https://x.com/intent/post?url=https%3A%2F%2Fnanobotco.github.io%2Fgolf-ball-drop%2F&amp;text=Golf%20Ball%20Drop%202027" target="_blank" rel="noopener">X</a>
+        <a class="sh" href="mailto:?subject=Golf%20Ball%20Drop%202027&amp;body=Sat%2030%20Jan%202027%20at%20Horizon%20Village%3A%20https%3A%2F%2Fnanobotco.github.io%2Fgolf-ball-drop%2F"><span class="th">อีเมล</span><span class="en">Email</span></a>
+        <button type="button" class="sh" id="sh-copy"><i data-dingbat="link" data-look="riso"></i><span class="th">คัดลอกลิงก์</span><span class="en">Copy link</span></button>
+      </div>
+    </div>
+    <figure class="qr print">
+      <canvas id="qr-cv" role="img" aria-label="QR code: nanobotco.github.io/golf-ball-drop"></canvas>
+      <figcaption><span class="th">สแกน หรือพิมพ์ติดบอร์ด</span><span class="en">Scan, or print for a noticeboard</span></figcaption>
+    </figure>
   </div>
 </section>
 
 </main>
 
-<section class="share" id="share" aria-labelledby="share-h">
-  <div class="in share-grid">
-    <div>
-      <p class="kick"><span class="th">ชวนเพื่อน</span><span class="en">Share</span></p>
-      <h2 id="share-h"><span class="th">ยิ่งขายได้มาก เด็กยิ่งได้มาก</span><span class="en">Every ball sold is money for the children's projects</span></h2>
-      <p><span class="th">ส่งหน้านี้ให้เพื่อนหนึ่งคน อาจได้อีกหนึ่งลูก</span><span class="en">Send this page to one friend; that can be one more ball.</span></p>
-      <div class="share-row">
-        <button type="button" class="sh native" id="sh-native" hidden><svg class="ic" aria-hidden="true" viewBox="0 0 24 24"><use href="icons.svg#i-share"></use></svg><span class="th">แชร์</span><span class="en">Share</span></button>
-        <a class="sh line" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fnanobotco.github.io%2Fgolf-ball-drop%2F" target="_blank" rel="noopener">LINE</a>
-        <a class="sh fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnanobotco.github.io%2Fgolf-ball-drop%2F" target="_blank" rel="noopener">Facebook</a>
-        <a class="sh wa" href="https://wa.me/?text=Golf%20Ball%20Drop%202027%20%C2%B7%2030%20Jan%20%C2%B7%20Horizon%20Village%20https%3A%2F%2Fnanobotco.github.io%2Fgolf-ball-drop%2F" target="_blank" rel="noopener">WhatsApp</a>
-        <a class="sh" href="https://x.com/intent/post?url=https%3A%2F%2Fnanobotco.github.io%2Fgolf-ball-drop%2F&amp;text=Golf%20Ball%20Drop%202027" target="_blank" rel="noopener">X</a>
-        <a class="sh" href="mailto:?subject=Golf%20Ball%20Drop%202027&amp;body=Sat%2030%20Jan%202027%20at%20Horizon%20Village%3A%20https%3A%2F%2Fnanobotco.github.io%2Fgolf-ball-drop%2F"><span class="th">อีเมล</span><span class="en">Email</span></a>
-        <button type="button" class="sh" id="sh-copy"><svg class="ic" aria-hidden="true" viewBox="0 0 24 24"><use href="icons.svg#i-link"></use></svg><span class="th">คัดลอกลิงก์</span><span class="en">Copy link</span></button>
-      </div>
-    </div>
-    <div class="qr"><img src="img/qr.svg" alt="QR code: nanobotco.github.io/golf-ball-drop" width="172" height="172"><small><span class="th">สแกน หรือพิมพ์ติดบอร์ด</span><span class="en">Scan, or print for a noticeboard</span></small></div>
-  </div>
-</section>
-
 <footer>
   <div class="in">
-    <a class="sig" href="https://www.cmirotary.org/" target="_blank" rel="noopener" aria-label="Rotary Club of Chiang Mai International"><span class="mark"><strong>Rotary</strong><img class="wheel" src="img/rotary-wheel.png" alt="" width="56" height="56"></span><small>Club of Chiang Mai International</small></a>
-    <p><a href="https://www.cmirotary.org/" target="_blank" rel="noopener">cmirotary.org</a> · <a href="https://www.cmirotary.org/donate" target="_blank" rel="noopener"><span class="th">บริจาค</span><span class="en">Donate</span></a> · <a href="https://motdang.net/"><span class="th">มดแดง</span><span class="en">Mot Dang</span></a></p>
+    <a class="sig" href="https://www.cmirotary.org/" target="_blank" rel="noopener" aria-label="Rotary Club of Chiang Mai International"><span class="mark"><strong>Rotary</strong><img class="wheel" src="img/rotary-wheel.png" alt="" width="48" height="48"></span><small>Club of Chiang Mai International</small></a>
+    <p><a href="https://www.cmirotary.org/" target="_blank" rel="noopener">cmirotary.org</a> · <a href="#give"><span class="th">ให้</span><span class="en">Give</span></a> · <a href="https://motdang.net/"><span class="th">มดแดง</span><span class="en">Mot Dang</span></a></p>
   </div>
 </footer>
 
 <nav class="dock" id="dock" aria-label="ทางลัด · Shortcuts">
-  <a class="btn gold" href="#balls"><span class="th">ซื้อลูก</span><span class="en">Get a ball</span></a>
-  <a class="btn ghost" href="#share"><span class="th">ชวนเพื่อน</span><span class="en">Share</span></a>
+  <a class="btn sun" href="#balls"><span class="th">ซื้อลูก</span><span class="en">Get a ball</span></a>
+  <a class="btn warm" href="#give"><span class="th">ให้</span><span class="en">Give</span></a>
 </nav>
 
 <div id="toast" role="status" aria-live="polite"></div>
-
-<script>
-// language, shared with the rest of motdang.net
-(function(){
-  const root=document.documentElement, btns=document.querySelectorAll('.lang button');
-  function set(v){root.classList.remove('lang-th','lang-en','lang-both');root.classList.add('lang-'+v);root.lang=v==='en'?'en':'th';btns.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.set===v)));}
-  btns.forEach(b=>b.addEventListener('click',()=>{set(b.dataset.set);try{b.dataset.set==='both'?localStorage.removeItem('md-lang'):localStorage.setItem('md-lang',b.dataset.set)}catch(e){}}));
-  let v=null;try{v=localStorage.getItem('md-lang')}catch(e){}
-  if(v==='th'||v==='en')set(v);
-})();
-
-const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const PAGE = 'https://nanobotco.github.io/golf-ball-drop/';
-
-// stars and rising embers
-(function(){
-  if(calm) return;
-  const s=document.querySelector('.stars'), m=document.querySelector('.motes');
-  for(let i=0;i<46;i++){const e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.top=Math.random()*100+'%';e.style.animationDelay=(Math.random()*4)+'s';s.appendChild(e);}
-  for(let i=0;i<18;i++){const e=document.createElement('i');e.style.left=(40+Math.random()*60)+'%';e.style.animationDuration=(9+Math.random()*10)+'s';e.style.animationDelay=(Math.random()*12)+'s';m.appendChild(e);}
-})();
-
-// toys: tap the sky to launch a balloon; tap the big balloon to fire its burner
-(function(){
-  const hero=document.querySelector('.hero'), scene=document.getElementById('scene');
-  const cols=['#ef6a55','#f5b04a','#f08a5a','#e8475f','#c94a3f','#ffd36b'];
-  hero.addEventListener('pointerdown',e=>{
-    if(e.gbdPerson||e.target.closest('a,button,input,.lang,.fleet svg,.hills .xmark'))return;
-    if(hero.querySelectorAll('.launch').length>24)return;
-    const r=hero.getBoundingClientRect(), w=26+Math.random()*34;
-    const b=document.createElementNS('http://www.w3.org/2000/svg','svg');
-    b.setAttribute('class','launch');b.setAttribute('aria-hidden','true');
-    b.style.cssText=`left:${e.clientX-r.left}px;top:${e.clientY-r.top}px;width:${w}px;color:${cols[Math.random()*cols.length|0]};--d:${calm?2.5:7+Math.random()*5}s;--x:${(Math.random()*60-30)|0}px`;
-    b.innerHTML='<use href="#mini"/>';hero.appendChild(b);
-    b.addEventListener('animationend',()=>b.remove());
-  });
-  let h;
-  document.getElementById('burner').addEventListener('click',()=>{scene.classList.add('burn');clearTimeout(h);h=setTimeout(()=>scene.classList.remove('burn'),1600);});
-})();
-
-
-// the big balloon leans and drifts toward the pointer
-(function(){
-  if(calm) return;
-  const hero=document.querySelector('.hero'), scene=document.getElementById('scene');
-  const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
-  function to(x,y){const r=scene.getBoundingClientRect(), dx=x-(r.left+r.width/2), dy=y-(r.top+r.height*.4);
-    scene.style.setProperty('--tx',cl(dx*.16,-70,70)+'px');scene.style.setProperty('--ty',cl(dy*.12,-50,40)+'px');scene.style.setProperty('--rot',cl(dx*.03,-9,9)+'deg');}
-  hero.addEventListener('pointermove',e=>to(e.clientX,e.clientY));
-  hero.addEventListener('pointerdown',e=>to(e.clientX,e.clientY));
-  hero.addEventListener('pointerleave',()=>{['--tx','--ty','--rot'].forEach(k=>scene.style.removeProperty(k));});
-})();
-
-// the green: balls leave the basket one by one and pile up for as long as the page is open; a passing pointer rustles them
-(function(){
-  const hero=document.querySelector('.hero'), cv=document.getElementById('pile'), ctx=cv.getContext('2d');
-  const basket=document.getElementById('basket'), green=document.getElementById('green'), hills=document.querySelector('.hills');
-  const dpr=Math.min(devicePixelRatio||1,2), R=4.5, D=R*2, MAX=1600;
-  let W=0,H=0,surf=[],cols=[],balls=[],next=0,ptr=null,running=false,vis=true;
-  // ball sprite
-  const sp=document.createElement('canvas'); sp.width=sp.height=Math.ceil((D+2)*dpr);
-  (function(){const c=sp.getContext('2d');c.scale(dpr,dpr);const g=c.createRadialGradient(R*.7,R*.6,0,R+1,R+1,R);g.addColorStop(0,'#fff');g.addColorStop(.75,'#e9eef7');g.addColorStop(1,'#a9b5cc');c.fillStyle=g;c.beginPath();c.arc(R+1,R+1,R,0,7);c.fill();})();
-  function size(){
-    const hr=hero.getBoundingClientRect(); W=hr.width; H=hr.height;
-    cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
-    // the top edge of the green, in hero coordinates, one sample per column
-    const hb=hills.getBoundingClientRect(), n=Math.ceil(W/D)+1, len=green.getTotalLength(); surf=new Array(n).fill(H);
-    for(let i=0;i<=400;i++){const pt=green.getPointAtLength(len*i/400); if(pt.y>=219)continue;
-      const x=hb.left-hr.left+pt.x/1440*hb.width, y=hb.top-hr.top+pt.y/220*hb.height, c=Math.round(x/D);
-      if(c>=0&&c<n) surf[c]=Math.min(surf[c],y);}
-    for(let c=1;c<n;c++) if(surf[c]===H) surf[c]=surf[c-1];
-    cols=new Array(n).fill(0); for(const b of balls){b.rest=false;b.vy=0;}
-    people();
-  }
-  // people, sized against the balls: a crowd behind the tape (in front of the pile) and two spectators close to us
-  const SH=['#c8383b','#f2efe8','#c9b48a','#4f7fc0','#3c6b45','#2a2a2a','#e7e2d4','#7a8fa8','#e07b39','#f2efe8'],
-        TR=['#3d3a33','#4a4636','#2f3a52','#6b5b45','#1f1f1f','#8a7a5c'], SK=['#e2b48c','#c99568','#f0c9a0','#a8764e'], HA=['#2b2016','#5a3b22','#cfcac2','#8a6a48','#1a1a1a'];
-  let crowd=[],front=[],tape=[];
-  function rng(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
-  function pick(r,a){return a[r()*a.length|0];}
-  function sAt(x){return surf[Math.max(0,Math.min(surf.length-1,Math.round(x/D)))];}
-  function figure(r,x,base,h){return{x,base,h,sh:pick(r,SH),tr:pick(r,TR),sk:pick(r,SK),ha:pick(r,HA),hat:r()<.28,phone:r()<.18,hop:-1e9,flip:r()<.5};}
-  function people(){
-    const hh=hills.getBoundingClientRect().height, ph=Math.max(32,Math.min(64,hh*.34)), r=rng(31);
-    crowd=[];for(let x=W*.36;x<W*.63;x+=ph*(.26+r()*.2)){const kid=r()<.15;crowd.push(figure(r,x,sAt(x)+ph*(.14+r()*.1),ph*(kid?.62:.86+r()*.22)));}
-    crowd.sort((a,b)=>a.base-b.base);
-    tape=[];for(let x=W*.34;x<=W*.65+1;x+=(W*.31)/3)tape.push([x,sAt(x)+ph*.34]);
-    const fh=Math.max(60,Math.min(190,hh*1.05));
-    front=[figure(r,W*.035+fh*.12,H+fh*.24,fh),figure(r,W*.965-fh*.1,H+fh*.3,fh*.92)];
-    front.forEach(p=>{p.sh=['#3a4660','#5a3a3a','#4b5a4a'][r()*3|0];p.tr='#1d2433';p.sk='#6f5a4c';p.ha='#1a1a1a';p.phone=false;});
-  }
-  function person(p,now){
-    const u=p.h/10, up=Math.max(0,Math.sin(Math.min(1,(now-p.hop)/600)*Math.PI))*p.h*.35;
-    ctx.save();ctx.translate(p.x,p.base-up);if(p.flip)ctx.scale(-1,1);
-    ctx.fillStyle='rgba(0,0,0,.18)';ctx.beginPath();ctx.ellipse(0,up,u*1.9,u*.4,0,0,7);ctx.fill();
-    ctx.fillStyle=p.tr;ctx.beginPath();ctx.roundRect(-1.2*u,-4.3*u,1.05*u,4.3*u,u*.3);ctx.roundRect(.15*u,-4.3*u,1.05*u,4.3*u,u*.3);ctx.fill();
-    ctx.fillStyle=p.sh;ctx.beginPath();ctx.roundRect(-1.7*u,-7.9*u,3.4*u,4.1*u,u*.9);ctx.fill();
-    ctx.beginPath();ctx.roundRect(-2.25*u,-7.5*u,.75*u,3.3*u,u*.35);ctx.fill();
-    if(p.phone){ctx.beginPath();ctx.roundRect(1.45*u,-10.6*u,.75*u,3.4*u,u*.35);ctx.fill();ctx.fillStyle='#14213d';ctx.fillRect(1.35*u,-11.6*u,.95*u,1.3*u);}
-    else{ctx.beginPath();ctx.roundRect(1.5*u,-7.5*u,.75*u,3.3*u,u*.35);ctx.fill();}
-    ctx.fillStyle=p.sk;ctx.beginPath();ctx.arc(0,-8.9*u,1.15*u,0,7);ctx.fill();
-    ctx.fillStyle=p.ha;ctx.beginPath();ctx.arc(0,-9.05*u,1.12*u,Math.PI*.95,Math.PI*2.05);ctx.fill();
-    if(p.hat){ctx.fillStyle=p.sh==='#f2efe8'?'#c9b48a':'#efe6cf';ctx.beginPath();ctx.ellipse(0,-9.5*u,2*u,.42*u,0,0,7);ctx.fill();ctx.beginPath();ctx.ellipse(0,-9.9*u,1.1*u,.75*u,0,Math.PI,0);ctx.fill();}
-    ctx.restore();
-  }
-  function drawTape(){
-    if(tape.length<2)return;const u=crowd.length?crowd[0].h/10:3;
-    ctx.strokeStyle='#c47d00';ctx.lineWidth=Math.max(2,u*.45);for(const[x,y]of tape){ctx.beginPath();ctx.moveTo(x,y+u);ctx.lineTo(x,y-u*3.2);ctx.stroke();}
-    ctx.lineWidth=Math.max(2,u*.5);ctx.setLineDash([u*2.2,u*1.4]);
-    for(const[c,o]of[['#ffd23f',0],['#14213d',u*2.2]]){ctx.strokeStyle=c;ctx.lineDashOffset=o;ctx.beginPath();tape.forEach(([x,y],i)=>{const yy=y-u*2.6;i?ctx.quadraticCurveTo((x+tape[i-1][0])/2,yy+u*.9,x,yy):ctx.moveTo(x,yy);});ctx.stroke();}
-    ctx.setLineDash([]);
-  }
-  function drawFront(now){
-    ctx.save();ctx.filter='blur('+Math.max(1,front[0].h/70)+'px)';
-    for(const p of front)person(p,now);
-    // grass close to us
-    ctx.strokeStyle='#163d26';ctx.lineWidth=2.5;ctx.lineCap='round';const r=rng(7);ctx.beginPath();
-    for(let x=0;x<W;x+=6+r()*10){const h=10+r()*Math.min(36,front[0].h*.2);ctx.moveTo(x,H+2);ctx.quadraticCurveTo(x+(r()-.5)*8,H-h*.6,x+(r()-.5)*14,H-h);}
-    ctx.stroke();ctx.restore();
-  }
-  function hit(x,y){
-    for(const p of [...front,...crowd].reverse()){const u=p.h/10;if(Math.abs(x-p.x)<2.4*u&&y<p.base&&y>p.base-11*u)return p;}
-  }
-  hero.addEventListener('pointerdown',e=>{
-    const hr=hero.getBoundingClientRect(),p=hit(e.clientX-hr.left,e.clientY-hr.top);
-    if(!p||e.target.closest('a,button,input,.lang'))return;
-    e.gbdPerson=true;p.hop=performance.now();p.phone=!p.phone;kick();
-    if(window.mdBurst)mdBurst(e.clientX,e.clientY,12);
-  },true);
-  function top(c){return surf[c]-cols[c]*D*.86;}
-  function release(){
-    const br=basket.getBoundingClientRect(), hr=hero.getBoundingClientRect();
-    if(!br.width) return;
-    balls.push({x:br.left-hr.left+br.width/2+(Math.random()-.5)*br.width,y:br.bottom-hr.top,vx:(Math.random()-.5)*1.4,vy:0,rest:false,c:-1});
-    if(balls.length>MAX){const old=balls.shift(); if(old.rest&&old.c>=0) cols[old.c]=Math.max(0,cols[old.c]-1);}
-  }
-  function onTop(b){return b.c>=0 && b.y-R <= top(b.c)+D*.3;}
-  // a landing ball knocks the balls it hits up and outward
-  function scatter(x,c,speed){
-    for(const o of balls){
-      if(!o.rest||Math.abs(o.c-c)>2||!onTop(o))continue;
-      const dx=o.x-x; if(Math.abs(dx)>D*2.6)continue;
-      cols[o.c]=Math.max(0,cols[o.c]-1); o.rest=false;
-      o.vx=(Math.sign(dx)||(Math.random()-.5))*(speed*.16+Math.random()*1.1); o.vy=-(speed*.17+Math.random()*1.1);
-    }
-  }
-  function settle(b){
-    let c=Math.max(0,Math.min(cols.length-1,Math.round(b.x/D)));
-    // slide down to a lower neighbour, so the pile spreads into a mound
-    for(let k=0;k<6;k++){const l=c>0?top(c-1):-1e9, r=c<cols.length-1?top(c+1):-1e9, h=top(c);
-      if(l>h+D*.9&&l>=r) c--; else if(r>h+D*.9) c++; else break;}
-    b.c=c; b.x=c*D+(Math.random()-.5)*2; b.y=top(c)-R; cols[c]++; b.rest=true; b.vx=b.vy=0;
-  }
-  function step(now){
-    if(!calm && now>next && balls.length<MAX+1){release(); next=now+2100+Math.random()*2700;}
-    for(const b of balls){
-      if(b.rest){
-        if(ptr && Math.abs(b.x-ptr.x)<28 && Math.abs(b.y-ptr.y)<28 && onTop(b)){ // rustle
-          cols[b.c]=Math.max(0,cols[b.c]-1); b.rest=false;
-          const dx=b.x-ptr.x||1; b.vx=Math.sign(dx)*(1+Math.random()*2.5)+ptr.vx*.15; b.vy=-(2+Math.random()*3);
-        }
-        continue;
-      }
-      b.vy+=.32; b.x+=b.vx; b.y+=b.vy; b.vx*=.985;
-      if(b.x<R){b.x=R;b.vx=Math.abs(b.vx)*.5} if(b.x>W-R){b.x=W-R;b.vx=-Math.abs(b.vx)*.5}
-      const c=Math.max(0,Math.min(cols.length-1,Math.round(b.x/D)));
-      if(b.vy>0 && b.y+R>=top(c)){
-        if(b.vy>2.2){scatter(b.x,c,b.vy);b.y=top(c)-R;b.vy*=-.35;b.vx+=(Math.random()-.5);} else settle(b);
-      }
-    }
-  }
-  function draw(){
-    ctx.clearRect(0,0,W,H);const now=performance.now();
-    for(const b of balls) ctx.drawImage(sp,b.x-R-1,b.y-R-1,D+2,D+2);
-    for(const p of crowd) person(p,now);
-    drawTape(); if(front.length) drawFront(now);
-  }
-  function loop(now){ if(!vis){running=false;return;} step(now); draw(); requestAnimationFrame(loop); }
-  function kick(){ if(!running&&vis){running=true;requestAnimationFrame(loop);} }
-  hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;ptr={x,y,vx:ptr?x-ptr.x:0};});
-  hero.addEventListener('pointerleave',()=>ptr=null);
-  if('IntersectionObserver'in window) new IntersectionObserver(e=>{vis=e[0].isIntersecting;kick();}).observe(hero);
-  addEventListener('resize',()=>{size();});
-  addEventListener('load',()=>{size(); if(calm){for(let i=0;i<60;i++){release();} balls.forEach(settle); draw();} else kick();});
-})();
-
-// cute clicks: every drawing answers a tap
-(function(){
-  const R=['#e8475f','#ff8c42','#ffd23f','#6cc551','#3fa7d6','#5e60ce','#9d4edd','#f7a81b'];
-  function burst(x,y,n,star){ if(calm) return;
-    for(let i=0;i<(n||14);i++){const e=document.createElement('i'),a=Math.random()*Math.PI*2,d=30+Math.random()*50;
-      e.className='spark'+(star||i%3===0?' star':'');e.style.left=(x-4)+'px';e.style.top=(y-4)+'px';e.style.background=R[i%R.length];
-      e.style.setProperty('--dx',Math.cos(a)*d+'px');e.style.setProperty('--dy',(Math.sin(a)*d-20)+'px');
-      document.body.appendChild(e);e.addEventListener('animationend',()=>e.remove());}}
-  window.mdBurst=burst;
-  function play(el,cls){el.classList.remove(cls);void el.offsetWidth;el.classList.add(cls);el.addEventListener('animationend',()=>el.classList.remove(cls),{once:true});}
-  const at=e=>[e.clientX,e.clientY];
-  // the Rotary wheel turns
-  document.querySelectorAll('img.wheel').forEach(w=>w.addEventListener('click',e=>{e.preventDefault();play(w,'spin');burst(...at(e),10,true);}));
-  // small balloons hop and throw confetti
-  document.querySelectorAll('.fleet svg').forEach(b=>b.addEventListener('pointerdown',e=>{e.stopPropagation();play(b,'hop');burst(...at(e),18);}));
-  // the step drawings bounce; the first one deals a new number
-  document.querySelectorAll('.step svg').forEach((g,i)=>{g.classList.add('tap');g.addEventListener('click',e=>{
-    play(g,'boing');burst(...at(e),12);
-    if(i===0){const t=g.querySelector('text');if(t)t.textContent=1+Math.floor(Math.random()*300);}
-  });});
-  // medals flip and shine
-  document.querySelectorAll('.medal .disc').forEach(d=>{d.classList.add('tap');d.addEventListener('click',e=>{play(d,'flip');burst(...at(e),20,true);});});
-  // the ticket shuffles to a new number
-  const tk=document.querySelector('.ticket');
-  if(tk){tk.classList.add('tap');tk.addEventListener('click',e=>{play(tk,'shake');const r=tk.querySelector('.r');let k=0;
-    const t=setInterval(()=>{r.textContent=1+Math.floor(Math.random()*300);if(++k>8){clearInterval(t);burst(...at(e),16);}},calm?0:60);});}
-  // the QR wiggles and copies the link
-  const qr=document.querySelector('.qr img');
-  if(qr){qr.classList.add('tap');qr.addEventListener('click',e=>{play(qr,'boing');burst(...at(e),12);document.getElementById('sh-copy').click();});}
-  // the city photo leans in
-  const fig=document.querySelector('.where figure');
-  if(fig){fig.classList.add('tap');fig.addEventListener('click',e=>{fig.classList.toggle('zoom');burst(...at(e),10);});}
-  // the X on the green sparkles
-  const hx=document.querySelector('.hills .xmark');
-  if(hx){hx.style.cursor='pointer';hx.style.pointerEvents='auto';hx.addEventListener('pointerdown',e=>{e.stopPropagation();burst(...at(e),22,true);});}
-  // the game board drops on a tap
-  const cv=document.getElementById('cv'); if(cv){cv.style.cursor='pointer';cv.addEventListener('click',()=>document.getElementById('go').click());}
-  // the big balloon's burner adds a puff of sparks
-  const bn=document.getElementById('burner'); if(bn) bn.addEventListener('click',e=>burst(...at(e),16));
-})();
-
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('show'),2400);}
-function shareText(text){
-  if(navigator.share) return navigator.share({title:document.title,text,url:PAGE}).catch(()=>{});
-  const s=text+' '+PAGE;
-  if(navigator.clipboard) navigator.clipboard.writeText(s).then(()=>toast('คัดลอกแล้ว · Copied'),()=>prompt('',s)); else prompt('',s);
-}
-
-// share buttons
-(function(){
-  const nat=document.getElementById('sh-native');
-  if(navigator.share){nat.hidden=false;nat.addEventListener('click',()=>navigator.share({title:document.title,url:PAGE}).catch(()=>{}));}
-  document.getElementById('sh-copy').addEventListener('click',()=>{const done=()=>toast('คัดลอกลิงก์แล้ว · Link copied');navigator.clipboard?navigator.clipboard.writeText(PAGE).then(done,()=>prompt('',PAGE)):prompt('',PAGE);});
-})();
-
-// phone dock appears once the hero has scrolled away
-(function(){
-  const dock=document.getElementById('dock'), hero=document.querySelector('.hero');
-  if('IntersectionObserver'in window)new IntersectionObserver(e=>dock.classList.toggle('on',!e[0].isIntersecting)).observe(hero);
-})();
-
-// the drop: 300 numbered balls fall from a tethered balloon onto a lawn marked with an X
-(function(){
-  const cv=document.getElementById('cv'), ctx=cv.getContext('2d');
-  const num=document.getElementById('num'), res=document.getElementById('res');
-  const dpr=Math.min(devicePixelRatio||1,2);
-  let W=0,H=0,HZ=0,balls=[],sparks=[],t=0,running=false,settled=true,mine=null,last=null;
-  const pin={u:.5,z:.55};
-  const R=['#e8475f','#ff8c42','#ffd23f','#6cc551','#3fa7d6','#5e60ce','#9d4edd'];
-  function size(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);HZ=H*.42;draw();}
-  function ground(z){return HZ+(H-HZ)*(.08+.9*z);}
-  function sx(u,z){const s=.35+.65*z;return W*.5+(u-.5)*W*1.5*s;}
-  function bal(){return{x:W*.5+Math.sin(t*.6)*W*.03,y:HZ*.42+Math.cos(t*.5)*6};}
-  const ord=n=>n+(['th','st','nd','rd'][(n%100-20)%10]||['th','st','nd','rd'][n%100]||'th');
-
-  function drop(){
-    const n=Math.max(1,Math.min(300,parseInt(num.value,10)||1)); num.value=n; mine=n;
-    const nums=[...Array(300)].map((_,i)=>i+1).sort(()=>Math.random()-.5);
-    const b=bal(); balls=nums.map((k,i)=>{
-      const a=Math.random()*Math.PI*2, r=Math.sqrt(Math.random())*.36;
-      return{k,u:pin.u+Math.cos(a)*r*1.1,z:Math.min(.98,Math.max(.02,pin.z+Math.sin(a)*r)),y:b.y+28,vy:-Math.random()*1.5,delay:i*.6*Math.random(),bounce:0,done:false,x0:b.x};
-    });
-    sparks=[]; settled=false; res.textContent='';
-    if(calm){balls.forEach(p=>{p.done=true;p.y=ground(p.z);p.delay=0;});finish();}
-    kick();
-  }
-  function rank(){return balls.map(p=>({p,d:Math.hypot((p.u-pin.u)*1.6,(p.z-pin.z))})).sort((a,b)=>a.d-b.d);}
-  function finish(){
-    settled=true; const r=rank(); const pos=r.findIndex(o=>o.p.k===mine)+1, top=r.slice(0,3).map(o=>o.p.k);
-    r.slice(0,3).forEach((o,i)=>o.p.medal=i+1);
-    const th = pos<=3 ? `ลูกหมายเลข ${mine} ได้อันดับ ${pos}! ได้รางวัล` : `ลูกหมายเลข ${mine} ได้อันดับ ${pos} จาก 300 · ผู้ชนะ ${top.join(', ')}`;
-    const en = pos<=3 ? `Ball ${mine} finished ${ord(pos)}, a prize!` : `Ball ${mine} finished ${ord(pos)} of 300. Winners: ${top.join(', ')}.`;
-    last = pos<=3 ? `My ball #${mine} finished ${ord(pos)} in the Golf Ball Drop simulator. The real one is 30 Jan 2027 at Horizon Village.` : `My ball #${mine} came ${ord(pos)} of 300 in the Golf Ball Drop simulator. The real drop is 30 Jan 2027 at Horizon Village.`;
-    res.innerHTML=`<span><span class="th">${th}</span><span class="en">${en}</span></span><button type="button" class="sh native" id="sh-res" style="min-height:40px"><span class="th">แชร์ผลนี้</span><span class="en">Share this</span></button>`;
-    document.getElementById('sh-res').addEventListener('click',()=>shareText(last));
-    if(pos<=3&&!calm){const p=r[pos-1].p;for(let i=0;i<80;i++){const a=Math.random()*Math.PI*2,s=1+Math.random()*4;sparks.push({x:sx(p.u,p.z),y:ground(p.z)-4,vx:Math.cos(a)*s,vy:Math.sin(a)*s-2,l:1,c:R[i%7]});}}
-    kick();
-  }
-  function sky(){
-    const g=ctx.createLinearGradient(0,0,0,HZ);
-    g.addColorStop(0,'#0c2a5c');g.addColorStop(.45,'#17458f');g.addColorStop(.8,'#0067c8');g.addColorStop(1,'#ffd36b');
-    ctx.fillStyle=g;ctx.fillRect(0,0,W,HZ+2);
-    const sun=ctx.createRadialGradient(W*.78,HZ,0,W*.78,HZ,W*.4);sun.addColorStop(0,'rgba(255,241,194,.9)');sun.addColorStop(1,'rgba(255,241,194,0)');
-    ctx.fillStyle=sun;ctx.fillRect(0,0,W,HZ);
-    ctx.fillStyle='rgba(23,69,143,.6)';ctx.beginPath();ctx.moveTo(0,HZ);
-    for(let x=0;x<=W;x+=W/8)ctx.lineTo(x,HZ-10-Math.abs(Math.sin(x*.013+1))*HZ*.16);ctx.lineTo(W,HZ);ctx.fill();
-    const l=ctx.createLinearGradient(0,HZ,0,H);l.addColorStop(0,'#4f8a50');l.addColorStop(1,'#1c4f30');
-    ctx.fillStyle=l;ctx.fillRect(0,HZ,W,H-HZ);
-    ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=1;
-    for(let i=1;i<9;i++){const y=ground(i/9);ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
-  }
-  function mark(){
-    const px=sx(pin.u,pin.z),py=ground(pin.z),s=.35+.65*pin.z,a=W*.07*s,b=H*.03*s;
-    ctx.strokeStyle='rgba(255,255,255,.95)';ctx.lineWidth=Math.max(3,7*s);ctx.lineCap='round';
-    ctx.shadowColor='rgba(255,241,194,.8)';ctx.shadowBlur=12;
-    ctx.beginPath();ctx.moveTo(px-a,py-b);ctx.lineTo(px+a,py+b);ctx.moveTo(px-a,py+b);ctx.lineTo(px+a,py-b);ctx.stroke();ctx.shadowBlur=0;
-  }
-  function balloon(){
-    const b=bal(), r=Math.min(W,H)*.11;
-    const glow=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,r*2.6);glow.addColorStop(0,'rgba(247,168,27,'+(.35+Math.sin(t*5)*.1)+')');glow.addColorStop(1,'rgba(247,168,27,0)');
-    ctx.fillStyle=glow;ctx.fillRect(b.x-r*3,b.y-r*3,r*6,r*6);
-    ctx.strokeStyle='rgba(12,42,92,.6)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(b.x,b.y+r*1.35);ctx.lineTo(b.x-W*.12,ground(.95));ctx.moveTo(b.x,b.y+r*1.35);ctx.lineTo(b.x+W*.14,ground(.9));ctx.stroke();
-    ctx.save();ctx.translate(b.x,b.y-r*.3);ctx.scale(1.35,1);
-    ctx.beginPath();ctx.moveTo(-r*.28,r*1.3);ctx.bezierCurveTo(-r*1.05,r*.6,-r,-r*.9,0,-r*1.05);ctx.bezierCurveTo(r,-r*.9,r*1.05,r*.6,r*.28,r*1.3);ctx.closePath();
-    ctx.save();ctx.clip();
-    const P=['#ef6a55','#dcd7da','#555a6e'],q=r*.32;for(let i=0;i<5;i++)for(let j=0;j<8;j++){ctx.fillStyle=(i+j)%2?P[(i>>1)%2?1:2]:(i>2&&j%3==1?'#f5b04a':P[0]);ctx.fillRect(-r*1.3+j*q,-r*1.1+i*q,q+.5,q+.5);}for(let j=0;j<8;j++){ctx.fillStyle=j%2?'#2b3352':'#8b8e9c';ctx.fillRect(-r*1.3+j*q,-r*1.1+5*q,q+.5,r*1.4);}
-    const sh=ctx.createLinearGradient(-r,0,r,0);sh.addColorStop(0,'rgba(0,0,0,.3)');sh.addColorStop(.45,'rgba(255,255,255,.15)');sh.addColorStop(1,'rgba(0,0,0,.35)');ctx.fillStyle=sh;ctx.fillRect(-r,-r*1.2,r*2,r*2.6);
-    ctx.restore();
-    const f=ctx.createRadialGradient(0,r*1.38,0,0,r*1.38,r*.3);f.addColorStop(0,'rgba(255,251,230,.95)');f.addColorStop(1,'rgba(255,122,60,0)');ctx.fillStyle=f;ctx.beginPath();ctx.arc(0,r*1.38,r*(.22+Math.sin(t*9)*.05),0,7);ctx.fill();
-    ctx.fillStyle='#a8683a';ctx.fillRect(-r*.18,r*1.45,r*.36,r*.26);
-    ctx.restore();
-  }
-  function ballDraw(p){
-    const s=.35+.65*p.z, x=p.done?sx(p.u,p.z):p.x, y=p.y, rad=Math.max(2,5.5*s);
-    if(p.done){ctx.fillStyle='rgba(0,0,0,.25)';ctx.beginPath();ctx.ellipse(x,ground(p.z)+1,rad,rad*.35,0,0,7);ctx.fill();}
-    const g=ctx.createRadialGradient(x-rad*.35,y-rad*.4,0,x,y,rad);g.addColorStop(0,'#fff');g.addColorStop(1,'#c8d0e0');
-    ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y-rad,rad,0,7);ctx.fill();
-    if(settled&&(p.medal||p.k===mine)){
-      const c=p.k===mine?'#7ef0ff':['','#f7a81b','#e6ebf5','#e3a072'][p.medal];
-      ctx.strokeStyle=c;ctx.lineWidth=2.5;ctx.shadowColor=c;ctx.shadowBlur=14;
-      ctx.beginPath();ctx.arc(x,y-rad,rad+5+(p.k===mine&&!calm?Math.sin(t*5)*2:0),0,7);ctx.stroke();ctx.shadowBlur=0;
-      if(p.k===mine){ctx.font='700 13px Fraunces, serif';ctx.textAlign='center';ctx.fillStyle='#fff';ctx.strokeStyle='rgba(8,29,66,.85)';ctx.lineWidth=4;const label=String(p.k);ctx.strokeText(label,x,y-rad*2-10);ctx.fillText(label,x,y-rad*2-10);}
-    }
-  }
-  function step(){
-    t+=.016; let moving=false;
-    for(const p of balls){
-      if(p.done)continue; if(p.delay>0){p.delay-=1;moving=true;const b=bal();p.x=b.x;p.y=b.y+30;continue;}
-      const gy=ground(p.z), tx=sx(p.u,p.z);
-      p.x=p.x==null?p.x0:p.x; p.x+=(tx-p.x)*.06; p.vy+=.5; p.y+=p.vy;
-      if(p.y>=gy){p.y=gy;p.vy*=-.32;p.bounce++;if(p.bounce>3||Math.abs(p.vy)<1){p.done=true;p.y=gy;}}
-      moving=true;
-    }
-    for(const s of sparks){s.x+=s.vx;s.y+=s.vy;s.vy+=.08;s.l-=.012;}
-    sparks=sparks.filter(s=>s.l>0);
-    if(!moving&&!settled&&balls.length)finish();
-    return moving||sparks.length>0;
-  }
-  function draw(){
-    if(!W)return;
-    sky();
-    const order=balls.slice().sort((a,b)=>a.z-b.z);
-    for(const p of order) if(p.done&&p.z<pin.z) ballDraw(p);
-    mark();
-    for(const p of order) if(p.done&&p.z>=pin.z) ballDraw(p);
-    balloon();
-    for(const p of balls) if(!p.done&&p.delay<=0) ballDraw(p);
-    for(const s of sparks){ctx.globalAlpha=s.l;ctx.fillStyle=s.c;ctx.beginPath();ctx.arc(s.x,s.y,2.4,0,7);ctx.fill();}
-    ctx.globalAlpha=1;
-  }
-  let vis=true;
-  function loop(){const more=step();draw();if(vis&&(more||!calm)){requestAnimationFrame(loop);}else running=false;}
-  function kick(){if(!running&&vis){running=true;requestAnimationFrame(loop);}}
-  if('IntersectionObserver'in window)new IntersectionObserver(e=>{vis=e[0].isIntersecting;if(vis)kick();}).observe(cv);
-  addEventListener('resize',size);
-  document.getElementById('go').addEventListener('click',drop);
-  document.getElementById('rnd').addEventListener('click',()=>{num.value=1+Math.floor(Math.random()*300);num.focus();});
-  num.addEventListener('keydown',e=>{if(e.key==='Enter')drop();});
-  size();kick();
-})();
-// last time: tap a photo to see it large
-(function(){const lb=document.getElementById('lb');if(!lb||!lb.showModal)return;const im=lb.querySelector('img');
-  document.querySelectorAll('.ph').forEach(b=>b.addEventListener('click',()=>{im.src=b.dataset.src;im.alt=b.querySelector('img').alt;lb.showModal();}));
-  lb.addEventListener('click',()=>lb.close());})();
-</script>
 </body>
 </html>
