@@ -2,7 +2,8 @@
 // numbers only, no names). Nan, 2026-10-24: the goal is all 300 balls at the ball price; ball
 // payments and the treasurer's recorded gifts count; baht shown. Members record payments in the
 // club's LINE group with @nanobotco, the treasurer records gifts with "@nanobotco gift 5000".
-// Re-read every minute while the section is on screen.
+// Re-read every minute while the section is on screen. The section stays hidden while the total is ฿0
+// (Nan, 2026-11-19).
 import { look, onLook } from './riso.js';
 import { burst, t2 } from './bits.js';
 
@@ -25,6 +26,8 @@ export function tally() {
       const r = await fetch(FEED, { cache: 'no-store' });
       if (!r.ok) throw new Error(r.status);
       data = await r.json();
+      sec.hidden = !(data.raised > 0);
+      if (sec.hidden) return;
     } catch (e) { if (!data) { sec.classList.add('off'); $('r-note').innerHTML = '<span class="th">ยังอ่านยอดไม่ได้ในขณะนี้</span><span class="en">The totals cannot be read just now.</span>'; } return; }
     sec.classList.remove('off');
     render();
@@ -120,7 +123,7 @@ export function tally() {
 
   $('r-grid').addEventListener('click', (e) => { const b = e.target.closest('i'); if (!b) return; b.classList.remove('hop'); void b.offsetWidth; b.classList.add('hop'); burst(e.clientX, e.clientY, 8); });
   if ('IntersectionObserver' in window) new IntersectionObserver((e) => { vis = e[0].isIntersecting; clearInterval(timer); if (vis) { load(); timer = setInterval(load, 60000); } }).observe(sec);
-  onLook(() => data && render());
+  onLook(() => data && !sec.hidden && render());
   let rt = 0; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => data && line(data), 200); });
   document.querySelectorAll('.lang button').forEach((b) => b.addEventListener('click', () => data && line(data)));
   load();

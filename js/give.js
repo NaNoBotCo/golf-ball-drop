@@ -1,4 +1,4 @@
-// Give: pick an amount and the balloon fills; every ฿1,000 is a golf ball's worth (the 2026 price)
+// Give: pick an amount and the balloon fills; every ฿1,000 is a golf ball's worth
 // and is dropped beside the basket. The way to give is the club's own (cmirotary.org/donate): a
 // transfer to its Bangkok Bank account, then an email with the slip to the treasurer. "I've sent
 // it!" lets the balloon go with a thank-you.
@@ -104,8 +104,8 @@ export function give() {
   }
   function words() {
     const k = amt / 1000, nb = k >= 1 ? String(Math.round(k * 4) / 4) : null;
-    const th = nb ? `${fmt(amt)} เท่ากับลูกกอล์ฟ ${nb} ลูก (ราคาปี 2569)` : `${fmt(amt)} เท่ากับครึ่งลูก`;
-    const en = nb ? `${fmt(amt)} is the price of ${nb} ball${nb == 1 ? '' : 's'} (2026 price)` : `${fmt(amt)} is half a ball`;
+    const th = nb ? `${fmt(amt)} เท่ากับลูกกอล์ฟ ${nb} ลูก` : `${fmt(amt)} เท่ากับครึ่งลูก`;
+    const en = nb ? `${fmt(amt)} is the price of ${nb} ball${nb == 1 ? '' : 's'}` : `${fmt(amt)} is half a ball`;
     if (!thanked) say.innerHTML = amt < 1000 && amt !== 500 ? `<span class="th">${fmt(amt)} ช่วยได้ทุกบาท</span><span class="en">${fmt(amt)}: every baht helps</span>` : `<span class="th">${th}</span><span class="en">${en}</span>`;
     aHead.forEach((b) => retype(b, fmt(amt))); if (copyLetter) copyLetter.dataset.copy = letterText(fmt(amt));
     mail.href = `mailto:${TO}?subject=` + encodeURIComponent(MAIL.subject(fmt(amt))) + '&body=' + encodeURIComponent(mailBody(fmt(amt)));

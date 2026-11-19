@@ -20,4 +20,4 @@ A riso-printed page in Thai and English. Every picture is printed in code the wa
 
 Checks: `node tools/check.mjs --w 390` (plays every toy, prints page errors), `node dev/compare.mjs` (every ink set side by side at phone size), `node tools/shot.mjs <path> --out <png>`.
 
-The way to give is the club's own, as published at https://www.cmirotary.org/donate.
+The way to buy is the club's Ticketmelon sale, https://www.ticketmelon.com/cmirc/golfballdrop2027 (the QR on the club's poster, `img/poster-2027.jpg`). The way to give is the club's own, as published at https://www.cmirotary.org/donate.
