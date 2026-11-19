@@ -15,7 +15,7 @@ export function hero({ calm }) {
   if (!stage || !cv) return;
   const hint = stage.querySelector('.hint'), numIn = document.getElementById('num');
   // the second gold pill, for after the crown; and a 48 px grab that follows the cord's ring so a finger can pull it (the picture itself scrolls the page)
-  const buy = Object.assign(document.createElement('a'), { className: 'cord buy', id: 'cord-buy', href: 'https://www.ticketmelon.com/cmirc/golfballdrop2027', target: '_blank', rel: 'noopener', innerHTML: '<span class="th">ซื้อลูกกอล์ฟ ฿1,000</span><span class="en">Get a ball<span class="pr"> ฿1,000</span></span>' });
+  const buy = Object.assign(document.createElement('a'), { className: 'cord buy', id: 'cord-buy', href: '#balls', innerHTML: '<span class="th">ซื้อลูกกอล์ฟ ฿1,000</span><span class="en">Get a ball<span class="pr"> ฿1,000</span></span>' });
   const grab = Object.assign(document.createElement('div'), { className: 'cord-grab' }); grab.setAttribute('aria-hidden', 'true');
   stage.append(buy, grab);
   const ctx = cv.getContext('2d'), dpr = Math.min(devicePixelRatio || 1, 2), R = rng(42), probe = document.createElement('canvas').getContext('2d');

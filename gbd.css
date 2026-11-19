@@ -40,6 +40,8 @@ html.lang-both h1 .en,html.lang-both h2 .en{font-size:.5em;font-weight:500;margi
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.45em;min-height:46px;padding:10px 20px;border:1px solid transparent;border-radius:var(--rs);font:600 16px/1.2 var(--font);text-decoration:none;cursor:pointer;color:var(--text);background:transparent;transition:background .15s,transform .1s;-webkit-tap-highlight-color:transparent}
 .btn:active{transform:translateY(1px)}
 .btn.big{min-height:52px;font-size:17px;padding:12px 24px}
+.btn.nowrap{flex-wrap:wrap;row-gap:2px;text-align:center}
+.btn.nowrap>span{white-space:nowrap}
 .btn.sun{background:var(--sun);color:#000}
 .btn.sun:hover{background:#E9B23F}
 .btn.warm{background:var(--warm);color:#000}

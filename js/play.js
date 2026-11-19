@@ -883,7 +883,7 @@ export function board() {
       : both(`ลูกหมายเลข ${mine} · มี ${nearer} ลูกอยู่ใกล้กว่า (จำลอง)`, `Ball ${mine} · ${nearer} ball${nearer === 1 ? ' was' : 's were'} nearer (simulated)`);
     last = pos <= 3 ? `My ball #${mine} finished ${ord1} in the Golf Ball Drop simulator, ${mm} from the X. The real one is 30 Jan 2027 at Horizon Village.` : `My ball #${mine} came to rest ${mm} from the X in the Golf Ball Drop simulator (${ord1} of 300). The real one is 30 Jan 2027 at Horizon Village.`;
     // after Share, a way to buy a ball for everyone the simulator did not give a prize
-    const buy = pos <= 3 ? '' : '<a class="btn sun real" href="https://www.ticketmelon.com/cmirc/golfballdrop2027" target="_blank" rel="noopener"><span class="th">ซื้อลูกจริง ฿1,000</span><span class="en">Get a real ball</span></a>';
+    const buy = pos <= 3 ? '' : '<a class="btn sun real" href="#balls"><span class="th">ซื้อลูกจริง ฿1,000</span><span class="en">Get a real ball</span></a>';
     resHTML = `<div class="res-main">${head}</div><div class="res-sub">${sub}</div><div class="res-acts"><button type="button" class="sh" id="sh-res"><span class="th">แชร์ผล</span><span class="en">Share</span></button>${buy}</div>`;
     layoutReveal();
     if (calm) showResult();
